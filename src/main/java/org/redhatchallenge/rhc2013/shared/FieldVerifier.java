@@ -6,7 +6,7 @@ package org.redhatchallenge.rhc2013.shared;
 public class FieldVerifier {
 
     public static boolean isValidEmail(String email) {
-        return email.toUpperCase().matches("^[0-9A-Z._-]+@[0-9A-Z]+.[0-9A-Z]{2,4}$");
+        return email.toUpperCase().matches("^[0-9A-Z._-]+@[0-9A-Z.]{2,120}$");
     }
 
     public static boolean emailIsNull(String email){

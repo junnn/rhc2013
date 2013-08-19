@@ -99,7 +99,7 @@ public class RegisterScreen extends Composite {
                 countryCodeField.setSelectedIndex(1);
                 regionField.setVisible(false);
                 contactField.setText("");
-                contactField.setWatermark("0XXXXXXXXX");
+                contactField.setWatermark("XXXXXXXXX");
                 break;
             // Thailand
             case 2:
