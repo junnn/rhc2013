@@ -283,6 +283,9 @@ public interface Resources extends ClientBundle {
         String link();
 
         String textbox();
+
+        @ClassName("gwt-Label")
+        String gwtLabel();
     }
 
     public interface PrettyPhoto extends CssResource{

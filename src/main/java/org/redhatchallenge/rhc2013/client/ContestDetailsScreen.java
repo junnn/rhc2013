@@ -29,8 +29,6 @@ public class ContestDetailsScreen extends Composite {
 
     public ContestDetailsScreen() {
 
-        ScriptInjector.fromUrl("js/jquery-1.7.1.min.js").inject();
-
         initWidget(UiBinder.createAndBindUi(this));
 
         /**
@@ -45,7 +43,7 @@ public class ContestDetailsScreen extends Composite {
             profileService.getProfileData(new AsyncCallback<Student>() {
                 @Override
                 public void onFailure(Throwable caught) {
-                    //To change body of implemented methods use File | Settings | File Templates.
+                    ContentContainer.INSTANCE.setContent(new MessageScreen(messages.probablyNotLoginIn()));
                 }
 
                 @Override
