@@ -47,7 +47,13 @@ public interface MessageMessages extends Messages {
     @Messages.DefaultMessage("Someone has already used this email/contact. Try another?")
     String emailTaken();
 
-    @Messages.DefaultMessage("<h1>Hi {0}, almost there!</h1><br/><h1>Go to {1} and confirm your registration.</h1> <br/> <h1>Tell your friends that you have registered for Red Hat Challenge 2013. Get them to join as well!</h1>")
+//    @Messages.DefaultMessage("<h1>Hi {0}, almost there!</h1><br/><h1>Go to {1} and confirm your registration.</h1> <br/> <h1>Tell your friends that you have registered for Red Hat Challenge 2013. Get them to join as well!</h1>")
+//    String verifyMailMessage(String firstname, String email);
+
+    @Messages.DefaultMessage("<p><FONT SIZE=5>Hi <B><I>{0}</B></I>! Almost there!</FONT></p/>" +
+            "<br><FONT SIZE=4>Go to </FONT> <FONT SIZE=4 COLOR=\"purple\"><U>{1}</U></FONT> <FONT SIZE=4> and confirm your registration.</FONT></br>" +
+            "<p><FONT SIZE=4>Share With Your Friends That You Had Registered For Red Hat Challenge 2013.</FONT></p>" +
+            "<FONT SIZE=5 COLOR=\"red\"><B>Get them to join as well!</B></FONT>")
     String verifyMailMessage(String firstname, String email);
 
     @Messages.DefaultMessage("Error with password reset token")
@@ -68,6 +74,7 @@ public interface MessageMessages extends Messages {
     @Messages.DefaultMessage("Days")
     String days();
 
-
+    @Messages.DefaultMessage("*Please check the box for the Terms of Use and Privacy Policy before proceeding!")
+    String termsCheck();
 
 }

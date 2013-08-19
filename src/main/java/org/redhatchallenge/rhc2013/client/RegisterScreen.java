@@ -4,23 +4,12 @@ import com.claudiushauptmann.gwt.recaptcha.client.RecaptchaWidget;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style;
 import com.google.gwt.dom.client.TableElement;
-import com.google.gwt.event.dom.client.ChangeEvent;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.KeyCodes;
-import com.google.gwt.event.dom.client.KeyUpEvent;
+import com.google.gwt.event.dom.client.*;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.HTMLPanel;
-import com.google.gwt.user.client.ui.Image;
-import com.google.gwt.user.client.ui.Label;
-import com.google.gwt.user.client.ui.ListBox;
-import com.google.gwt.user.client.ui.PasswordTextBox;
-import com.google.gwt.user.client.ui.TextBox;
-import com.google.gwt.user.client.ui.VerticalPanel;
-import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.user.client.ui.*;
 import org.redhatchallenge.rhc2013.resources.Resources;
 import org.redhatchallenge.rhc2013.shared.FieldVerifier;
 
@@ -40,7 +29,6 @@ public class RegisterScreen extends Composite {
 
     @UiField HTMLPanel htmlPanel;
     @UiField TextBox emailField;
-    @UiField Label emailLabel;
     @UiField PasswordTextBox passwordField;
     @UiField PasswordTextBox confirmPasswordField;
     @UiField TextBox firstNameField;
@@ -56,9 +44,19 @@ public class RegisterScreen extends Composite {
     @UiField ListBox languageField;
     @UiField VerticalPanel recaptchaPanel;
     @UiField Image registerButton;
-    @UiField Label errorLabel;
-
+    @UiField CheckBox termsCheck;
     @UiField TableElement table;
+
+    //Validation Error Labels
+    @UiField Label errorLabel;
+    @UiField Label emailLabel;
+    @UiField Label passwordLabel;
+    @UiField Label confirmPasswordLabel;
+    @UiField Label firstNameLabel;
+    @UiField Label lastNameLabel;
+    @UiField Label contactLabel;
+    @UiField Label schoolLabel;
+    @UiField Label termsLabel;
 
     private RecaptchaWidget recaptchaWidget;
 
@@ -140,12 +138,87 @@ public class RegisterScreen extends Composite {
 
     @UiHandler("registerButton")
     public void handleRegisterButtonClick(ClickEvent event) {
-        if(!FieldVerifier.isValidEmail(emailField.getText())) {
-            emailLabel.setText(messages.invalidEmailFormat());
+
+        int successCounter = 0;
+
+        if(FieldVerifier.emailIsNull(emailField.getText())){
+            emailLabel.setText("Email field cannot be empty.");
+        }
+            else if(!FieldVerifier.isValidEmail(emailField.getText())){
+                emailLabel.setText("You have entered an invalid email format");
+            }
+                else{
+                    emailLabel.setText("");
+                    successCounter++;
+                }
+
+        if(FieldVerifier.passwordIsNull(passwordField.getText())){
+            passwordLabel.setText("Password field cannot be empty");
+        }
+            else if((passwordField.getText() != null) && (!FieldVerifier.isValidPassword(passwordField.getText()))){
+                 passwordLabel.setText("Your password is not valid. Password should contain at least 8 characters with at least 1 uppercase letter, 1 lowercase letter and 1 numeric character");
+            }
+                else{
+                    passwordLabel.setText("");
+                    successCounter++;
+                }
+
+        if(FieldVerifier.confirmPWIsNull(confirmPasswordField.getText())){
+            confirmPasswordLabel.setText("Confirm password field cannot be empty.");
+        }
+            else if(!confirmPasswordField.getText().equals(passwordField.getText())){
+                confirmPasswordLabel.setText("Password does not match.");
+            }
+                else{
+                    confirmPasswordLabel.setText("");
+                    successCounter++;
+                }
+
+        if(FieldVerifier.fnIsNull(firstNameField.getText())){
+            firstNameLabel.setText("First Name field cannot be empty.");
+        }
+            else{
+                firstNameLabel.setText("");
+                successCounter++;
+            }
+
+        if(FieldVerifier.lnIsNull(lastNameField.getText())){
+            lastNameLabel.setText("Last name cannot be empty.");
+        }
+            else{
+                lastNameLabel.setText("");
+                successCounter++;
+            }
+
+        if(FieldVerifier.contactIsNull(contactField.getText())){
+            contactLabel.setText("Contact field cannot be empty.");
+        }
+            else if(!FieldVerifier.isValidContact(contactField.getText())){
+                contactLabel.setText("You have entered an invalid contact number.");
+            }
+                else{
+                    contactLabel.setText("");
+                    successCounter++;
+                }
+
+        if(FieldVerifier.schoolIsNull(schoolField.getText())){
+            schoolLabel.setText("School field cannot be empty.");
+        }
+            else{
+                schoolLabel.setText("");
+                successCounter++;
+            }
+
+        if(successCounter == 7){
+            registerStudent();
         }
 
-        else {
-            registerStudent();
+    }
+
+    @UiHandler("contactField")
+    public void handleContactKeyPress(KeyPressEvent event) {
+        if (!Character.isDigit(event.getCharCode())) {
+            ((TextBox) event.getSource()).cancelKey();
         }
     }
 
@@ -173,6 +246,7 @@ public class RegisterScreen extends Composite {
         final String lecturerEmail = lecturerEmailField.getText();
         final String language = getLanguageFromIndex(languageField.getSelectedIndex());
         final String country;
+        final Boolean termsConCheck = termsCheck.getValue();
 
         /**
          * If country is China, append the region.
@@ -186,6 +260,7 @@ public class RegisterScreen extends Composite {
             country = getCountryFromIndex(countryField.getSelectedIndex());
         }
 
+        if(termsConCheck.booleanValue() == true){
         authenticationService = AuthenticationService.Util.getInstance();
 
         authenticationService.registerStudent(email, password, firstName, lastName, contact,
@@ -204,8 +279,12 @@ public class RegisterScreen extends Composite {
 
                 else {
                     errorLabel.setText(messages.emailTaken());
+                    }
                 }
-            }
-        });
+            });
+        }
+        else{
+            termsLabel.setText(messages.termsCheck());
+        }
     }
 }

@@ -15,6 +15,7 @@ import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.PasswordTextBox;
+import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import org.redhatchallenge.rhc2013.resources.Resources;
@@ -289,6 +290,9 @@ public class ProfileScreen extends Composite {
                         localStorage.setItem("lecturerEmail", lecturerEmail);
                         localStorage.setItem("language", language);
                     }
+
+                    RootPanel.get("header").clear();
+                    RootPanel.get("header").add(new AuthenticatedHeader());
                 }
 
                 else {
