@@ -9,10 +9,7 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.History;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.HTML;
-import com.google.gwt.user.client.ui.Image;
-import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.user.client.ui.*;
 import org.redhatchallenge.rhc2013.resources.Resources;
 
 /**
@@ -26,6 +23,8 @@ public class IndexScreen extends Composite {
     private MessageMessages messages = GWT.create(MessageMessages.class);
     @UiField Image registerImage;
     @UiField HTML challengeLink;
+    @UiField Anchor socialButton1;
+    @UiField Anchor socialButton2;
 
     public IndexScreen() {
 
@@ -43,6 +42,16 @@ public class IndexScreen extends Composite {
 
         challengeLink.setHTML("<h1><font color=\"#CC0000\">" + messages.takeChallenge() + "!</font></h1>");
         challengeLink.getElement().getStyle().setCursor(Style.Cursor.POINTER);
+
+        if(LocaleInfo.getCurrentLocale().getLocaleName().equals("ch")) {
+            socialButton1.setHref("http://page.renren.com/601220914?checked=true");
+            socialButton2.setHref("http://e.weibo.com/redhatchina");
+        }
+        else {
+            socialButton1.setHref("https://www.facebook.com/redhatinc?fref=ts");
+            socialButton2.setHref("https://twitter.com/red_hat_apac");
+        }
+
     }
 
     @UiHandler({"registerImage", "challengeLink"})

@@ -4,20 +4,14 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style;
 import com.google.gwt.event.dom.client.ChangeEvent;
 import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.i18n.client.LocaleInfo;
 import com.google.gwt.storage.client.Storage;
 import com.google.gwt.storage.client.StorageMap;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.Image;
-import com.google.gwt.user.client.ui.Label;
-import com.google.gwt.user.client.ui.ListBox;
-import com.google.gwt.user.client.ui.PasswordTextBox;
-import com.google.gwt.user.client.ui.RootPanel;
-import com.google.gwt.user.client.ui.TextBox;
-import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.user.client.ui.*;
 import org.redhatchallenge.rhc2013.resources.Resources;
 import org.redhatchallenge.rhc2013.shared.Student;
 
@@ -54,6 +48,8 @@ public class ProfileScreen extends Composite {
     @UiField ListBox languageField;
     @UiField Image updateButton;
     @UiField Label errorLabel;
+    @UiField Anchor socialButton1;
+    @UiField Anchor socialButton2;
 
     private ProfileServiceAsync profileService = null;
 
@@ -65,6 +61,16 @@ public class ProfileScreen extends Composite {
         Resources.INSTANCE.main().ensureInjected();
 
         updateButton.getElement().getStyle().setCursor(Style.Cursor.POINTER);
+
+        if(LocaleInfo.getCurrentLocale().getLocaleName().equals("ch")) {
+            socialButton1.setHref("http://page.renren.com/601220914?checked=true");
+            socialButton2.setHref("http://e.weibo.com/redhatchina");
+        }
+        else {
+            socialButton1.setHref("https://www.facebook.com/redhatinc?fref=ts");
+            socialButton2.setHref("https://twitter.com/red_hat_apac");
+        }
+
 
         /**
          * If HTML5 storage does not contain the profile data, retrieves the data

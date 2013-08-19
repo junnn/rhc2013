@@ -5,6 +5,7 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style;
 import com.google.gwt.dom.client.TableElement;
 import com.google.gwt.event.dom.client.*;
+import com.google.gwt.i18n.client.LocaleInfo;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
@@ -46,6 +47,9 @@ public class RegisterScreen extends Composite {
     @UiField Image registerButton;
     @UiField CheckBox termsCheck;
     @UiField TableElement table;
+    @UiField Anchor socialButton1;
+    @UiField Anchor socialButton2;
+
 
     //Validation Error Labels
     @UiField Label errorLabel;
@@ -57,6 +61,7 @@ public class RegisterScreen extends Composite {
     @UiField Label contactLabel;
     @UiField Label schoolLabel;
     @UiField Label termsLabel;
+
 
     private RecaptchaWidget recaptchaWidget;
 
@@ -80,6 +85,16 @@ public class RegisterScreen extends Composite {
         registerButton.getElement().getStyle().setCursor(Style.Cursor.POINTER);
 
         contactField.setWatermark("XXXXXXXX");
+
+        if(LocaleInfo.getCurrentLocale().getLocaleName().equals("ch")) {
+            socialButton1.setHref("http://page.renren.com/601220914?checked=true");
+            socialButton2.setHref("http://e.weibo.com/redhatchina");
+        }
+        else {
+            socialButton1.setHref("https://www.facebook.com/redhatinc?fref=ts");
+            socialButton2.setHref("https://twitter.com/red_hat_apac");
+        }
+
     }
 
     @UiHandler("countryField")
@@ -142,10 +157,10 @@ public class RegisterScreen extends Composite {
         int successCounter = 0;
 
         if(FieldVerifier.emailIsNull(emailField.getText())){
-            emailLabel.setText("Email field cannot be empty.");
+            emailLabel.setText(messages.emailEmpty());
         }
             else if(!FieldVerifier.isValidEmail(emailField.getText())){
-                emailLabel.setText("You have entered an invalid email format");
+                emailLabel.setText(messages.emailInvalidFormat());
             }
                 else{
                     emailLabel.setText("");
@@ -153,10 +168,10 @@ public class RegisterScreen extends Composite {
                 }
 
         if(FieldVerifier.passwordIsNull(passwordField.getText())){
-            passwordLabel.setText("Password field cannot be empty");
+            passwordLabel.setText(messages.emptyPassword());
         }
             else if((passwordField.getText() != null) && (!FieldVerifier.isValidPassword(passwordField.getText()))){
-                 passwordLabel.setText("Your password is not valid. Password should contain at least 8 characters with at least 1 uppercase letter, 1 lowercase letter and 1 numeric character");
+                 passwordLabel.setText(messages.passwordInvalidFormat());
             }
                 else{
                     passwordLabel.setText("");
@@ -164,10 +179,10 @@ public class RegisterScreen extends Composite {
                 }
 
         if(FieldVerifier.confirmPWIsNull(confirmPasswordField.getText())){
-            confirmPasswordLabel.setText("Confirm password field cannot be empty.");
+            confirmPasswordLabel.setText(messages.emptyConfirmPassword());
         }
             else if(!confirmPasswordField.getText().equals(passwordField.getText())){
-                confirmPasswordLabel.setText("Password does not match.");
+                confirmPasswordLabel.setText(messages.passwordNotMatch());
             }
                 else{
                     confirmPasswordLabel.setText("");
@@ -175,7 +190,7 @@ public class RegisterScreen extends Composite {
                 }
 
         if(FieldVerifier.fnIsNull(firstNameField.getText())){
-            firstNameLabel.setText("First Name field cannot be empty.");
+            firstNameLabel.setText(messages.emptyFirstName());
         }
             else{
                 firstNameLabel.setText("");
@@ -183,7 +198,7 @@ public class RegisterScreen extends Composite {
             }
 
         if(FieldVerifier.lnIsNull(lastNameField.getText())){
-            lastNameLabel.setText("Last name cannot be empty.");
+            lastNameLabel.setText(messages.emptyLastName());
         }
             else{
                 lastNameLabel.setText("");
@@ -191,10 +206,10 @@ public class RegisterScreen extends Composite {
             }
 
         if(FieldVerifier.contactIsNull(contactField.getText())){
-            contactLabel.setText("Contact field cannot be empty.");
+            contactLabel.setText(messages.emptyContact());
         }
             else if(!FieldVerifier.isValidContact(contactField.getText())){
-                contactLabel.setText("You have entered an invalid contact number.");
+                contactLabel.setText(messages.contactInvalid());
             }
                 else{
                     contactLabel.setText("");
@@ -202,7 +217,7 @@ public class RegisterScreen extends Composite {
                 }
 
         if(FieldVerifier.schoolIsNull(schoolField.getText())){
-            schoolLabel.setText("School field cannot be empty.");
+            schoolLabel.setText(messages.emptySchool());
         }
             else{
                 schoolLabel.setText("");

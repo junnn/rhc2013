@@ -74,7 +74,41 @@ public interface MessageMessages extends Messages {
     @Messages.DefaultMessage("Days")
     String days();
 
-    @Messages.DefaultMessage("*Please check the box for the Terms of Use and Privacy Policy before proceeding!")
+    @Messages.DefaultMessage("Please check the box for the Terms of Use and Privacy Policy before proceeding!")
     String termsCheck();
+
+    @Messages.DefaultMessage("Email field cannot be empty.")
+    String emailEmpty();
+
+    @Messages.DefaultMessage("You have entered an invalid email format.")
+    String emailInvalidFormat();
+
+    @Messages.DefaultMessage("Password field cannot be empty.")
+    String emptyPassword();
+
+    @Messages.DefaultMessage("Your password is not valid. Password should contain at least 8 characters with at least 1 uppercase letter, 1 lowercase letter and 1 numeric character.")
+    String passwordInvalidFormat();
+
+    @Messages.DefaultMessage("Confirm password field cannot be empty.")
+    String emptyConfirmPassword();
+
+    @Messages.DefaultMessage("Password does not match.")
+    String passwordNotMatch();
+
+    @Messages.DefaultMessage("First Name field cannot be empty.")
+    String emptyFirstName();
+
+    @Messages.DefaultMessage("Last name cannot be empty.")
+    String emptyLastName();
+
+    @Messages.DefaultMessage("Contact field cannot be empty.")
+    String emptyContact();
+
+    @Messages.DefaultMessage("You have entered an invalid contact number.")
+    String contactInvalid();
+
+    @Messages.DefaultMessage("School field cannot be empty.")
+    String emptySchool();
+
 
 }

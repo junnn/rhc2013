@@ -3,6 +3,8 @@
 <ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
              xmlns:g='urn:import:com.google.gwt.user.client.ui'
              xmlns:my='urn:import:org.redhatchallenge.rhc2013.client'
+             xmlns:rw='urn:import:org.redhatchallenge.rhc2013.client'
+
              ui:generateFormat='com.google.gwt.i18n.rebind.format.PropertiesFormat'
              ui:generateKeys="com.google.gwt.i18n.rebind.keygen.MD5KeyGenerator"
              ui:generateLocales="default">
@@ -17,7 +19,8 @@
                     <div id="sidebar" style="float: right">
                         <ul class="{res.main.socialIcons}">
                             <li><span style="position: relative; top: 4px; left: -2px;"><strong><ui:msg description="Register Screen Connect">Connect:</ui:msg></strong></span></li>
-                            <li><a target="_blank" href="http://www.facebook.com/redhatinc?fref=ts"><img src="images/social_media_icons-16.png" alt="Facebook" /></a></li><li><a target="_blank" href="http://www.twitter.com/red_hat_apac"><img src="images/social_media_icons-17.png" alt="Twitter" /></a></li>
+                            <li><rw:ImageAnchor resource="{res.socialButton1}" ui:field="socialButton1"/></li>
+                            <li><rw:ImageAnchor resource="{res.socialButton2}" ui:field="socialButton2"/></li>
                         </ul>
                     </div>
 
@@ -49,7 +52,7 @@
                                 </tr>
                                 <tr>
                                     <td width="174">&nbsp;</td>
-                                    <td class="{res.main.rowform}"><ui:msg description="RegisterScreen Email Error Label"><g:Label ui:field="emailLabel"/></ui:msg></td>
+                                    <td class="{res.main.rowform}"><g:Label ui:field="emailLabel"/></td>
                                 </tr>
                                 <tr>
                                     <td width="174"><ui:msg description="RegisterScreen Password">Password:</ui:msg></td>
@@ -57,7 +60,7 @@
                                 </tr>
                                 <tr>
                                     <td width="174">&nbsp;</td>
-                                    <td class="{res.main.rowform}"><ui:msg description="RegisterScreen Password Error Label"><g:Label ui:field="passwordLabel"/></ui:msg></td>
+                                    <td class="{res.main.rowform}"><g:Label ui:field="passwordLabel"/></td>
                                 </tr>
                                 <tr>
                                     <td width="174"><ui:msg description="RegisterScreen Confirm Password">Confirm Password:</ui:msg></td>
@@ -65,7 +68,7 @@
                                 </tr>
                                 <tr>
                                     <td width="174">&nbsp;</td>
-                                    <td class="{res.main.rowform}"><ui:msg description="RegisterScreen Confirm Password Error Label"><g:Label ui:field="confirmPasswordLabel"/></ui:msg></td>
+                                    <td class="{res.main.rowform}"><g:Label ui:field="confirmPasswordLabel"/></td>
                                 </tr>
                                 <tr>
                                     <td width="174"><ui:msg description="RegisterScreen First Name">First Name:</ui:msg></td>
@@ -73,7 +76,7 @@
                                 </tr>
                                 <tr>
                                     <td width="174">&nbsp;</td>
-                                    <td class="{res.main.rowform}"><ui:msg description="RegisterScreen First Name Error Label"><g:Label ui:field="firstNameLabel"/></ui:msg></td>
+                                    <td class="{res.main.rowform}"><g:Label ui:field="firstNameLabel"/></td>
                                 </tr>
                                 <tr>
                                     <td width="174"><ui:msg description="RegisterScreen Last Name">Last Name:</ui:msg></td>
@@ -81,7 +84,7 @@
                                 </tr>
                                 <tr>
                                     <td width="174">&nbsp;</td>
-                                    <td class="{res.main.rowform}"><ui:msg description="RegisterScreen Last Name Error Label"><g:Label ui:field="lastNameLabel"/></ui:msg></td>
+                                    <td class="{res.main.rowform}"><g:Label ui:field="lastNameLabel"/></td>
                                 </tr>
                                 <tr>
                                     <td class="{res.main.rowform}"><ui:msg description="RegisterScreen Country">Country:</ui:msg></td>
@@ -121,7 +124,7 @@
                                     </td>
                                 </tr>
                                 <tr><td width="174">&nbsp;</td>
-                                    <td class="{res.main.rowform}"><ui:msg description="RegisterScreen Contact Error Label"><g:Label ui:field="contactLabel"/></ui:msg></td>
+                                    <td class="{res.main.rowform}"><g:Label ui:field="contactLabel"/></td>
                                 </tr>
                                 <tr>
                                     <td width="174"><ui:msg description="RegisterScreen School">School:</ui:msg></td>
@@ -129,7 +132,7 @@
                                 </tr>
                                 <tr>
                                     <td width="174">&nbsp;</td>
-                                    <td class="{res.main.rowform}"><ui:msg description="RegisterScreen Contact Error Label"><g:Label ui:field="schoolLabel"/></ui:msg></td>
+                                    <td class="{res.main.rowform}"><g:Label ui:field="schoolLabel"/></td>
                                 </tr>
                                 <tr>
                                     <td class="{res.main.rowform}"><ui:msg description="RegisterScreen Lecturer's First Name">Lecturer's First Name:</ui:msg></td>
@@ -175,7 +178,7 @@
                                 <tr><td colspan="2">&nbsp;</td></tr>
                                 <tr>
                                     <td colspan="2"><g:CheckBox ui:field="termsCheck"></g:CheckBox>
-                                        By clicking submit button, you confirm that you accept all our Terms of Use and Privacy Policy</td>
+                                        <ui:msg description="checkTnC">By clicking submit button, you confirm that you accept all our Terms of Use and Privacy Policy</ui:msg></td>
                                 </tr>
                                 <tr><td colspan="2">&nbsp;</td></tr>
                                 <tr>
