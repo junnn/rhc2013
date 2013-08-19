@@ -2,6 +2,7 @@
 
 <ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
              xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:rw='urn:import:org.redhatchallenge.rhc2013.client'
              ui:generateFormat="com.google.gwt.i18n.rebind.format.PropertiesFormat"
              ui:generateKeys="com.google.gwt.i18n.server.keygen.MD5KeyGenerator"
              ui:generateLocales="en">
@@ -16,7 +17,8 @@
                     <div id="sidebar" style="float: right">
                         <ul class="{res.main.socialIcons}">
                             <li><span style="position: relative; top: 4px; left: -2px;"><strong><ui:msg description="Connect">Connect:</ui:msg></strong></span></li>
-                            <li><a target="_blank" href="http://www.facebook.com/redhatinc?fref=ts"><img src="images/social_media_icons-16.png" alt="Facebook" /></a></li><li><a target="_blank" href="http://www.twitter.com/red_hat_apac"><img src="images/social_media_icons-17.png" alt="Twitter" /></a></li>
+                            <li><rw:ImageAnchor resource="{res.socialButton1}" ui:field="socialButton1"/></li>
+                            <li><rw:ImageAnchor resource="{res.socialButton2}" ui:field="socialButton2"/></li>
                         </ul>
                     </div>
 

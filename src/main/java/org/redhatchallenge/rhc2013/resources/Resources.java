@@ -45,6 +45,12 @@ public interface Resources extends ClientBundle {
     @Source("image/saveprofile_button.png")
     ImageResource saveButton();
 
+    @Source("image/socialButton1.png")
+    ImageResource socialButton1();
+
+    @Source("image/socialButton2.png")
+    ImageResource socialButton2();
+
     public interface Grid extends CssResource {
 
         String grid_7();
