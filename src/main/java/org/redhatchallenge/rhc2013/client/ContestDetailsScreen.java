@@ -1,7 +1,6 @@
 package org.redhatchallenge.rhc2013.client;
 
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.core.client.ScriptInjector;
 import com.google.gwt.i18n.client.LocaleInfo;
 import com.google.gwt.storage.client.Storage;
 import com.google.gwt.storage.client.StorageMap;
@@ -10,6 +9,7 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import org.redhatchallenge.rhc2013.shared.Student;
 
@@ -26,10 +26,16 @@ public class ContestDetailsScreen extends Composite {
     private MessageMessages messages = GWT.create(MessageMessages.class);
 
     @UiField HTML welcomeLabel;
-
+    @UiField TextBox emailField;
+    @UiField TextBox timeSlotField;
+    @UiField TextBox languageField;
     public ContestDetailsScreen() {
 
         initWidget(UiBinder.createAndBindUi(this));
+
+        emailField.setReadOnly(true);
+        timeSlotField.setReadOnly(true);
+        languageField.setReadOnly(true);
 
         /**
          * If HTML5 storage does not contain the profile data, retrieves the data
@@ -53,7 +59,7 @@ public class ContestDetailsScreen extends Composite {
                     }
 
                     else {
-                        welcomeLabel.setHTML("<h1>"+ messages.hello() + "," +result.getFirstName()+"</h1>");
+                        welcomeLabel.setHTML("<Font Size=6>"+ messages.hello() + ", " +result.getFirstName() + "Welcome to Red Hat Challenge 2013!" +"</FONT>");
                         /**
                          * If browser supports HTML5 storage, stores the authenticated user's
                          * profile data.
@@ -70,6 +76,12 @@ public class ContestDetailsScreen extends Composite {
                             localStorage.setItem("lecturerLastName", result.getLecturerLastName());
                             localStorage.setItem("lecturerEmail", result.getLecturerEmail());
                             localStorage.setItem("language", result.getLanguage());
+                            localStorage.setItem("timeSlot", Long.toString(result.getTimeslot()));
+
+                            emailField.setText(result.getEmail());
+                            languageField.setText(result.getLanguage());
+                            timeSlotField.setText(Long.toString(result.getTimeslot()));
+
                         }
                     }
                 }
@@ -77,7 +89,10 @@ public class ContestDetailsScreen extends Composite {
         }
 
         else {
-            welcomeLabel.setHTML("<h1>"+ messages.hello() + ","+ localStorage.getItem("firstName") +"</h1>");
+            welcomeLabel.setHTML("<FONT SIZE=6>"+ messages.hello() + ", "+ localStorage.getItem("firstName") + "Welcome to Red Hat Challenge 2013!" +"</FONT>");
+            emailField.setText(localStorage.getItem("email"));
+            languageField.setText(localStorage.getItem("language"));
+            timeSlotField.setText(localStorage.getItem("timeSlot"));
         }
     }
 
