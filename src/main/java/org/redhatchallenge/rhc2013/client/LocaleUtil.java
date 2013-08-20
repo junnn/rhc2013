@@ -32,6 +32,36 @@ public class LocaleUtil {
         return country;
     }
 
+    public static int getIndexFromCountry(String country) {
+        if(country.equalsIgnoreCase("singapore")) {
+            return 0;
+        }
+
+        else if(country.equalsIgnoreCase("malaysia")) {
+            return 1;
+        }
+
+        else if(country.equalsIgnoreCase("thailand")) {
+            return 2;
+        }
+
+        else if(country.equalsIgnoreCase("china")) {
+            return 3;
+        }
+
+        else if(country.equalsIgnoreCase("hong kong")) {
+            return 4;
+        }
+
+        else if(country.equalsIgnoreCase("taiwan")) {
+            return 5;
+        }
+
+        else {
+            return -1;
+        }
+    }
+
     public static String getLanguageFromIndex(int index) {
 
         String language = null;
@@ -49,6 +79,24 @@ public class LocaleUtil {
         }
 
         return language;
+    }
+
+    public static int getIndexFromLanguage(String language) {
+        if(language.equalsIgnoreCase("english")) {
+            return 0;
+        }
+
+        else if(language.equalsIgnoreCase("chinese (simplified)")) {
+            return 1;
+        }
+
+        else if(language.equalsIgnoreCase("chinese (traditional)")) {
+            return 2;
+        }
+
+        else {
+            return -1;
+        }
     }
 
     public static String getRegionFromIndex(int index) {

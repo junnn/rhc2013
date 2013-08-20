@@ -18,6 +18,8 @@ import org.redhatchallenge.rhc2013.shared.FieldVerifier;
 import org.redhatchallenge.rhc2013.shared.Student;
 
 import static org.redhatchallenge.rhc2013.client.LocaleUtil.getCountryFromIndex;
+import static org.redhatchallenge.rhc2013.client.LocaleUtil.getIndexFromCountry;
+import static org.redhatchallenge.rhc2013.client.LocaleUtil.getIndexFromLanguage;
 import static org.redhatchallenge.rhc2013.client.LocaleUtil.getLanguageFromIndex;
 import static org.redhatchallenge.rhc2013.client.LocaleUtil.getRegionFromIndex;
 
@@ -124,19 +126,19 @@ public class ProfileScreen extends Composite {
                     lecturerFirstNameField.setText(lecturerFirstName);
                     lecturerLastNameField.setText(lecturerLastName);
                     lecturerEmailField.setText(lecturerEmail);
-                    languageField.setSelectedIndex(getIndexFromValue(language, languageField));
+                    languageField.setSelectedIndex(getIndexFromLanguage(language));
 
                     /**
                      * Populates both the country and region field if country is China.
                      */
                     if(country.substring(0,5).equalsIgnoreCase("china")) {
                         regionField.setVisible(true);
-                        countryField.setSelectedIndex(getIndexFromValue("China", countryField));
+                        countryField.setSelectedIndex(getIndexFromCountry("china"));
                         regionField.setSelectedIndex(getIndexFromValue(country.substring(6), regionField));
                     }
 
                     else {
-                        countryField.setSelectedIndex(getIndexFromValue(country, countryField));
+                        countryField.setSelectedIndex(getIndexFromCountry(country));
                     }
 
                     /**
@@ -170,19 +172,19 @@ public class ProfileScreen extends Composite {
             lecturerFirstNameField.setText(localStorageMap.get("lecturerFirstName"));
             lecturerLastNameField.setText(localStorageMap.get("lecturerLastName"));
             lecturerEmailField.setText(localStorageMap.get("lecturerEmail"));
-            languageField.setSelectedIndex(getIndexFromValue(localStorageMap.get("language"), languageField));
+            languageField.setSelectedIndex(getIndexFromLanguage(localStorageMap.get("language")));
 
             /**
              * Populates both the country and region field if country is China.
              */
             if(localStorageMap.get("country").substring(0,5).equalsIgnoreCase("china")) {
                 regionField.setVisible(true);
-                countryField.setSelectedIndex(getIndexFromValue("China", countryField));
+                countryField.setSelectedIndex(getIndexFromCountry("china"));
                 regionField.setSelectedIndex(getIndexFromValue(localStorageMap.get("country").substring(6), regionField));
             }
 
             else {
-                countryField.setSelectedIndex(getIndexFromValue(localStorageMap.get("country"), countryField));
+                countryField.setSelectedIndex(getIndexFromCountry(localStorageMap.get("country")));
             }
         }
     }
