@@ -51,15 +51,16 @@ public class ProfileScreen extends Composite {
     @UiField TextBox lecturerEmailField;
     @UiField ListBox languageField;
     @UiField Image updateButton;
+    @UiField Image changePwdButton;
     @UiField Anchor socialButton1;
     @UiField Anchor socialButton2;
 
     //Validation Error Labels
     @UiField Label errorLabel;
     @UiField Label emailLabel;
-//    @UiField Label currentPasswordLabel;
-//    @UiField Label passwordLabel;
-//    @UiField Label confirmPasswordLabel;
+    @UiField Label currentPasswordLabel;
+    @UiField Label passwordLabel;
+    @UiField Label confirmPasswordLabel;
     @UiField Label firstNameLabel;
     @UiField Label lastNameLabel;
     @UiField Label contactLabel;
@@ -282,41 +283,123 @@ public class ProfileScreen extends Composite {
                 successCounter++;
             }
 
-//        if (!FieldVerifier.currentPWIsNull(currentPasswordField.getText())){
-//
-//            if(FieldVerifier.passwordIsNull(passwordField.getText())){
-//                passwordLabel.setText("Please enter a new password");
-//            }
-//            else if(!FieldVerifier.passwordIsNull(passwordField.getText()))
-//            {
-//                if(FieldVerifier.confirmPWIsNull(confirmPasswordField.getText())){
-//                    confirmPasswordLabel.setText("Confirm password field cannot be empty.");
-//                }
-//                else if(!FieldVerifier.confirmPWIsNull(confirmPasswordField.getText())){
-//                    if(!confirmPasswordField.getText().equals(passwordField.getText())){
-//                        confirmPasswordLabel.setText("Passwords does not match.");
-//                    }
-//                    else{
-//                        confirmPasswordLabel.setText("");
-//                    }
-//                }
-//                else{
-//                    confirmPasswordLabel.setText("");
-//                }
-//
-//                if(!FieldVerifier.isValidPassword(passwordField.getText())){
-//                    passwordLabel.setText("Your new password is not valid. Password should contain at least 8 characters with at least 1 uppercase letter, 1 lowercase letter and 1 numeric character");
-//                }
-//                else{
-//                    passwordLabel.setText("");
-//                }
-//            }
-//        }
-
         if(successCounter == 5){
             updateProfile();
         }
     }
+
+    @UiHandler("changePwdButton")
+    public void handleChangePwdButtonClick(ClickEvent event) {
+
+        if (!FieldVerifier.passwordIsNull(currentPasswordField.getText())){
+            currentPasswordLabel.setText("");
+            int successCounter = 0;
+            if(FieldVerifier.passwordIsNull(passwordField.getText())){
+                passwordLabel.setText("Please enter a new password");
+            }
+            else if(!FieldVerifier.passwordIsNull(passwordField.getText()))
+            {
+                if(FieldVerifier.passwordIsNull(confirmPasswordField.getText())){
+                    confirmPasswordLabel.setText(messages.emptyConfirmPassword());
+                }
+                else if(!FieldVerifier.passwordIsNull(confirmPasswordField.getText())){
+                    if(!confirmPasswordField.getText().equals(passwordField.getText())){
+                        confirmPasswordLabel.setText(messages.passwordNotMatch());
+                    }
+                    else{
+                        confirmPasswordLabel.setText("");
+                        successCounter++;
+                    }
+                }
+                else{
+                    confirmPasswordLabel.setText("");
+                    successCounter++;
+                }
+
+                if(!FieldVerifier.isValidPassword(passwordField.getText())){
+                    passwordLabel.setText(messages.passwordInvalidFormat());
+                }
+                else{
+                    passwordLabel.setText("");
+                    successCounter++;
+                }
+
+            }
+            if(successCounter == 2){
+                changePassword();
+            }
+        }
+
+        else if(FieldVerifier.passwordIsNull(currentPasswordField.getText())){
+
+            if(!FieldVerifier.passwordIsNull(passwordField.getText())){
+
+                if(FieldVerifier.passwordIsNull(currentPasswordField.getText())){
+                    currentPasswordLabel.setText("Current password field cannot be empty.");
+                }
+
+                if (FieldVerifier.passwordIsNull(confirmPasswordField.getText())){
+                    confirmPasswordLabel.setText(messages.emptyConfirmPassword());
+                }
+                else if(!FieldVerifier.passwordIsNull(confirmPasswordField.getText())){
+                    if(!confirmPasswordField.getText().equals(passwordField.getText())){
+                        confirmPasswordLabel.setText(messages.passwordNotMatch());
+                    }
+                    else{
+                        confirmPasswordLabel.setText("");
+                    }
+                }
+                else{
+                    confirmPasswordLabel.setText("");
+                }
+
+                if(!FieldVerifier.isValidPassword(passwordField.getText())){
+                    passwordLabel.setText(messages.passwordInvalidFormat());
+                }
+                else{
+                    passwordLabel.setText("");
+                }
+
+            }
+
+            else if(!FieldVerifier.passwordIsNull(confirmPasswordField.getText())){
+
+                if(FieldVerifier.passwordIsNull(currentPasswordField.getText())){
+                    currentPasswordLabel.setText("Current password field cannot be empty.");
+                }
+
+                if (FieldVerifier.passwordIsNull(passwordField.getText())){
+                    passwordLabel.setText(messages.emptyPassword());
+                }
+                else if(!FieldVerifier.passwordIsNull(passwordField.getText())){
+                    if(!passwordField.getText().equals(confirmPasswordField.getText())){
+                        confirmPasswordLabel.setText(messages.passwordNotMatch());
+                    }
+                    else{
+                        confirmPasswordLabel.setText("");
+                    }
+                    if(!FieldVerifier.isValidPassword(passwordField.getText())){
+                        passwordLabel.setText(messages.passwordInvalidFormat());
+                    }
+                    else{
+                        passwordLabel.setText("");
+                    }
+                }
+            }
+            else{
+                currentPasswordLabel.setText("");
+                passwordLabel.setText("");
+                confirmPasswordLabel.setText("");
+            }
+        }
+        else{
+            currentPasswordLabel.setText("");
+            passwordLabel.setText("");
+            confirmPasswordLabel.setText("");
+        }
+
+   }
+
 
     @UiHandler("contactField")
     public void handleContactKeyPress(KeyPressEvent event) {
@@ -343,13 +426,29 @@ public class ProfileScreen extends Composite {
         return -1;
     }
 
+    private void changePassword(){
+        final String oldPassword = currentPasswordField.getText();
+        final String newPassword = passwordField.getText();
+
+        profileService = ProfileService.Util.getInstance();
+
+        profileService.changePassword(oldPassword,newPassword, new AsyncCallback<Boolean>() {
+            @Override
+            public void onFailure(Throwable throwable) {
+                errorLabel.setText(messages.unexpectedError());
+            }
+
+            @Override
+            public void onSuccess(Boolean aBoolean) {
+                errorLabel.setText("Password Changed Successfully!");
+            }
+        });
+    }
     private void updateProfile() {
 
         updateButton.setResource(Resources.INSTANCE.saveButtonGrey());
 
         final String email = emailField.getText();
-        final String oldPassword = currentPasswordField.getText();
-        final String newPassword = passwordField.getText();
         final String firstName = firstNameField.getText();
         final String lastName = lastNameField.getText();
         final String contact = contactField.getText();
@@ -375,7 +474,7 @@ public class ProfileScreen extends Composite {
 
         profileService = ProfileService.Util.getInstance();
 
-        profileService.updateProfileData(email, oldPassword, newPassword, firstName, lastName, contact,
+        profileService.updateProfileData(email, firstName, lastName, contact,
                 country, countryCode, school, lecturerFirstName, lecturerLastName,
                 lecturerEmail, language, new AsyncCallback<Boolean>() {
             @Override

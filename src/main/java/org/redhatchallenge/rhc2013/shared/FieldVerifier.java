@@ -25,16 +25,6 @@ public class FieldVerifier {
         return password.isEmpty();
     }
 
-    public static boolean confirmPWIsNull(String confirmPassword){
-
-        return confirmPassword.isEmpty();
-    }
-
-    public static boolean currentPWIsNull(String currentPassword){
-
-        return currentPassword.isEmpty();
-    }
-
     public static boolean fnIsNull(String firstName){
 
         return firstName.isEmpty();
