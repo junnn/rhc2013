@@ -235,7 +235,10 @@ public class AuthenticationServiceImpl extends RemoteServiceServlet implements A
                 session.delete(tokens);
                 session.getTransaction().commit();
 
-                cache.replace(timeslot, cache.get(timeslot)+1);
+                if(timeslot != null) {
+                    cache.replace(timeslot, cache.get(timeslot)+1);
+                }
+
                 return true;
             }
 

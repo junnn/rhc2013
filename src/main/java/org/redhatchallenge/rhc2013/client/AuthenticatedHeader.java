@@ -7,6 +7,7 @@ import com.google.gwt.storage.client.StorageMap;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Hyperlink;
@@ -107,7 +108,8 @@ public class AuthenticatedHeader extends Composite {
             public void onSuccess(Void aVoid) {
                 RootPanel.get("header").clear();
                 RootPanel.get("header").add(new Header());
-                ContentContainer.INSTANCE.setContent(new IndexScreen());
+//                ContentContainer.INSTANCE.setContent(new IndexScreen());
+                History.newItem("", true);
                 Storage localStorage = Storage.getLocalStorageIfSupported();
                 localStorage.clear();
             }

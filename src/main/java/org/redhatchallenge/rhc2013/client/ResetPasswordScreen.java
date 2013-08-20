@@ -38,10 +38,9 @@ public class ResetPasswordScreen extends Composite {
     @UiField Anchor socialButton1;
     @UiField Anchor socialButton2;
 
-    private String token = Window.Location.getParameter("resetToken");
     private AuthenticationServiceAsync authenticationService = null;
 
-    public ResetPasswordScreen() {
+    public ResetPasswordScreen(String token) {
         initWidget(UiBinder.createAndBindUi(this));
         authenticationService = AuthenticationService.Util.getInstance();
 
