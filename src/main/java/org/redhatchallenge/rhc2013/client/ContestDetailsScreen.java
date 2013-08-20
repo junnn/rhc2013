@@ -59,7 +59,7 @@ public class ContestDetailsScreen extends Composite {
                     }
 
                     else {
-                        welcomeLabel.setHTML("<FONT SIZE=6>"+ messages.hello() + ", "+ localStorage.getItem("firstName") + ". Welcome to Red Hat Challenge 2013!" +"</FONT>");
+                        welcomeLabel.setHTML("<FONT SIZE=6>"+ messages.hello() + ", "+ result.getFirstName() + ". Welcome to Red Hat Challenge 2013!" +"</FONT>");
                         /**
                          * If browser supports HTML5 storage, stores the authenticated user's
                          * profile data.

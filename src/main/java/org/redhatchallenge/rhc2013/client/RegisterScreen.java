@@ -283,8 +283,8 @@ public class RegisterScreen extends Composite {
                 lecturerEmail, language, new AsyncCallback<Boolean>() {
             @Override
             public void onFailure(Throwable throwable) {
-                //errorLabel.setText(messages.unexpectedError());
-                ContentContainer.INSTANCE.setContent(new verifyMessageScreen(messages.verifyMailMessage(firstName, email)));
+                errorLabel.setText(messages.unexpectedError());
+                //ContentContainer.INSTANCE.setContent(new verifyMessageScreen(messages.verifyMailMessage(firstName, email)));
             }
 
             @Override

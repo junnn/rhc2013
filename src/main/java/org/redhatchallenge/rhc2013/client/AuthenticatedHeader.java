@@ -63,7 +63,7 @@ public class AuthenticatedHeader extends Composite {
                     }
 
                     else {
-                        welcomeLabel.setText(messages.hello() + "," +result.getFirstName());
+                        welcomeLabel.setText(messages.hello() + "," + result.getFirstName());
                         /**
                          * If browser supports HTML5 storage, stores the authenticated user's
                          * profile data.
