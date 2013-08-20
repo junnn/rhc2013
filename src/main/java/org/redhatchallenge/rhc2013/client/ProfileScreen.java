@@ -13,6 +13,7 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.*;
 import org.redhatchallenge.rhc2013.resources.Resources;
+import org.redhatchallenge.rhc2013.shared.FieldVerifier;
 import org.redhatchallenge.rhc2013.shared.Student;
 
 import static org.redhatchallenge.rhc2013.client.LocaleUtil.getCountryFromIndex;
@@ -47,9 +48,19 @@ public class ProfileScreen extends Composite {
     @UiField TextBox lecturerEmailField;
     @UiField ListBox languageField;
     @UiField Image updateButton;
-    @UiField Label errorLabel;
     @UiField Anchor socialButton1;
     @UiField Anchor socialButton2;
+
+    //Validation Error Labels
+    @UiField Label errorLabel;
+    @UiField Label emailLabel;
+//    @UiField Label currentPasswordLabel;
+//    @UiField Label passwordLabel;
+//    @UiField Label confirmPasswordLabel;
+    @UiField Label firstNameLabel;
+    @UiField Label lastNameLabel;
+    @UiField Label contactLabel;
+    @UiField Label schoolLabel;
 
     private ProfileServiceAsync profileService = null;
 
@@ -216,8 +227,91 @@ public class ProfileScreen extends Composite {
 
     @UiHandler("updateButton")
     public void handleUpdateButtonClick(ClickEvent event) {
-        updateProfile();
+
+        int successCounter = 0;
+
+        if(FieldVerifier.emailIsNull(emailField.getText())){
+              emailLabel.setText("Email field cannot be empty.");
+        }
+            else if(!FieldVerifier.isValidEmail(emailField.getText())){
+                 emailLabel.setText("You have entered an invalid email format.");
+            }
+                else{
+                    emailLabel.setText("");
+                    successCounter++;
+                }
+
+        if(FieldVerifier.fnIsNull(firstNameField.getText())){
+            firstNameLabel.setText("First Name field cannot be empty.");
+        }
+            else{
+                firstNameLabel.setText("");
+                successCounter++;
+            }
+
+        if(FieldVerifier.lnIsNull(lastNameField.getText())){
+            lastNameLabel.setText("Last Name field cannot be empty.");
+        }
+            else{
+                lastNameLabel.setText("");
+                successCounter++;
+            }
+
+        if(FieldVerifier.contactIsNull(contactField.getText())){
+            contactLabel.setText("Contact field cannot be empty.");
+        }
+            else if(!FieldVerifier.isValidContact(contactField.getText())){
+                contactLabel.setText("You have entered an invalid contact number.");
+            }
+                else{
+                    contactLabel.setText("");
+                    successCounter++;
+                }
+
+        if(FieldVerifier.schoolIsNull(schoolField.getText())){
+            schoolLabel.setText("School field cannot be empty.");
+        }
+            else{
+                schoolLabel.setText("");
+                successCounter++;
+            }
+
+//        if (!FieldVerifier.currentPWIsNull(currentPasswordField.getText())){
+//
+//            if(FieldVerifier.passwordIsNull(passwordField.getText())){
+//                passwordLabel.setText("Please enter a new password");
+//            }
+//            else if(!FieldVerifier.passwordIsNull(passwordField.getText()))
+//            {
+//                if(FieldVerifier.confirmPWIsNull(confirmPasswordField.getText())){
+//                    confirmPasswordLabel.setText("Confirm password field cannot be empty.");
+//                }
+//                else if(!FieldVerifier.confirmPWIsNull(confirmPasswordField.getText())){
+//                    if(!confirmPasswordField.getText().equals(passwordField.getText())){
+//                        confirmPasswordLabel.setText("Passwords does not match.");
+//                    }
+//                    else{
+//                        confirmPasswordLabel.setText("");
+//                    }
+//                }
+//                else{
+//                    confirmPasswordLabel.setText("");
+//                }
+//
+//                if(!FieldVerifier.isValidPassword(passwordField.getText())){
+//                    passwordLabel.setText("Your new password is not valid. Password should contain at least 8 characters with at least 1 uppercase letter, 1 lowercase letter and 1 numeric character");
+//                }
+//                else{
+//                    passwordLabel.setText("");
+//                }
+//            }
+//        }
+
+        if(successCounter == 5){
+            updateProfile();
+        }
     }
+
 
     /**
      * This function iterates over the values of a listbox and compares it
