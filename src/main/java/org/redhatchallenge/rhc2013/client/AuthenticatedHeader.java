@@ -94,7 +94,7 @@ public class AuthenticatedHeader extends Composite {
 
     @UiHandler("indexLink")
     public void handleIndexLinkClick(ClickEvent event) {
-        ContentContainer.INSTANCE.setContent(new IndexScreen());
+        History.newItem("", true);
     }
 
     @UiHandler("logoutLink")
@@ -108,7 +108,6 @@ public class AuthenticatedHeader extends Composite {
             public void onSuccess(Void aVoid) {
                 RootPanel.get("header").clear();
                 RootPanel.get("header").add(new Header());
-//                ContentContainer.INSTANCE.setContent(new IndexScreen());
                 History.newItem("", true);
                 Storage localStorage = Storage.getLocalStorageIfSupported();
                 localStorage.clear();

@@ -10,6 +10,7 @@ import com.google.gwt.storage.client.Storage;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.*;
 import org.redhatchallenge.rhc2013.resources.Resources;
@@ -67,7 +68,7 @@ public class LoginScreen extends Composite {
 
     @UiHandler("resetPasswordLink")
     public void handleResetPasswordLinkClick(ClickEvent event) {
-        ContentContainer.INSTANCE.setContent(new TriggerPasswordResetScreen());
+        History.newItem("forget-password", true);
     }
 
     private void authenticateStudent() {
@@ -97,7 +98,7 @@ public class LoginScreen extends Composite {
                     Storage localStorage = Storage.getLocalStorageIfSupported();
                     localStorage.clear();
 
-                    ContentContainer.INSTANCE.setContent(new ContestDetailsScreen());
+                    History.newItem("details", true);
                     RootPanel.get("header").clear();
                     RootPanel.get("header").add(new AuthenticatedHeader());
                 }
