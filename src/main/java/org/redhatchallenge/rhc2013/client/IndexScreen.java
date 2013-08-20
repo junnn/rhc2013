@@ -77,7 +77,7 @@ public class IndexScreen extends Composite {
         super.onAttach();
         Jquery.countdown();
         if(LocaleInfo.getCurrentLocale().getLocaleName().equals("en")) {
-            Jquery.bindEn(5 * 24 * 60 * 60 * 1000);
+            Jquery.bindEn(5*24*60*60*1000);
         }
 
         else if(LocaleInfo.getCurrentLocale().getLocaleName().equals("ch")) {

@@ -1,6 +1,7 @@
 package org.redhatchallenge.rhc2013.client;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.i18n.client.LocaleInfo;
 import com.google.gwt.storage.client.Storage;
 import com.google.gwt.storage.client.StorageMap;
@@ -12,6 +13,9 @@ import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import org.redhatchallenge.rhc2013.shared.Student;
+
+import java.util.Date;
+
 
 /**
  * @author: Terry Chia (terrycwk1994@gmail.com)
@@ -29,9 +33,12 @@ public class ContestDetailsScreen extends Composite {
     @UiField TextBox emailField;
     @UiField TextBox timeSlotField;
     @UiField TextBox languageField;
+
     public ContestDetailsScreen() {
 
         initWidget(UiBinder.createAndBindUi(this));
+
+        Jquery.countdown();
 
         emailField.setReadOnly(true);
         timeSlotField.setReadOnly(true);
@@ -60,6 +67,23 @@ public class ContestDetailsScreen extends Composite {
 
                     else {
                         welcomeLabel.setHTML("<FONT SIZE=6>"+ messages.hello() + ", "+ result.getFirstName() + ". Welcome to Red Hat Challenge 2013!" +"</FONT>");
+                        emailField.setText(result.getEmail());
+                        languageField.setText(result.getLanguage());
+                        Date date = new Date(result.getTimeslot());
+                        timeSlotField.setText(DateTimeFormat.getFormat(DateTimeFormat.PredefinedFormat.DATE_TIME_SHORT).format(date));
+
+
+                        if(LocaleInfo.getCurrentLocale().getLocaleName().equals("en")) {
+                            Jquery.bindEn(5*24*60*60*1000);
+                        }
+
+                        else if(LocaleInfo.getCurrentLocale().getLocaleName().equals("ch")) {
+                            Jquery.bindCh(5*24*60*60*1000);
+                        }
+                        else if(LocaleInfo.getCurrentLocale().getLocaleName().equals("zh")) {
+                            Jquery.bindCh(5*24*60*60*1000);
+                        }
+
                         /**
                          * If browser supports HTML5 storage, stores the authenticated user's
                          * profile data.
@@ -77,11 +101,6 @@ public class ContestDetailsScreen extends Composite {
                             localStorage.setItem("lecturerEmail", result.getLecturerEmail());
                             localStorage.setItem("language", result.getLanguage());
                             localStorage.setItem("timeSlot", Long.toString(result.getTimeslot()));
-
-                            emailField.setText(result.getEmail());
-                            languageField.setText(result.getLanguage());
-                            timeSlotField.setText(Long.toString(result.getTimeslot()));
-
                         }
                     }
                 }
@@ -89,26 +108,30 @@ public class ContestDetailsScreen extends Composite {
         }
 
         else {
-            welcomeLabel.setHTML("<FONT SIZE=6>"+ messages.hello() + ", "+ localStorage.getItem("firstName") + ". Welcome to Red Hat Challenge 2013!" +"</FONT>");
+            welcomeLabel.setHTML("<FONT SIZE=6>" + messages.hello() + ", " + localStorage.getItem("firstName") + ". Welcome to Red Hat Challenge 2013!" + "</FONT>");
             emailField.setText(localStorage.getItem("email"));
             languageField.setText(localStorage.getItem("language"));
-            timeSlotField.setText(localStorage.getItem("timeSlot"));
+            Date date = new Date(localStorage.getItem("timeSlot"));
+            timeSlotField.setText(DateTimeFormat.getFormat(DateTimeFormat.PredefinedFormat.DATE_TIME_SHORT).format(date));
+
+            if(LocaleInfo.getCurrentLocale().getLocaleName().equals("en")) {
+                Jquery.bindEn(5*24*60*60*1000);
+            }
+
+            else if(LocaleInfo.getCurrentLocale().getLocaleName().equals("ch")) {
+                Jquery.bindCh(5*24*60*60*1000);
+            }
+            else if(LocaleInfo.getCurrentLocale().getLocaleName().equals("zh")) {
+                Jquery.bindCh(5*24*60*60*1000);
+            }
         }
     }
 
-    @Override
-    protected void onAttach() {
-        super.onAttach();
-        Jquery.countdown();
-        if(LocaleInfo.getCurrentLocale().getLocaleName().equals("en")) {
-            Jquery.bindEn(5*24*60*60*1000);
+    private int safeLongToInt(long l) {
+        if (l < Integer.MIN_VALUE || l > Integer.MAX_VALUE) {
+            throw new IllegalArgumentException
+                    (l + " cannot be cast to int without changing its value.");
         }
-
-        else if(LocaleInfo.getCurrentLocale().getLocaleName().equals("ch")) {
-            Jquery.bindCh(5*24*60*60*1000);
-        }
-        else if(LocaleInfo.getCurrentLocale().getLocaleName().equals("zh")) {
-            Jquery.bindCh(5*24*60*60*1000);
-        }
+        return (int) l;
     }
 }
