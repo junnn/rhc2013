@@ -18,6 +18,7 @@ import org.hibernate.exception.ConstraintViolationException;
 import org.infinispan.Cache;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
+import org.redhatchallenge.rhc2013.shared.UnconfirmedStudentException;
 
 import java.util.HashSet;
 import java.util.Random;
@@ -135,7 +136,7 @@ public class AuthenticationServiceImpl extends RemoteServiceServlet implements A
     }
 
     @Override
-    public Boolean authenticateStudent(String email, String password, Boolean rememberMe) throws IllegalArgumentException {
+    public Boolean authenticateStudent(String email, String password, Boolean rememberMe) throws IllegalArgumentException, UnconfirmedStudentException {
 
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Subject currentUser = SecurityUtils.getSubject();
@@ -162,11 +163,19 @@ public class AuthenticationServiceImpl extends RemoteServiceServlet implements A
 
             else {
 
+
                 UsernamePasswordToken token = new UsernamePasswordToken(String.valueOf(student.getContestantId()), password);
                 token.setRememberMe(rememberMe);
 
                 currentUser.login(token);
-                return true;
+                if(student.getVerified()) {
+                    return true;
+                }
+
+                else {
+                    currentUser.logout();
+                    throw new UnconfirmedStudentException();
+                }
             }
 
         } catch (AuthenticationException e) {

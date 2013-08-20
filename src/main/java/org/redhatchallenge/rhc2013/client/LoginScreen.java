@@ -14,6 +14,7 @@ import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.*;
 import org.redhatchallenge.rhc2013.resources.Resources;
+import org.redhatchallenge.rhc2013.shared.UnconfirmedStudentException;
 import org.redhatchallenge.rhc2013.shared.FieldVerifier;
 
 /**
@@ -115,8 +116,14 @@ public class LoginScreen extends Composite {
         authenticationService.authenticateStudent(email, password, rememberMe, new AsyncCallback<Boolean>() {
             @Override
             public void onFailure(Throwable throwable) {
-                errorLabel.setText(messages.unexpectedError());
-                loginButton.setResource(Resources.INSTANCE.loginButton());
+                if(throwable instanceof UnconfirmedStudentException) {
+                    ContentContainer.INSTANCE.setContent(new MessageScreen("<h1>Please confirm your account"));
+                }
+
+                else {
+                    errorLabel.setText(messages.unexpectedError());
+                    loginButton.setResource(Resources.INSTANCE.loginButton());
+                }
             }
 
             @Override

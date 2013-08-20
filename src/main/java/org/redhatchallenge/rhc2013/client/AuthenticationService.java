@@ -3,6 +3,7 @@ package org.redhatchallenge.rhc2013.client;
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 import com.google.gwt.core.client.GWT;
+import org.redhatchallenge.rhc2013.shared.UnconfirmedStudentException;
 
 /**
  * @author: Terry Chia (terrycwk1994@gmail.com)
@@ -14,7 +15,7 @@ public interface AuthenticationService extends RemoteService {
                                    String country, String countryCode, String school, String lecturerFirstName, String lecturerLastName,
                                    String lecturerEmail, String language) throws IllegalArgumentException;
 
-    public Boolean authenticateStudent(String email, String password, Boolean rememberMe) throws IllegalArgumentException;
+    public Boolean authenticateStudent(String email, String password, Boolean rememberMe) throws IllegalArgumentException, UnconfirmedStudentException;
 
     public void logout();
 
