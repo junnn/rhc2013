@@ -87,11 +87,14 @@ public class RegisterScreen extends Composite {
         contactField.setWatermark("XXXXXXXX");
 
         if(LocaleInfo.getCurrentLocale().getLocaleName().equals("ch")) {
-            socialButton1.setHref("http://page.renren.com/601220914?checked=true");
+            socialButton1.setVisible(false);
+            socialButton2.setTarget("_blank");
             socialButton2.setHref("http://e.weibo.com/redhatchina");
         }
         else {
+            socialButton1.setTarget("_blank");
             socialButton1.setHref("https://www.facebook.com/redhatinc?fref=ts");
+            socialButton2.setTarget("_blank");
             socialButton2.setHref("https://twitter.com/red_hat_apac");
         }
 
