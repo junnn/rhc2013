@@ -89,7 +89,7 @@ public class AuthenticationServiceImplTest {
 
     @Test
     public void testTriggerResetPassword() {
-        assertFalse(authenticationService.triggerResetPassword("zx@zx.com", "98956649"));
-        assertTrue(authenticationService.triggerResetPassword("zx@zx.com", "95681265"));
+        assertFalse(authenticationService.triggerResetPassword("zx@zx.com", "98956649", "65"));
+        assertTrue(authenticationService.triggerResetPassword("zx@zx.com", "95681265", "65"));
     }
 }

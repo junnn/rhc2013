@@ -252,7 +252,7 @@ public class AuthenticationServiceImpl extends RemoteServiceServlet implements A
     }
 
     @Override
-    public boolean triggerResetPassword(String email, String contact) throws IllegalArgumentException {
+    public boolean triggerResetPassword(String email, String contact, String countryCode) throws IllegalArgumentException {
 
         /**
          * Runnable class to allow sending of email to be
@@ -292,7 +292,7 @@ public class AuthenticationServiceImpl extends RemoteServiceServlet implements A
             criteria.add(Restrictions.eq("email", email));
             Student student = (Student)criteria.uniqueResult();
 
-            if(student.getContact().equals(contact)) {
+            if(student.getContact().equals(contact) && student.getCountryCode().equals(countryCode)) {
                 Thread t = new Thread(new SendPasswordResetEmail(email));
                 t.start();
 

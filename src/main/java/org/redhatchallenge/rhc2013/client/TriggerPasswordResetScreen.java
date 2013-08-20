@@ -30,6 +30,7 @@ public class TriggerPasswordResetScreen extends Composite {
     @UiField Label errorLabel;
     @UiField Anchor socialButton1;
     @UiField Anchor socialButton2;
+    @UiField ListBox countryCodeField;
 
     private AuthenticationServiceAsync authenticationService = null;
 
@@ -69,10 +70,11 @@ public class TriggerPasswordResetScreen extends Composite {
 
         final String email = emailField.getText();
         final String contact = contactField.getText();
+        final String countryCode = countryCodeField.getItemText(countryCodeField.getSelectedIndex());
 
         authenticationService = AuthenticationService.Util.getInstance();
 
-        authenticationService.triggerResetPassword(email, contact, new AsyncCallback<Boolean>() {
+        authenticationService.triggerResetPassword(email, contact, countryCode, new AsyncCallback<Boolean>() {
             @Override
             public void onFailure(Throwable caught) {
                 errorLabel.setText(messages.unexpectedError());

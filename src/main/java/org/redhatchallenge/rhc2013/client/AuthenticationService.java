@@ -24,7 +24,7 @@ public interface AuthenticationService extends RemoteService {
 
     public boolean setConfirmationStatus(String token) throws IllegalArgumentException;
 
-    public boolean triggerResetPassword(String email, String contact) throws IllegalArgumentException;
+    public boolean triggerResetPassword(String email, String contact, String countryCode) throws IllegalArgumentException;
 
     public String lookupEmailFromToken(String token) throws IllegalArgumentException;
 

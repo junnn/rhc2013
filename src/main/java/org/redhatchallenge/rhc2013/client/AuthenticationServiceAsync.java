@@ -20,7 +20,7 @@ public interface AuthenticationServiceAsync {
 
     void setConfirmationStatus(String token, AsyncCallback<Boolean> async);
 
-    void triggerResetPassword(String email, String contact, AsyncCallback<Boolean> async);
+    void triggerResetPassword(String email, String contact, String countryCode, AsyncCallback<Boolean> async);
 
     void lookupEmailFromToken(String token, AsyncCallback<String> async);
 
