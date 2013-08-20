@@ -7,6 +7,10 @@
     <ui:with field="res" type="org.redhatchallenge.rhc2013.resources.Resources"/>
 
     <g:HTMLPanel>
+        <meta property="og:title" content="I Can Haz Share Buh-ton" />
+        <meta property="og:description" content="How to Share Content from Your Website on Facebook!" />
+        <meta property="og:image" content="huebris-facebook-share-thumb.jpg" />
+
         <div class="{res.grid.clear}"/>
         <div class="{res.grid.container_12} {res.grid.clearfix}">
             <div id="main">
@@ -19,23 +23,25 @@
                             <!--<li><a href="https://www.facebook.com/sharer/sharer.php?u=example.org" target="_blank"> <img src="images/social_media_icons-16.png" alt="Facebook" /></a>-->
 
                             <td>
-                            <a href="#"
-                                   onclick="
-    window.open(
-      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
-      'facebook-share-dialog',
-      'width=626,height=436');
-    return false;">
-                                <img src="images/socialbutton1.png" alt="Facebook" />
-                            </a>
+                                <input type="image" class="btnClaim" src="images/socialButton1.png" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+<a href='http://redhatchallenge2013-rhc2013.rhcloud.com/'>Red Hat Challenge 2013<a>, 'facebook-share-dialog', 'width=626,height=436');"/>
+
+                                <!--<a href="#"-->
+                                   <!--onclick="-->
+                                <!--window.open(-->
+                                  <!--'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),-->
+                                  <!--'facebook-share-dialog',-->
+                                  <!--'width=626,height=436');-->
+                                <!--return false;">-->
+                                <!--<img src="images/socialbutton1.png" alt="Facebook" />-->
+                            <!--</a>-->
 
                             <a href="#"
                                    onclick="
-    window.open(
-      'https://twitter.com/intent/tweet?u='+encodeURIComponent(location.href),
-      'twitter-share-dialog',
-      'width=626,height=436');
-    return false;"> <img src="images/socialButton2.png" alt="Twitter" /></a></td></tr>
+                        window.open(
+                          'https://twitter.com/intent/tweet?u='+encodeURIComponent(location.href),
+                          'twitter-share-dialog',
+                          'width=626,height=436');
+                        return false;"> <img src="images/socialButton2.png" alt="Twitter" /></a></td></tr>
 
                         </div>
                         <div class="{res.main.panel02} {res.grid.clearfix}" style="margin-top: 1em;"/>

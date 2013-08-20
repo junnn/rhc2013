@@ -15,17 +15,16 @@
                 <div class="{res.grid.grid_12}">
                     <div>
                         <div >
+                            <g:HTML ui:field="welcomeLabel"/>
+
                             <div id="countdown"/>
 
                             <p id="note"/><br />
 
-
-                            <g:HTML ui:field="welcomeLabel"/>
-
-
                             <div class="{res.grid.grid_8} {res.grid.alpha}" style="margin-right: 40px">
                                 <div id="table">
                                     <table ui:field="table" style="width: 563px">
+
                                         <td colspan="2"><h2><ui:msg description="Official Rules">Basic Information</ui:msg></h2></td>
                                         <tr>
                                             <td style="width: 174px" class="{res.main.rowform}"><ui:msg description="RegisterScreen Email Address">Email Address:</ui:msg></td>
@@ -49,11 +48,13 @@
                                                 <h2><ui:msg description="Official Rules">Round 1 Rules</ui:msg></h2>
                                                 <p><ui:msg description="Test Rule 1 sentence">1) There will be a total of 150 MCQ (Multiple Choice Question) to be completed in 60min.</ui:msg></p>
                                                 <p><ui:msg description="Test Rule 2 sentence">2) There will be 1 question per page and it will be marked after you have submitted the answer.</ui:msg></p>
-                                                <p><ui:msg description="Test Rule 3 sentence">3) You will not be able to return to the previous question once you have submit your answer).</ui:msg></p>
-                                                <p><ui:msg description="Test Rule 4 sentence">4) If the timer have reached 0, the test will end and the latest score will be taken.</ui:msg></p>
-                                                <p><ui:msg description="Test Rule 5 sentence">5) You will be able to view your score only after the test have completed or ended.</ui:msg></p>
-                                                <p><ui:msg description="Test Rule 6 sentence">6) You will be tested on RHEL(Red Hat Enterprise Linux), Virtualization and Cloud Computing (To be confirm by Alan)</ui:msg></p>
-                                                <p><ui:msg description="Test Rule 7 sentence">7) You will be notify via Email/Mobile if you are selected to process to Round 2 of Red Hat Challenge 2013</ui:msg></p>
+                                                <p><ui:msg description="Test Rule 3 sentence">3) You will not be able to return to the previous question once you have submit your answer.</ui:msg></p>
+                                                <p><ui:msg description="Test Rule 4 sentence">4) For every correct answer, you will be awarded 2 marks and for every wrong answer 1 mark will be deducted from your score</ui:msg></p>
+                                                <p><ui:msg description="Test Rule 4 sentence">5) In any event of 2 or more contestant have the same score, the contestant with the quickest time to complete the Test will proceed to Round 2</ui:msg></p>
+                                                <p><ui:msg description="Test Rule 5 sentence">6) You will be able to view your score only after the test have completed or ended.</ui:msg></p>
+                                                <p><ui:msg description="Test Rule 6 sentence">7) You will be tested on RHEL(Red Hat Enterprise Linux), Virtualization and Cloud Computing (To be confirm by Alan)</ui:msg></p>
+                                                <p><ui:msg description="Test Rule 7 sentence">8) You will be notify via Email/Mobile if you are selected to process to Round 2 of Red Hat Challenge 2013</ui:msg></p>
+                                                <p><ui:msg description="Test Rule 7 sentence">9) For more information, please view the <a href="https://redhatchallenge2013-rhc2013.rhcloud.com/#tc">Terms and Condition</a></ui:msg></p>
 
                                             </td>
                                         </tr>
