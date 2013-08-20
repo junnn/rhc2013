@@ -97,7 +97,7 @@ public class AuthenticationServiceImpl extends RemoteServiceServlet implements A
                 token.setToken(EmailUtil.generateToken(32));
                 token.setEmail(email);
                 EmailUtil.sendEmail("Confirmation of account",
-                        "<html>Click here to confirm your account: " + "http://register-redhatchallenge.rhcloud.com/register/?confirmToken=" + token.getToken() + "</html>",
+                        "<html>Click here to confirm your account: " + "http://http://redhatchallenge2013-rhc2013.rhcloud.com#confirmToken/" + token.getToken() + "</html>",
                         "Your client does not support HTML messages, your token is " + token.getToken(),
                         email);
 
@@ -273,7 +273,7 @@ public class AuthenticationServiceImpl extends RemoteServiceServlet implements A
                 token.setToken(EmailUtil.generateToken(32));
                 token.setEmail(email);
                 EmailUtil.sendEmail("Password Reset",
-                        "<html>Reset your password here: " + "http://register-redhatchallenge.rhcloud.com/register/?resetToken=" + token.getToken() + "</html>",
+                        "<html>Reset your password here: " + "http://redhatchallenge2013-rhc2013.rhcloud.com#resetToken/" + token.getToken() + "</html>",
                         "Your client does not support HTML messages, your token is " + token.getToken(),
                         email);
 
