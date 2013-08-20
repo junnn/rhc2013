@@ -12,6 +12,7 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.*;
 import org.redhatchallenge.rhc2013.resources.Resources;
+import org.redhatchallenge.rhc2013.shared.FieldVerifier;
 
 /**
  * @author: Terry Chia (terrycwk1994@gmail.com)
@@ -31,6 +32,9 @@ public class LoginScreen extends Composite {
     @UiField Label errorLabel;
     @UiField Anchor socialButton1;
     @UiField Anchor socialButton2;
+
+    @UiField Label loginEmailLabel;
+    @UiField Label loginPasswordLabel;
 
     private AuthenticationServiceAsync authenticationService = null;
 
@@ -54,7 +58,30 @@ public class LoginScreen extends Composite {
 
     @UiHandler("loginButton")
     public void handleLoginButtonClick(ClickEvent event) {
-        authenticateStudent();
+
+        int successCounter = 0;
+
+        if(FieldVerifier.emailIsNull(emailField.getText())){
+            loginEmailLabel.setText(messages.emailEmpty());
+        }
+            else if(!FieldVerifier.isValidEmail(emailField.getText())){
+                loginEmailLabel.setText(messages.invalidEmailFormat());
+            }
+                else{
+                    loginEmailLabel.setText("");
+                    successCounter++;
+                }
+
+        if(FieldVerifier.passwordIsNull(passwordField.getText())){
+            loginPasswordLabel.setText(messages.emptyPassword());
+        }
+            else{
+                loginPasswordLabel.setText("");
+                successCounter++;
+            }
+        if(successCounter == 2){
+            authenticateStudent();
+        }
     }
 
     @UiHandler({"emailField", "passwordField", "rememberMeField"})

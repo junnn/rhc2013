@@ -4,6 +4,7 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style;
 import com.google.gwt.event.dom.client.ChangeEvent;
 import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.KeyPressEvent;
 import com.google.gwt.i18n.client.LocaleInfo;
 import com.google.gwt.storage.client.Storage;
 import com.google.gwt.storage.client.StorageMap;
@@ -231,10 +232,10 @@ public class ProfileScreen extends Composite {
         int successCounter = 0;
 
         if(FieldVerifier.emailIsNull(emailField.getText())){
-              emailLabel.setText("Email field cannot be empty.");
+              emailLabel.setText(messages.emailEmpty());
         }
             else if(!FieldVerifier.isValidEmail(emailField.getText())){
-                 emailLabel.setText("You have entered an invalid email format.");
+                 emailLabel.setText(messages.emailInvalidFormat());
             }
                 else{
                     emailLabel.setText("");
@@ -242,7 +243,7 @@ public class ProfileScreen extends Composite {
                 }
 
         if(FieldVerifier.fnIsNull(firstNameField.getText())){
-            firstNameLabel.setText("First Name field cannot be empty.");
+            firstNameLabel.setText(messages.emptyFirstName());
         }
             else{
                 firstNameLabel.setText("");
@@ -250,7 +251,7 @@ public class ProfileScreen extends Composite {
             }
 
         if(FieldVerifier.lnIsNull(lastNameField.getText())){
-            lastNameLabel.setText("Last Name field cannot be empty.");
+            lastNameLabel.setText(messages.emptyLastName());
         }
             else{
                 lastNameLabel.setText("");
@@ -258,10 +259,10 @@ public class ProfileScreen extends Composite {
             }
 
         if(FieldVerifier.contactIsNull(contactField.getText())){
-            contactLabel.setText("Contact field cannot be empty.");
+            contactLabel.setText(messages.emptyContact());
         }
             else if(!FieldVerifier.isValidContact(contactField.getText())){
-                contactLabel.setText("You have entered an invalid contact number.");
+                contactLabel.setText(messages.contactInvalid());
             }
                 else{
                     contactLabel.setText("");
@@ -269,7 +270,7 @@ public class ProfileScreen extends Composite {
                 }
 
         if(FieldVerifier.schoolIsNull(schoolField.getText())){
-            schoolLabel.setText("School field cannot be empty.");
+            schoolLabel.setText(messages.emptySchool());
         }
             else{
                 schoolLabel.setText("");
@@ -309,6 +310,13 @@ public class ProfileScreen extends Composite {
 
         if(successCounter == 5){
             updateProfile();
+        }
+    }
+
+    @UiHandler("contactField")
+    public void handleContactKeyPress(KeyPressEvent event) {
+        if (!Character.isDigit(event.getCharCode())) {
+            ((TextBox) event.getSource()).cancelKey();
         }
     }
 

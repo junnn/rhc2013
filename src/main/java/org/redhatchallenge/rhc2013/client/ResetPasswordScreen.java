@@ -17,6 +17,7 @@ import org.redhatchallenge.rhc2013.client.AuthenticationService;
 import org.redhatchallenge.rhc2013.client.AuthenticationServiceAsync;
 import org.redhatchallenge.rhc2013.client.ContentContainer;
 import org.redhatchallenge.rhc2013.client.MessageScreen;
+import org.redhatchallenge.rhc2013.shared.FieldVerifier;
 
 /**
  * @author: Terry Chia (terrycwk1994@gmail.com)
@@ -36,6 +37,9 @@ public class ResetPasswordScreen extends Composite {
     @UiField Label errorLabel;
     @UiField Anchor socialButton1;
     @UiField Anchor socialButton2;
+
+    @UiField Label confirmPasswordLabel;
+    @UiField Label resetPasswordLabel;
 
     private String token = Window.Location.getParameter("resetToken");
     private AuthenticationServiceAsync authenticationService = null;
@@ -71,7 +75,34 @@ public class ResetPasswordScreen extends Composite {
 
     @UiHandler("resetPasswordButton")
     public void handleResetPasswordButtonClick(ClickEvent event) {
-        resetPassword();
+        int successCounter = 0;
+
+        if(FieldVerifier.passwordIsNull(passwordField.getText())){
+            resetPasswordLabel.setText(messages.emptyPassword());
+        }
+            else if(!FieldVerifier.isValidPassword(passwordField.getText())){
+                resetPasswordLabel.setText(messages.passwordInvalidFormat());
+        }
+                else{
+                    resetPasswordLabel.setText("");
+                    successCounter++;
+                }
+
+        if(FieldVerifier.passwordIsNull(confirmPasswordField.getText())){
+            confirmPasswordLabel.setText(messages.emptyConfirmPassword());
+        }
+            else if(!confirmPasswordField.getText().equals(passwordField.getText())){
+                  confirmPasswordLabel.setText(messages.passwordNotMatch());
+            }
+                else{
+                    confirmPasswordLabel.setText("");
+                    successCounter++;
+                }
+
+        if(successCounter == 2){
+            resetPassword();
+        }
+
     }
 
     @UiHandler({"passwordField", "confirmPasswordField"})

@@ -131,7 +131,8 @@ public class Entry implements EntryPoint {
         }
 
         else {
-            ContentContainer.INSTANCE.setContent(new IndexScreen());
+//            ContentContainer.INSTANCE.setContent(new TriggerPasswordResetScreen());
+            ContentContainer.INSTANCE.setContent(new LoginScreen());
         }
     }
 }

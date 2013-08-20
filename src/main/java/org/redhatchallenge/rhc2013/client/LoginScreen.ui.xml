@@ -26,16 +26,25 @@
                         <div id="table2" style="width: 360px">
                             <table>
                                 <tr>
-                                    <td><h1><ui:msg description="Login Header">LOGIN</ui:msg></h1></td>
+                                    <p><FONT SIZE="5"><B><ui:msg description="Login Header">LOGIN</ui:msg></B></FONT></p>
                                 </tr>
                                 <tr>
-                                    <td style="width: 100" class="{res.main.rowform}"><ui:msg description="Email Address">Email Address:</ui:msg></td>
-                                    <td class="{res.main.rowform}"><g:TextBox ui:field="emailField" maxLength="120" visibleLength="33"/></td>
+                                    <td width="100"><ui:msg description="LoginScreen Email Address">Email Address:</ui:msg></td>
+                                    <td width="268"><span class="rowform"><g:TextBox ui:field="emailField" maxLength="50" visibleLength="33"/></span></td>
                                 </tr>
                                 <tr>
-                                    <td class="{res.main.rowform}"><ui:msg description="Password">Password:</ui:msg></td>
-                                    <td class="{res.main.rowform}"><g:PasswordTextBox ui:field="passwordField" maxLength="120" visibleLength="33"/></td>
+                                    <td width="174">&nbsp;</td>
+                                    <td class="{res.main.rowform}"><g:Label ui:field="loginEmailLabel"/></td>
                                 </tr>
+                                <tr>
+                                    <td width="100"><ui:msg description="LoginScreen Password">Password:</ui:msg></td>
+                                    <td width="268"><span class="rowform"><g:PasswordTextBox ui:field="passwordField" maxLength="72" visibleLength="33"/></span></td>
+                                </tr>
+                                <tr>
+                                    <td width="174">&nbsp;</td>
+                                    <td class="{res.main.rowform}"><g:Label ui:field="loginPasswordLabel"/></td>
+                                </tr>
+                                <tr><td width="174">&nbsp;</td></tr>
                                 <tr>
                                     <td class="{res.main.rowform}">&nbsp;</td>
                                     <td class="{res.main.rowform}"><g:CheckBox ui:field="rememberMeField"/><ui:msg description="Keep me login">Keep me logged in</ui:msg></td>
