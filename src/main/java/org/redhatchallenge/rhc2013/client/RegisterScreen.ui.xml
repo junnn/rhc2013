@@ -29,7 +29,7 @@
                             <table ui:field="table" style="width: 563px">
                                 <tr>
                                     <td colspan="2">
-                                        <p><FONT SIZE="6"><B><ui:msg description="RegisterScreen Header1">REGISTRATION</ui:msg></B></FONT></p>
+                                        <p><FONT SIZE="5"><B><ui:msg description="RegisterScreen Header1">REGISTRATION</ui:msg></B></FONT></p>
                                         <FONT SIZE="2"><B><ui:msg description="RegisterScreen Header1">*Please fill in all the required fields below.</ui:msg></B></FONT>
                                     </td>
                                 </tr>
@@ -109,6 +109,7 @@
                                         </g:ListBox>
                                     </td>
                                 </tr>
+                                <td width="174">&nbsp;</td>
                                 <tr>
                                     <td class="{res.main.rowform}"><ui:msg description="RegisterScreen Contact">Contact:</ui:msg></td>
                                     <td class="{res.main.rowform}">

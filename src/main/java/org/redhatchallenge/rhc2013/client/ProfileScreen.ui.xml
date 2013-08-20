@@ -27,10 +27,9 @@
                             <table ui:field="table" style="width: 463px">
                                 <tr>
                                     <td colspan="2">
-                                        <p><FONT SIZE="6"><B>EDIT PROFILE</B></FONT></p>
+                                        <p><FONT SIZE="5"><B><ui:msg description="Edit Profile header">EDIT PROFILE</ui:msg></B></FONT></p>
                                     </td>
                                 </tr>
-                                <tr><td colspan="2">&nbsp;</td></tr>
                                 <tr>
                                     <td colspan="2">
                                         <font size="2" color="#CC0000"><ui:msg description="Personal Details">PERSONAL DETAILS</ui:msg></font><div class="border2" style="width:360px; color: #CC0000; border-bottom: solid 3px"/>
@@ -39,7 +38,7 @@
                                 <tr><td colspan="2">&nbsp;</td></tr>
                                 <tr><td colspan="2">&nbsp;</td></tr>
                                 <tr>
-                                    <td width="174">Email Address:</td>
+                                    <td width="174"><ui:msg description="Email Address">Email Address:</ui:msg></td>
                                     <td width="268"><span class="rowform"><g:TextBox ui:field="emailField" maxLength="50" visibleLength="33"/></span></td>
                                 </tr>
                                 <tr>
@@ -47,31 +46,7 @@
                                     <td class="{res.main.rowform}"><g:Label ui:field="emailLabel"/></td>
                                 </tr>
                                 <tr>
-                                    <td width="174">Current Password:</td>
-                                    <td width="268"><span class="rowform"><g:PasswordTextBox ui:field="currentPasswordField" maxLength="72" visibleLength="33"/></span></td>
-                                </tr>
-                                <tr>
-                                    <td width="174">&nbsp;</td>
-                                    <td class="{res.main.rowform}"><g:Label ui:field="currentPasswordLabel"/></td>
-                                </tr>
-                                <tr>
-                                    <td width="174">New Password:</td>
-                                    <td width="268"><span class="rowform"><g:PasswordTextBox ui:field="passwordField" maxLength="72" visibleLength="33"/></span></td>
-                                </tr>
-                                <tr>
-                                    <td width="174">&nbsp;</td>
-                                    <td class="{res.main.rowform}"><g:Label ui:field="passwordLabel"/></td>
-                                </tr>
-                                <tr>
-                                    <td width="174">Confirm Password:</td>
-                                    <td width="268"><span class="rowform"><g:PasswordTextBox ui:field="confirmPasswordField" maxLength="72" visibleLength="33"/></span></td>
-                                </tr>
-                                <tr>
-                                    <td width="174">&nbsp;</td>
-                                    <td class="{res.main.rowform}"><g:Label ui:field="confirmPasswordLabel"/></td>
-                                </tr>
-                                <tr>
-                                    <td width="174">First Name:</td>
+                                    <td width="174"><ui:msg description="First name">First Name:</ui:msg></td>
                                     <td width="268"><span class="rowform"><g:TextBox ui:field="firstNameField" maxLength="30" visibleLength="33"/></span></td>
                                 </tr>
                                 <tr>
@@ -79,7 +54,7 @@
                                     <td class="{res.main.rowform}"><g:Label ui:field="firstNameLabel"/></td>
                                 </tr>
                                 <tr>
-                                    <td width="174">Last Name:</td>
+                                    <td width="174"><ui:msg description="Last name">Last Name:</ui:msg></td>
                                     <td width="268"><span class="rowform"><g:TextBox ui:field="lastNameField" maxLength="30" visibleLength="33"/></span></td>
                                 </tr>
                                 <tr>
@@ -128,7 +103,7 @@
                                     <td class="{res.main.rowform}"><g:Label ui:field="contactLabel"/></td>
                                 </tr>
                                 <tr>
-                                    <td width="174">School:</td>
+                                    <td width="174"><ui:msg description="School">School:</ui:msg></td>
                                     <td width="268"><span class="rowform"><g:TextBox ui:field="schoolField" maxLength="50" visibleLength="33"/></span></td>
                                 </tr>
                                 <tr>
@@ -136,7 +111,7 @@
                                     <td class="{res.main.rowform}"><g:Label ui:field="schoolLabel"/></td>
                                 </tr>
                                 <tr>
-                                    <td class="{res.main.rowform}">Lecturer's First Name:</td>
+                                    <td class="{res.main.rowform}"><ui:msg description="Lecturer's First Name">Lecturer's First Name:</ui:msg></td>
                                     <td class="{res.main.rowform}"><g:TextBox ui:field="lecturerFirstNameField" maxLength="30" visibleLength="33"/></td>
                                 </tr>
                                 <tr><td width="174">&nbsp;</td></tr>
@@ -146,7 +121,7 @@
                                 </tr>
                                 <tr><td width="174">&nbsp;</td></tr>
                                 <tr>
-                                    <td class="{res.main.rowform}">Lecturer's Email:</td>
+                                    <td class="{res.main.rowform}"><ui:msg description="Lecturer's Last Name">Lecturer's Email:</ui:msg></td>
                                     <td class="{res.main.rowform}"><g:TextBox ui:field="lecturerEmailField" maxLength="50" visibleLength="33"/></td>
                                 </tr>
                                 <tr><td width="174">&nbsp;</td></tr>
@@ -159,6 +134,38 @@
                                             <g:item value="3"><ui:msg description="Chinese Traditional">Chinese (Traditional)</ui:msg></g:item>
                                         </g:ListBox>
                                     </td>
+                                </tr>
+                                <tr><td width="174">&nbsp;</td></tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <font size="2" color="#CC0000"><ui:msg description="Change Password">CHANGE PASSWORD</ui:msg></font><div class="border2" style="width:360px; color: #CC0000; border-bottom: solid 3px"/>
+                                    </td>
+                                </tr>
+                                <tr><td colspan="2">&nbsp;</td></tr>
+                                <tr><td colspan="2">&nbsp;</td></tr>
+                                <tr>
+                                    <td width="174"><ui:msg description="Current Password">Current Password:</ui:msg></td>
+                                    <td width="268"><span class="rowform"><g:PasswordTextBox ui:field="currentPasswordField" maxLength="72" visibleLength="33"/></span></td>
+                                </tr>
+                                <tr>
+                                    <td width="174">&nbsp;</td>
+                                    <td class="{res.main.rowform}"><g:Label ui:field="currentPasswordLabel"/></td>
+                                </tr>
+                                <tr>
+                                    <td width="174"><ui:msg description="New password">New Password:</ui:msg></td>
+                                    <td width="268"><span class="rowform"><g:PasswordTextBox ui:field="passwordField" maxLength="72" visibleLength="33"/></span></td>
+                                </tr>
+                                <tr>
+                                    <td width="174">&nbsp;</td>
+                                    <td class="{res.main.rowform}"><g:Label ui:field="passwordLabel"/></td>
+                                </tr>
+                                <tr>
+                                    <td width="174"><ui:msg description="Confirm password">Confirm Password:</ui:msg></td>
+                                    <td width="268"><span class="rowform"><g:PasswordTextBox ui:field="confirmPasswordField" maxLength="72" visibleLength="33"/></span></td>
+                                </tr>
+                                <tr>
+                                    <td width="174">&nbsp;</td>
+                                    <td class="{res.main.rowform}"><g:Label ui:field="confirmPasswordLabel"/></td>
                                 </tr>
                                 <tr>
                                     <td colspan="2"><g:VerticalPanel ui:field="recaptchaPanel"/></td>
