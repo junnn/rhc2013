@@ -10,7 +10,6 @@ public class Jquery {
     public static native void bindEn(int time) /*-{
 
         $wnd.jQuery(function(){
-
             var note = $wnd.$('#note'),
                 ts = new Date(2012, 0, 1),
                 newYear = true;
@@ -18,7 +17,7 @@ public class Jquery {
             if((new Date()) > ts){
                 // The new year is here! Count towards something else.
                 // Notice the *1000 at the end - time must be in milliseconds
-                ts = (new Date()).getTime() + time;
+                ts = (new Date()).getTime() + time*1000;
                 newYear = false;
             }
 
@@ -58,7 +57,7 @@ public class Jquery {
             if((new Date()) > ts){
                 // The new year is here! Count towards something else.
                 // Notice the *1000 at the end - time must be in milliseconds
-                ts = (new Date()).getTime() + time;
+                ts = (new Date()).getTime() + time*1000;
                 newYear = false;
             }
 
@@ -98,7 +97,7 @@ public class Jquery {
             if((new Date()) > ts){
                 // The new year is here! Count towards something else.
                 // Notice the *1000 at the end - time must be in milliseconds
-                ts = (new Date()).getTime() + time;
+                ts = (new Date()).getTime() + time*1000;
                 newYear = false;
             }
 

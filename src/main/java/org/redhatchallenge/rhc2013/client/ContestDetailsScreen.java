@@ -36,9 +36,9 @@ public class ContestDetailsScreen extends Composite {
 
     public ContestDetailsScreen() {
 
-        initWidget(UiBinder.createAndBindUi(this));
-
         Jquery.countdown();
+
+        initWidget(UiBinder.createAndBindUi(this));
 
         emailField.setReadOnly(true);
         timeSlotField.setReadOnly(true);
@@ -51,7 +51,7 @@ public class ContestDetailsScreen extends Composite {
          */
         final Storage localStorage = Storage.getLocalStorageIfSupported();
         StorageMap localStorageMap = new StorageMap(localStorage);
-        if(localStorageMap.size() != 11) {
+        if(localStorageMap.size() != 12) {
             profileService = ProfileService.Util.getInstance();
             profileService.getProfileData(new AsyncCallback<Student>() {
                 @Override
@@ -69,19 +69,29 @@ public class ContestDetailsScreen extends Composite {
                         welcomeLabel.setHTML("<FONT SIZE=6>"+ messages.hello() + ", "+ result.getFirstName() + "</FONT>");
                         emailField.setText(result.getEmail());
                         languageField.setText(result.getLanguage());
-                        Date date = new Date(result.getTimeslot());
-                        timeSlotField.setText(DateTimeFormat.getFormat(DateTimeFormat.PredefinedFormat.DATE_TIME_SHORT).format(date));
+
+                        /**
+                         * If timeslot has not yet been assigned, inform the user so.
+                         */
+                        if(result.getTimeslot() != 0) {
+                            Date date = new Date(result.getTimeslot());
+                            timeSlotField.setText(DateTimeFormat.getFormat(DateTimeFormat.PredefinedFormat.DATE_TIME_SHORT).format(date));
+                        }
+
+                        else {
+                            timeSlotField.setText("You have not been assigned a timeslot");
+                        }
 
 
                         if(LocaleInfo.getCurrentLocale().getLocaleName().equals("en")) {
-                            Jquery.bindEn(5*24*60*60*1000);
+                            Jquery.bindEn(safeLongToInt(result.getTimeslot()/1000 - new Date().getTime()/1000));
                         }
 
                         else if(LocaleInfo.getCurrentLocale().getLocaleName().equals("ch")) {
-                            Jquery.bindCh(5*24*60*60*1000);
+                            Jquery.bindCh(safeLongToInt(result.getTimeslot()/1000 - new Date().getTime()/1000));
                         }
                         else if(LocaleInfo.getCurrentLocale().getLocaleName().equals("zh")) {
-                            Jquery.bindCh(5*24*60*60*1000);
+                            Jquery.bindZh(safeLongToInt(result.getTimeslot()/1000 - new Date().getTime()/1000));
                         }
 
                         /**
@@ -111,18 +121,30 @@ public class ContestDetailsScreen extends Composite {
             welcomeLabel.setHTML("<FONT SIZE=6>"+ messages.hello() + ", "+ localStorage.getItem("firstName")  +"</FONT>");
             emailField.setText(localStorage.getItem("email"));
             languageField.setText(localStorage.getItem("language"));
-            Date date = new Date(localStorage.getItem("timeSlot"));
-            timeSlotField.setText(DateTimeFormat.getFormat(DateTimeFormat.PredefinedFormat.DATE_TIME_SHORT).format(date));
+
+            /**
+             * If timeslot has not yet been assigned, inform the user so.
+             */
+            if(Long.parseLong(localStorage.getItem("timeSlot")) != 0) {
+                Date date = new Date(Long.parseLong(localStorage.getItem("timeSlot")));
+                timeSlotField.setText(DateTimeFormat.getFormat(DateTimeFormat.PredefinedFormat.DATE_TIME_SHORT).format(date));
+            }
+
+            else {
+                timeSlotField.setText("You have not been assigned a timeslot");
+            }
+
 
             if(LocaleInfo.getCurrentLocale().getLocaleName().equals("en")) {
-                Jquery.bindEn(5*24*60*60*1000);
+                Jquery.bindEn(safeLongToInt(Long.parseLong(localStorage.getItem("timeSlot"))/1000 - new Date().getTime()/1000));
             }
 
             else if(LocaleInfo.getCurrentLocale().getLocaleName().equals("ch")) {
-                Jquery.bindCh(5*24*60*60*1000);
+                Jquery.bindCh(safeLongToInt(Long.parseLong(localStorage.getItem("timeSlot"))/1000 - new Date().getTime()/1000));
             }
+
             else if(LocaleInfo.getCurrentLocale().getLocaleName().equals("zh")) {
-                Jquery.bindCh(5*24*60*60*1000);
+                Jquery.bindZh(safeLongToInt(Long.parseLong(localStorage.getItem("timeSlot"))/1000 - new Date().getTime()/1000));
             }
         }
     }
@@ -134,4 +156,6 @@ public class ContestDetailsScreen extends Composite {
         }
         return (int) l;
     }
+
+
 }

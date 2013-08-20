@@ -49,7 +49,7 @@ public class AuthenticatedHeader extends Composite {
          */
         final Storage localStorage = Storage.getLocalStorageIfSupported();
         StorageMap localStorageMap = new StorageMap(localStorage);
-        if(localStorageMap.size() != 11) {
+        if(localStorageMap.size() != 12) {
             profileService = ProfileService.Util.getInstance();
             profileService.getProfileData(new AsyncCallback<Student>() {
                 @Override

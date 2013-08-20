@@ -129,9 +129,9 @@ public class LoginScreen extends Composite {
                     Storage localStorage = Storage.getLocalStorageIfSupported();
                     localStorage.clear();
 
-                    History.newItem("details", true);
                     RootPanel.get("header").clear();
                     RootPanel.get("header").add(new AuthenticatedHeader());
+                    History.newItem("details", true);
                 }
 
                 else {

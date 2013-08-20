@@ -96,7 +96,7 @@ public class ProfileScreen extends Composite {
          */
         final Storage localStorage = Storage.getLocalStorageIfSupported();
         StorageMap localStorageMap = new StorageMap(localStorage);
-        if(localStorageMap.size() != 11) {
+        if(localStorageMap.size() != 12) {
             profileService.getProfileData(new AsyncCallback<Student>() {
                 @Override
                 public void onFailure(Throwable throwable) {

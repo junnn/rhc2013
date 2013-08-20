@@ -13,6 +13,8 @@ import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.*;
 import org.redhatchallenge.rhc2013.resources.Resources;
 
+import java.util.Date;
+
 /**
  * @author  Terry Chia (terrycwk1994@gmail.com)
  */
@@ -77,15 +79,23 @@ public class IndexScreen extends Composite {
         super.onAttach();
         Jquery.countdown();
         if(LocaleInfo.getCurrentLocale().getLocaleName().equals("en")) {
-            Jquery.bindEn(5*24*60*60*1000);
+            Jquery.bindEn(1382490000 - safeLongToInt(new Date().getTime()/1000));
         }
 
         else if(LocaleInfo.getCurrentLocale().getLocaleName().equals("ch")) {
-            Jquery.bindCh(5*24*60*60*1000);
+            Jquery.bindCh(1382490000 - safeLongToInt(new Date().getTime()/1000));
         }
         else if(LocaleInfo.getCurrentLocale().getLocaleName().equals("zh")) {
-            Jquery.bindCh(5*24*60*60*1000);
+            Jquery.bindCh(1382490000 - safeLongToInt(new Date().getTime()/1000));
         }
         Jquery.prettyPhoto();
+    }
+
+    private static int safeLongToInt(long l) {
+        if (l < Integer.MIN_VALUE || l > Integer.MAX_VALUE) {
+            throw new IllegalArgumentException
+                    (l + " cannot be cast to int without changing its value.");
+        }
+        return (int) l;
     }
 }
