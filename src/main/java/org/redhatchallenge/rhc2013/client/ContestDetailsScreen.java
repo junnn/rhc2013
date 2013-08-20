@@ -66,7 +66,7 @@ public class ContestDetailsScreen extends Composite {
                     }
 
                     else {
-                        welcomeLabel.setHTML("<FONT SIZE=6>"+ messages.hello() + ", "+ result.getFirstName() + ". Welcome to Red Hat Challenge 2013!" +"</FONT>");
+                        welcomeLabel.setHTML("<FONT SIZE=6>"+ messages.hello() + ", "+ result.getFirstName() + "</FONT>");
                         emailField.setText(result.getEmail());
                         languageField.setText(result.getLanguage());
                         Date date = new Date(result.getTimeslot());
@@ -108,7 +108,7 @@ public class ContestDetailsScreen extends Composite {
         }
 
         else {
-            welcomeLabel.setHTML("<FONT SIZE=6>" + messages.hello() + ", " + localStorage.getItem("firstName") + ". Welcome to Red Hat Challenge 2013!" + "</FONT>");
+            welcomeLabel.setHTML("<FONT SIZE=6>"+ messages.hello() + ", "+ localStorage.getItem("firstName")  +"</FONT>");
             emailField.setText(localStorage.getItem("email"));
             languageField.setText(localStorage.getItem("language"));
             Date date = new Date(localStorage.getItem("timeSlot"));
