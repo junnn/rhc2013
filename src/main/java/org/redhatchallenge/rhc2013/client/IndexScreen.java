@@ -8,6 +8,7 @@ import com.google.gwt.i18n.client.LocaleInfo;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.*;
 import org.redhatchallenge.rhc2013.resources.Resources;
@@ -25,10 +26,11 @@ public class IndexScreen extends Composite {
     @UiField HTML challengeLink;
     @UiField Anchor socialButton1;
     @UiField Anchor socialButton2;
+    @UiField HTML videoOne;
+    @UiField HTML videoTwo;
+    @UiField HTML videoThree;
 
     public IndexScreen() {
-
-        ScriptInjector.fromUrl("js/jquery-1.7.1.min.js").inject();
 
         Resources.INSTANCE.main().ensureInjected();
         Resources.INSTANCE.grid().ensureInjected();
@@ -47,13 +49,20 @@ public class IndexScreen extends Composite {
             socialButton1.setVisible(false);
             socialButton2.setTarget("_blank");
             socialButton2.setHref("http://e.weibo.com/redhatchina");
-
+            videoOne.setHTML("<a href=\"http://www.youtube.com/watch?v=0OqAvmwg-zU\" rel=\"prettyPhoto\" title=\"\" id=\"vid2012\"><img src=\"images/home_video_21.jpg\" /></a>");
+            videoTwo.setHTML("<a href=\"https://www.facebook.com/video/embed?video_id=10150591836889283&amp;iframe=true\" rel=\"prettyPhoto\"><img src=\"images/home_video_22.jpg\" /></a>");
+            videoThree.setHTML("<a href=\"https://www.facebook.com/video/embed?video_id=10151393170889283&amp;iframe=true\" rel=\"prettyPhoto\"><img src=\"images/home_video_23.jpg\" /></a>");
         }
+
         else {
             socialButton1.setTarget("_blank");
             socialButton1.setHref("https://www.facebook.com/redhatinc?fref=ts");
             socialButton2.setTarget("_blank");
             socialButton2.setHref("https://twitter.com/red_hat_apac");
+
+            videoOne.setHTML("<a href=\"http://www.youtube.com/watch?v=35ZKmL4OfeI\" rel=\"prettyPhoto\" title=\"\" id=\"vid2012\"><img src=\"images/home_video_21.jpg\" /></a>");
+            videoTwo.setHTML("<a href=\"https://www.facebook.com/video/embed?video_id=10150591836889283&amp;iframe=true\" rel=\"prettyPhoto\"><img src=\"images/home_video_22.jpg\" /></a>");
+            videoThree.setHTML("<a href=\"https://www.facebook.com/video/embed?video_id=10151393170889283&amp;iframe=true\" rel=\"prettyPhoto\"><img src=\"images/home_video_23.jpg\" /></a>");
         }
 
     }
