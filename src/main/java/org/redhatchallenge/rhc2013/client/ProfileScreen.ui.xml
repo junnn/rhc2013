@@ -229,6 +229,4 @@
         <!--<g:Label ui:field="errorLabel"/>-->
         <!--<g:Hyperlink ui:field="contestDetailsLink" text="Click here to return to your details page"/>-->
     <!--</g:HTMLPanel>-->
-
-
 <!--</ui:UiBinder>-->
