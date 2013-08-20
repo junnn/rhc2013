@@ -72,6 +72,8 @@ public class LoginScreen extends Composite {
 
     private void authenticateStudent() {
 
+        loginButton.setResource(Resources.INSTANCE.loginButtonGrey());
+
         final String email = emailField.getText();
         final String password = passwordField.getText();
         final Boolean rememberMe = rememberMeField.getValue();
@@ -82,6 +84,7 @@ public class LoginScreen extends Composite {
             @Override
             public void onFailure(Throwable throwable) {
                 errorLabel.setText(messages.unexpectedError());
+                loginButton.setResource(Resources.INSTANCE.loginButton());
             }
 
             @Override
@@ -101,6 +104,7 @@ public class LoginScreen extends Composite {
 
                 else {
                     errorLabel.setText(messages.loginUnsuccessful());
+                    loginButton.setResource(Resources.INSTANCE.loginButton());
                 }
 
             }

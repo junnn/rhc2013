@@ -1,6 +1,7 @@
 package org.redhatchallenge.rhc2013.client;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.Style;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.KeyCodes;
 import com.google.gwt.event.dom.client.KeyUpEvent;
@@ -10,6 +11,7 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.*;
+import org.redhatchallenge.rhc2013.resources.Resources;
 
 /**
  * @author: Terry Chia (terrycwk1994@gmail.com)
@@ -42,6 +44,8 @@ public class TriggerPasswordResetScreen extends Composite {
             socialButton1.setHref("https://www.facebook.com/redhatinc?fref=ts");
             socialButton2.setHref("https://twitter.com/red_hat_apac");
         }
+
+        resetPasswordButton.getElement().getStyle().setCursor(Style.Cursor.POINTER);
     }
 
     @UiHandler("resetPasswordButton")
@@ -58,6 +62,8 @@ public class TriggerPasswordResetScreen extends Composite {
 
     private void resetPassword() {
 
+        resetPasswordButton.setResource(Resources.INSTANCE.submitButtonGrey());
+
         final String email = emailField.getText();
         final String contact = contactField.getText();
 
@@ -67,6 +73,7 @@ public class TriggerPasswordResetScreen extends Composite {
             @Override
             public void onFailure(Throwable caught) {
                 errorLabel.setText(messages.unexpectedError());
+                resetPasswordButton.setResource(Resources.INSTANCE.submitButton());
             }
 
             @Override
@@ -77,6 +84,7 @@ public class TriggerPasswordResetScreen extends Composite {
 
                 else {
                     errorLabel.setText(messages.passwordResetError());
+                    resetPasswordButton.setResource(Resources.INSTANCE.submitButton());
                 }
             }
         });

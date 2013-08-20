@@ -36,14 +36,23 @@ public interface Resources extends ClientBundle {
     @Source("image/login_button.png")
     ImageResource loginButton();
 
+    @Source("image/login_button_grey.png")
+    ImageResource loginButtonGrey();
+
     @Source("image/reg_button.png")
     ImageResource registrationIcon();
 
     @Source("image/submit_button.png")
     ImageResource submitButton();
 
+    @Source("image/submit_button_grey.png")
+    ImageResource submitButtonGrey();
+
     @Source("image/saveprofile_button.png")
     ImageResource saveButton();
+
+    @Source("image/saveprofile_button_grey.png")
+    ImageResource saveButtonGrey();
 
     @Source("image/socialbutton1.png")
     ImageResource socialButton1();

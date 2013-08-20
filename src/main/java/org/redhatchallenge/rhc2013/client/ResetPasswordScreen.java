@@ -17,6 +17,7 @@ import org.redhatchallenge.rhc2013.client.AuthenticationService;
 import org.redhatchallenge.rhc2013.client.AuthenticationServiceAsync;
 import org.redhatchallenge.rhc2013.client.ContentContainer;
 import org.redhatchallenge.rhc2013.client.MessageScreen;
+import org.redhatchallenge.rhc2013.resources.Resources;
 
 /**
  * @author: Terry Chia (terrycwk1994@gmail.com)
@@ -84,6 +85,8 @@ public class ResetPasswordScreen extends Composite {
 
     private void resetPassword() {
 
+        resetPasswordButton.setResource(Resources.INSTANCE.submitButtonGrey());
+
         final String email = emailLabel.getText();
         final String password = passwordField.getText();
 
@@ -93,6 +96,7 @@ public class ResetPasswordScreen extends Composite {
             @Override
             public void onFailure(Throwable caught) {
                 errorLabel.setText(messages.unexpectedError());
+                resetPasswordButton.setResource(Resources.INSTANCE.submitButton());
             }
 
             @Override
@@ -103,6 +107,7 @@ public class ResetPasswordScreen extends Composite {
 
                 else {
                     errorLabel.setText(messages.errorResetPassword());
+                    resetPasswordButton.setResource(Resources.INSTANCE.submitButton());
                 }
             }
         });

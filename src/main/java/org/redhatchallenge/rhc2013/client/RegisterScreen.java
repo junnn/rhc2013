@@ -249,6 +249,8 @@ public class RegisterScreen extends Composite {
 
     private void registerStudent() {
 
+        registerButton.setResource(Resources.INSTANCE.submitButtonGrey());
+
         final String email = emailField.getText();
         final String password = passwordField.getText();
         final String firstName = firstNameField.getText();
@@ -284,7 +286,7 @@ public class RegisterScreen extends Composite {
             @Override
             public void onFailure(Throwable throwable) {
                 errorLabel.setText(messages.unexpectedError());
-                //ContentContainer.INSTANCE.setContent(new verifyMessageScreen(messages.verifyMailMessage(firstName, email)));
+                registerButton.setResource(Resources.INSTANCE.submitButton());
             }
 
             @Override
@@ -295,7 +297,8 @@ public class RegisterScreen extends Composite {
 
                 else {
                     errorLabel.setText(messages.emailTaken());
-                    }
+                    registerButton.setResource(Resources.INSTANCE.submitButton());
+                }
                 }
             });
         }

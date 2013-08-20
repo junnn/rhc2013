@@ -332,6 +332,8 @@ public class ProfileScreen extends Composite {
 
     private void updateProfile() {
 
+        updateButton.setResource(Resources.INSTANCE.saveButtonGrey());
+
         final String email = emailField.getText();
         final String oldPassword = currentPasswordField.getText();
         final String newPassword = passwordField.getText();
@@ -366,6 +368,7 @@ public class ProfileScreen extends Composite {
             @Override
             public void onFailure(Throwable throwable) {
                 errorLabel.setText(messages.unexpectedError());
+                updateButton.setResource(Resources.INSTANCE.saveButton());
             }
 
             @Override
@@ -397,6 +400,7 @@ public class ProfileScreen extends Composite {
 
                 else {
                     errorLabel.setText(messages.profileUpdateFail());
+                    updateButton.setResource(Resources.INSTANCE.saveButton());
                 }
             }
         });
