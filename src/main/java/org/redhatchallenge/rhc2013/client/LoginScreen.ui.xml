@@ -34,7 +34,7 @@
                                 </tr>
                                 <tr>
                                     <td width="174">&nbsp;</td>
-                                    <td class="{res.main.rowform}"><g:Label ui:field="loginEmailLabel"/></td>
+                                    <td class="{res.main.rowform}"><FONT COLOR="red"><g:Label ui:field="loginEmailLabel"/></FONT></td>
                                 </tr>
                                 <tr>
                                     <td width="100"><ui:msg description="LoginScreen Password">Password:</ui:msg></td>
@@ -42,7 +42,7 @@
                                 </tr>
                                 <tr>
                                     <td width="174">&nbsp;</td>
-                                    <td class="{res.main.rowform}"><g:Label ui:field="loginPasswordLabel"/></td>
+                                    <td class="{res.main.rowform}"><FONT COLOR="red"><g:Label ui:field="loginPasswordLabel"/></FONT></td>
                                 </tr>
                                 <tr><td width="174">&nbsp;</td></tr>
                                 <tr>
@@ -58,7 +58,7 @@
                                     <td><ui:msg description="ResetPassword"><g:Hyperlink ui:field="resetPasswordLink" text="*Forgot your password?" styleName="{res.main.link}" targetHistoryToken="forget-password"/></ui:msg></td>
                                 </tr>
                                 <tr>
-                                    <td><g:Label ui:field="errorLabel"/></td>
+                                    <td><FONT COLOR="red"><g:Label ui:field="errorLabel"/></FONT></td>
                                 </tr>
                             </table>
                         </div>
