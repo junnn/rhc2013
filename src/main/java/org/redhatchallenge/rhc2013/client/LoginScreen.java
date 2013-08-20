@@ -6,6 +6,7 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.KeyCodes;
 import com.google.gwt.event.dom.client.KeyUpEvent;
 import com.google.gwt.i18n.client.LocaleInfo;
+import com.google.gwt.storage.client.Storage;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
@@ -86,6 +87,13 @@ public class LoginScreen extends Composite {
             @Override
             public void onSuccess(Boolean bool) {
                 if(bool) {
+                    /**
+                     * Clears the local storage on a fresh login to prevent the
+                     * data of an old user from being populated.
+                     */
+                    Storage localStorage = Storage.getLocalStorageIfSupported();
+                    localStorage.clear();
+
                     ContentContainer.INSTANCE.setContent(new ContestDetailsScreen());
                     RootPanel.get("header").clear();
                     RootPanel.get("header").add(new AuthenticatedHeader());
