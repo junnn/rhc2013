@@ -267,16 +267,6 @@ public class Jquery {
         });
     }-*/;
 
-    public static native void initFacebookAPI() /*-{
-        // init the FB JS SDK
-        $wnd.FB.init()({
-            appId      : '141128716096411',                        // App ID from the app dashboard
-            channelUrl : '//127.0.0.1', // Channel file for x-domain comms
-            status     : true,                                 // Check Facebook Login status
-            xfbml      : true                                  // Look for social plugins on the page
-        });
-    }-*/;
-
     public static native void facebookShare() /*-{
         $wnd.FB.ui({
             method: 'feed',
@@ -286,5 +276,9 @@ public class Jquery {
             caption: 'JOIN NOW!',
             description: 'OR YOU SUCK.'
         }, function(response){});
+    }-*/;
+
+    public static native void twitterShare() /*-{
+
     }-*/;
 }

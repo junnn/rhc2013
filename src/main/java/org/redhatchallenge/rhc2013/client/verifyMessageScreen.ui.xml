@@ -19,31 +19,15 @@
                     <div class="{res.grid.grid_8} {res.grid.alpha}" style="text-align:center; margin:0 auto;">
                         <div class="{res.main.textbox}">
                             <g:HTML ui:field="messageLabel"/>
-                        <tr><td><span style="position: relative; top: 7px; left: -2px;"><strong>SHARE:</strong></span></td>
-                            <!--<li><a href="https://www.facebook.com/sharer/sharer.php?u=example.org" target="_blank"> <img src="images/social_media_icons-16.png" alt="Facebook" /></a>-->
+                            <tr>
+                                <td><span style="position: relative; top: 7px; left: -2px;"><strong>SHARE:</strong></span></td>
+                                <!--<li><a href="https://www.facebook.com/sharer/sharer.php?u=example.org" target="_blank"> <img src="images/social_media_icons-16.png" alt="Facebook" /></a>-->
 
-                            <td>
-                                <g:Image ui:field="socialButton1"/>
-                                <!--<input type="image" class="btnClaim" src="images/socialbutton1.png"/>-->
-
-                                <!--<a href="#"-->
-                                   <!--onclick="-->
-                                <!--window.open(-->
-                                  <!--'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),-->
-                                  <!--'facebook-share-dialog',-->
-                                  <!--'width=626,height=436');-->
-                                <!--return false;">-->
-                                <!--<img src="images/socialbutton1.png" alt="Facebook" />-->
-                            <!--</a>-->
-
-                            <!--<a href="#"-->
-                                   <!--onclick="-->
-                        <!--window.open(-->
-                          <!--'https://twitter.com/intent/tweet?u='+encodeURIComponent(location.href),-->
-                          <!--'twitter-share-dialog',-->
-                          <!--'width=626,height=436');-->
-                        <!--return false;"> <img src="images/socialButton2.png" alt="Twitter" /></a>--></td></tr>
-
+                                <td>
+                                    <g:Image ui:field="socialButton1"/>
+                                    <a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-text="Join Red Hat Challenge 2013 now!" data-url="https://127.0.0.1" data-lang="en">Tweet</a>
+                                </td>
+                            </tr>
                         </div>
                         <div class="{res.main.panel02} {res.grid.clearfix}" style="margin-top: 1em;"/>
                     </div>
