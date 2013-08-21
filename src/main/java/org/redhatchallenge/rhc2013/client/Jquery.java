@@ -270,22 +270,22 @@ public class Jquery {
     public static native void facebookShareEn() /*-{
         $wnd.FB.ui({
             method: 'feed',
-            link: 'redhatchallenge2013-rhc2013.rhcloud.com',
+            link: 'redhatchallenge2013-rhc2013.rhcloud.com/?locale=en#registration',
             picture: 'http://redhatchallenge2013-rhc2013.rhcloud.com/images/redhathome_logo.png',
             name: 'Red Hat Challenge 2013',
-            caption: 'JOIN NOW!',
-            description: 'OR YOU SUCK.'
+            caption: 'Join Red Hat Challenge 2013!!',
+            description: 'NOW!.'
         }, function(response){});
     }-*/;
 
     public static native void facebookShareZh() /*-{
         $wnd.FB.ui({
             method: 'feed',
-            link: 'redhatchallenge2013-rhc2013.rhcloud.com',
+            link: 'redhatchallenge2013-rhc2013.rhcloud.com/?locale=zh#registration',
             picture: 'http://redhatchallenge2013-rhc2013.rhcloud.com/images/redhathome_logo.png',
             name: 'Red Hat Challenge 2013',
-            caption: 'JOIN NOW IN CHINESE!',
-            description: 'OR YOU SUCK IN CHINESE.'
+            caption: 'Join Red Hat Challenge 2013!!!',
+            description: 'NOW!!'
         }, function(response){});
     }-*/;
 }

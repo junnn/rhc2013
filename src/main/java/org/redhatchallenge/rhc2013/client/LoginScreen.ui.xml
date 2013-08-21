@@ -28,6 +28,11 @@
                                 <tr>
                                     <p><FONT SIZE="5"><B><ui:msg description="Login Header">LOGIN</ui:msg></B></FONT></p>
                                 </tr>
+                                <td width="174">&nbsp;</td>
+                                <tr>
+                                    <td colspan="2"><FONT COLOR="red"><g:Label ui:field="errorLabel"/></FONT></td>
+                                </tr>
+                                <tr><td width="174">&nbsp;</td></tr>
                                 <tr>
                                     <td width="100"><ui:msg description="LoginScreen Email Address">Email Address:</ui:msg></td>
                                     <td width="268"><span class="rowform"><g:TextBox ui:field="emailField" maxLength="50" visibleLength="33"/></span></td>
@@ -56,9 +61,6 @@
                                 <tr>
                                     <td>&nbsp;</td>
                                     <td><ui:msg description="ResetPassword"><g:Hyperlink ui:field="resetPasswordLink" text="*Forgot your password?" styleName="{res.main.link}" targetHistoryToken="forget-password"/></ui:msg></td>
-                                </tr>
-                                <tr>
-                                    <td><FONT COLOR="red"><g:Label ui:field="errorLabel"/></FONT></td>
                                 </tr>
                             </table>
                         </div>

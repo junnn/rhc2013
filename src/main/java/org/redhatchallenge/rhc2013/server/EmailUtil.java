@@ -16,11 +16,11 @@ public class EmailUtil {
         mail = new HtmlEmail();
 
         try {
-            mail.setHostName("smtp.gmail.com");
+            mail.setHostName("smtp.mailgun.org");
             mail.setSmtpPort(465);
             mail.setSSLOnConnect(true);
-            mail.setAuthentication("test.rhc2013@gmail.com", "redhatchallenge2013");
-            mail.setFrom("rh@rh.com");
+            mail.setAuthentication("postmaster@rhchallenge2013.com", "9o4ajed0i043");
+            mail.setFrom("rhchallenge2013@rhc.com");
             mail.setSubject(subject);
             mail.setTextMsg(textMessage);
             mail.setHtmlMsg(htmlMessage);

@@ -53,7 +53,7 @@ public class verifyMessageScreen extends Composite {
 
             socialButton1.setResource(Resources.INSTANCE.socialButton1());
             socialButton1.addClickHandler(handlerEn);
-            socialButton2.setHTML("<a href=\"https://twitter.com/share\" class=\"twitter-share-button\" data-count=\"none\" data-text=\"Join Red Hat Challenge 2013 now!\" data-url=\"https://127.0.0.1\" data-lang=\"en\">Tweet</a>\n");
+            socialButton2.setHTML("<a href=\"https://twitter.com/share\" class=\"twitter-share-button\" data-count=\"none\" data-text=\"Join Red Hat Challenge 2013 now!\" data-url=\"https://127.0.0.1\" data-lang=\"en\"><img src=\"images/socialButton2\" /></a>");
         }
 
         else if(LocaleInfo.getCurrentLocale().getLocaleName().equals("ch")) {
@@ -67,7 +67,7 @@ public class verifyMessageScreen extends Composite {
             ClickHandler handlerChWeibo = new ClickHandler() {
                 @Override
                 public void onClick(ClickEvent event) {
-                    Window.open("http://service.weibo.com/share/share.php?url=http://127.0.0.1&title=Red Hat Challenge 2013&pic=&language=zh_cn", "weibo-share-dialog", "width=626,height=436");
+                    Window.open("http://service.weibo.com/share/share.php?url=http://redhatchallenge2013-rhc2013.rhcloud.com/?locale=ch#registration&title=我报名参加了红帽挑战赛2013. 你也一起参加吧， 我们可能可以一起到北京参加大决赛喔。快报名！\n http://redhatchallenge2013-rhc2013.rhcloud.com/?locale=ch#registration&pic=&language=zh_cn", "weibo-share-dialog", "width=626,height=436");
                 }
             };
 

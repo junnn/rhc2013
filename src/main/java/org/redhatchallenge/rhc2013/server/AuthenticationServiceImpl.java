@@ -102,6 +102,7 @@ public class AuthenticationServiceImpl extends RemoteServiceServlet implements A
                         "Your client does not support HTML messages, your token is " + token.getToken(),
                         email);
 
+
                 Session currentSession = HibernateUtil.getSessionFactory().getCurrentSession();
                 currentSession.beginTransaction();
                 currentSession.save(token);
