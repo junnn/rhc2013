@@ -24,7 +24,7 @@ public interface MessageMessages extends Messages {
     @Messages.DefaultMessage("Error with your confirmation token")
     String confirmationTokenError();
 
-    @Messages.DefaultMessage("Thank you for confirming your account!")
+    @Messages.DefaultMessage("Thank you for confirming your Email Account, Please <a href=\"javascript:window.open('https://redhatchallenge2013-rhc2013.rhcloud.com/?locale=en#login', 'Login');\" >Login</a>")
     String confirmedAccount();
 
     @Messages.DefaultMessage("An unexpected error has occurred, please try again later!")

@@ -93,11 +93,11 @@ public class Entry implements EntryPoint {
                         @Override
                         public void onSuccess(Boolean result) {
                             if(result) {
-                                ContentContainer.INSTANCE.setContent(new MessageScreen("<h1>"+ messages.confirmedAccount() +"</h1>"));
+                                ContentContainer.INSTANCE.setContent(new MessageScreen("<h2>"+ messages.confirmedAccount() +"</h2>"));
                             }
 
                             else {
-                                ContentContainer.INSTANCE.setContent(new MessageScreen("<h1>"+ messages.confirmationTokenError() +"</h1>"));
+                                ContentContainer.INSTANCE.setContent(new MessageScreen("<h2>"+ messages.confirmationTokenError() +"</h2>"));
                             }
                         }
                     });
