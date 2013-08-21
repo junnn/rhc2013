@@ -54,7 +54,7 @@ public interface Resources extends ClientBundle {
     @Source("image/saveprofile_button_grey.png")
     ImageResource saveButtonGrey();
 
-    @Source("image/en_change_pwd.png")
+    @Source("image/save_password_btn.png")
     ImageResource changePwdButton();
 
     @Source("image/socialbutton1.png")

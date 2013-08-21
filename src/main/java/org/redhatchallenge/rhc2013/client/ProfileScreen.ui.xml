@@ -135,9 +135,14 @@
                                         </g:ListBox>
                                     </td>
                                 </tr>
+
                                 <tr>
                                     <td>&nbsp;</td>
                                     <td><g:Image resource="{res.saveButton}" ui:field="updateButton"/></td>
+                                </tr>
+
+                                <tr>
+                                    <td><FONT COLOR="red"><g:Label ui:field="updateStatusLabel"/></FONT></td>
                                 </tr>
                                 <tr><td width="174">&nbsp;</td></tr>
                                 <tr>
@@ -170,9 +175,6 @@
                                 <tr>
                                     <td width="174">&nbsp;</td>
                                     <td class="{res.main.rowform}"><FONT COLOR="red"><g:Label ui:field="confirmPasswordLabel"/></FONT></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2"><g:VerticalPanel ui:field="recaptchaPanel"/></td>
                                 </tr>
                                 <tr>
                                     <td>&nbsp;</td>
