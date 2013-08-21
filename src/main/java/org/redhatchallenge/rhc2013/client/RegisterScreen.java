@@ -66,6 +66,7 @@ public class RegisterScreen extends Composite {
     private RecaptchaWidget recaptchaWidget;
 
     private AuthenticationServiceAsync authenticationService = null;
+    private CaptchaServiceAsync captchaService = null;
 
     public RegisterScreen() {
 
@@ -251,63 +252,86 @@ public class RegisterScreen extends Composite {
     }
 
     private void registerStudent() {
+        CaptchaService.Util.getInstance().verifyCaptcha(
+                recaptchaWidget.getChallenge(),
+                recaptchaWidget.getResponse(),
+                new AsyncCallback<String>() {
+                    @Override
+                    public void onFailure(Throwable throwable) {
+                        errorLabel.setText("Error with captcha!");
+                        recaptchaWidget.reload();
+                    }
 
-        registerButton.setResource(Resources.INSTANCE.submitButtonGrey());
+                    @Override
+                    public void onSuccess(String s) {
+                        if(s == null) {
+                            registerButton.setResource(Resources.INSTANCE.submitButtonGrey());
 
-        final String email = emailField.getText();
-        final String password = passwordField.getText();
-        final String firstName = firstNameField.getText();
-        final String lastName = lastNameField.getText();
-        final String contact = contactField.getText();
-        final String countryCode = countryCodeField.getItemText(countryCodeField.getSelectedIndex());
-        final String school = schoolField.getText();
-        final String lecturerFirstName = lecturerFirstNameField.getText();
-        final String lecturerLastName = lecturerLastNameField.getText();
-        final String lecturerEmail = lecturerEmailField.getText();
-        final String language = getLanguageFromIndex(languageField.getSelectedIndex());
-        final String country;
-        final Boolean termsConCheck = termsCheck.getValue();
+                            final String email = emailField.getText();
+                            final String password = passwordField.getText();
+                            final String firstName = firstNameField.getText();
+                            final String lastName = lastNameField.getText();
+                            final String contact = contactField.getText();
+                            final String countryCode = countryCodeField.getItemText(countryCodeField.getSelectedIndex());
+                            final String school = schoolField.getText();
+                            final String lecturerFirstName = lecturerFirstNameField.getText();
+                            final String lecturerLastName = lecturerLastNameField.getText();
+                            final String lecturerEmail = lecturerEmailField.getText();
+                            final String language = getLanguageFromIndex(languageField.getSelectedIndex());
+                            final String country;
+                            final Boolean termsConCheck = termsCheck.getValue();
 
-        /**
-         * If country is China, append the region.
-         */
-        if(getCountryFromIndex(countryField.getSelectedIndex()).equalsIgnoreCase("china")) {
-            country = getCountryFromIndex(countryField.getSelectedIndex()) + "/" +
-                    getRegionFromIndex(regionField.getSelectedIndex());
-        }
+                            /**
+                             * If country is China, append the region.
+                             */
+                            if(getCountryFromIndex(countryField.getSelectedIndex()).equalsIgnoreCase("china")) {
+                                country = getCountryFromIndex(countryField.getSelectedIndex()) + "/" +
+                                        getRegionFromIndex(regionField.getSelectedIndex());
+                            }
 
-        else {
-            country = getCountryFromIndex(countryField.getSelectedIndex());
-        }
+                            else {
+                                country = getCountryFromIndex(countryField.getSelectedIndex());
+                            }
 
-        if(termsConCheck){
-            authenticationService = AuthenticationService.Util.getInstance();
+                            if(termsConCheck){
+                                authenticationService = AuthenticationService.Util.getInstance();
 
-            authenticationService.registerStudent(email, password, firstName, lastName, contact,
-                    country, countryCode, school, lecturerFirstName, lecturerLastName,
-                    lecturerEmail, language, new AsyncCallback<Boolean>() {
-                @Override
-                public void onFailure(Throwable throwable) {
-                    errorLabel.setText(messages.unexpectedError());
-                    registerButton.setResource(Resources.INSTANCE.submitButton());
+                                authenticationService.registerStudent(email, password, firstName, lastName, contact,
+                                        country, countryCode, school, lecturerFirstName, lecturerLastName,
+                                        lecturerEmail, language, new AsyncCallback<Boolean>() {
+                                    @Override
+                                    public void onFailure(Throwable throwable) {
+                                        recaptchaWidget.reload();
+                                        errorLabel.setText(messages.unexpectedError());
+                                        registerButton.setResource(Resources.INSTANCE.submitButton());
+                                    }
+
+                                    @Override
+                                    public void onSuccess(Boolean bool) {
+                                        if(bool) {
+                                            ContentContainer.INSTANCE.setContent(new verifyMessageScreen(messages.verifyMailMessage(firstName, email)));
+                                        }
+
+                                        else {
+                                            errorLabel.setText(messages.emailTaken());
+                                            registerButton.setResource(Resources.INSTANCE.submitButton());
+                                        }
+                                    }
+                                });
+                            }
+
+                            else {
+                                termsLabel.setText(messages.termsCheck());
+                            }
+                        }
+
+                        else {
+                            errorLabel.setText("Error with captcfdha!");
+                            recaptchaWidget.reload();
+                        }
+
+                    }
                 }
-
-                @Override
-                public void onSuccess(Boolean bool) {
-                    if(bool) {
-                        ContentContainer.INSTANCE.setContent(new verifyMessageScreen(messages.verifyMailMessage(firstName, email)));
-                    }
-
-                    else {
-                        errorLabel.setText(messages.emailTaken());
-                        registerButton.setResource(Resources.INSTANCE.submitButton());
-                    }
-                    }
-                });
-        }
-
-        else {
-            termsLabel.setText(messages.termsCheck());
-        }
+        );
     }
 }
