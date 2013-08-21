@@ -125,5 +125,7 @@ public class Entry implements EntryPoint {
             StyleInjector.inject("body.lp #page { background: #fff url(\"../images/masthead_microsite_1003x370_zh.jpg\") 0 0 no-repeat; }");
             StyleInjector.inject("#sm-logo { background: transparent url(\"../images/redhathome_logo_zh.png\") 0 30px no-repeat; }");
         }
+
+
     }
 }

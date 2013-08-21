@@ -25,7 +25,7 @@
 
                                 <td>
                                     <g:Image ui:field="socialButton1"/>
-                                    <a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-text="Join Red Hat Challenge 2013 now!" data-url="https://127.0.0.1" data-lang="en">Tweet</a>
+                                    <g:HTML ui:field="socialButton2"/>
                                 </td>
                             </tr>
                         </div>

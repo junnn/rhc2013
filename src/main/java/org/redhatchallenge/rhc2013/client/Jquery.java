@@ -267,7 +267,7 @@ public class Jquery {
         });
     }-*/;
 
-    public static native void facebookShare() /*-{
+    public static native void facebookShareEn() /*-{
         $wnd.FB.ui({
             method: 'feed',
             link: 'redhatchallenge2013-rhc2013.rhcloud.com',
@@ -278,7 +278,14 @@ public class Jquery {
         }, function(response){});
     }-*/;
 
-    public static native void twitterShare() /*-{
-
+    public static native void facebookShareZh() /*-{
+        $wnd.FB.ui({
+            method: 'feed',
+            link: 'redhatchallenge2013-rhc2013.rhcloud.com',
+            picture: 'http://redhatchallenge2013-rhc2013.rhcloud.com/images/redhathome_logo.png',
+            name: 'Red Hat Challenge 2013',
+            caption: 'JOIN NOW IN CHINESE!',
+            description: 'OR YOU SUCK IN CHINESE.'
+        }, function(response){});
     }-*/;
 }

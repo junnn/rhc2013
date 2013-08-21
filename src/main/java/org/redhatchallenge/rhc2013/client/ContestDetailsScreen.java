@@ -68,6 +68,8 @@ public class ContestDetailsScreen extends Composite {
 
                     else {
                         welcomeLabel.setHTML("<FONT SIZE=6>"+ messages.hello() + ", "+ result.getFirstName() + "</FONT>");
+                        emailField.setText(result.getEmail());
+
                         if(result.getLanguage().equals("Chinese (Traditional)"))  {
                             languageField.setText(messages.languageCT());
                         }
