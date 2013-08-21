@@ -10,6 +10,7 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -27,6 +28,10 @@ public class TCScreen extends Composite {
     @UiField Image registerImage;
     @UiField Anchor socialButton1;
     @UiField Anchor socialButton2;
+    @UiField HTML videoOne;
+    @UiField HTML videoTwo;
+    @UiField HTML videoThree;
+
 
     public TCScreen() {
         initWidget(UiBinder.createAndBindUi(this));
@@ -37,12 +42,20 @@ public class TCScreen extends Composite {
             socialButton1.setVisible(false);
             socialButton2.setTarget("_blank");
             socialButton2.setHref("http://e.weibo.com/redhatchina");
+            videoOne.setHTML("<a href=\"http://www.tudou.com/v/9-fAEsj6zjk/&resourceId=0_04_05_99/;iframe=true\" rel=\"prettyPhoto\"><img src=\"images/home_video_21_ch.jpg\" /></a>");
+            videoTwo.setHTML("<a href=\"http://player.youku.com/player.php/sid/XMzQyMzc5MDYw/;iframe=true\" rel=\"prettyPhoto\"><img src=\"images/home_video_22_ch.jpg\" /></a>");
+            videoThree.setHTML("<a href=\"http://you.video.sina.com.cn/api/sinawebApi/outplayrefer.php/vid=93232834_2298930370_P0q1RnNqDDXK+l1lHz2stqlF+6xCpv2xhGi2slqtJg5aUgyYJMXNb9QE4irUCMxG5yoUEJU2dvwl1RUubA;iframe=true\" rel=\"prettyPhoto\"><img src=\"images/home_video_23_ch.jpg\" /></a>");
         }
+
         else {
             socialButton1.setTarget("_blank");
             socialButton1.setHref("https://www.facebook.com/redhatinc?fref=ts");
             socialButton2.setTarget("_blank");
             socialButton2.setHref("https://twitter.com/red_hat_apac");
+
+            videoOne.setHTML("<a href=\"http://www.youtube.com/watch?v=35ZKmL4OfeI\" rel=\"prettyPhoto\" title=\"\" id=\"vid2012\"><img src=\"images/home_video_21.jpg\" /></a>");
+            videoTwo.setHTML("<a href=\"https://www.facebook.com/video/embed?video_id=10150591836889283&amp;iframe=true\" rel=\"prettyPhoto\"><img src=\"images/home_video_22.jpg\" /></a>");
+            videoThree.setHTML("<a href=\"https://www.facebook.com/video/embed?video_id=10151393170889283&amp;iframe=true\" rel=\"prettyPhoto\"><img src=\"images/home_video_23.jpg\" /></a>");
         }
     }
 
