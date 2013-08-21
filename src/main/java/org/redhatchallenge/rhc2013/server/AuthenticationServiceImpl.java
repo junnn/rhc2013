@@ -104,11 +104,34 @@ public class AuthenticationServiceImpl extends RemoteServiceServlet implements A
 
                 String html = null;
 
+
+                Session currentSession = HibernateUtil.getSessionFactory().getCurrentSession();
+                currentSession.beginTransaction();
+
+                Criteria criteria = currentSession.createCriteria(Student.class);
+                criteria.add(Restrictions.eq("email", email));
+                Student student = (Student)criteria.uniqueResult();
+
                 try {
                     html = new String(Files.readAllBytes(Paths.get("emails/index.html")), StandardCharsets.UTF_8);
-                    html = html.replaceAll("HEADER", "Confirm your account");
-                    html = html.replaceAll("REPLACEME", "Click here to confirm your account: "
-                            + "http://http://redhatchallenge2013-rhc2013.rhcloud.com#confirmToken/" + token.getToken());
+
+                    if(student.getLanguage().equalsIgnoreCase("English")) {
+                        html = html.replaceAll("HEADER", "Confirm your account");
+                        html = html.replaceAll("REPLACEME", "Click here to confirm your account: "
+                                + "http://redhatchallenge2013-rhc2013.rhcloud.com#confirmToken/" + token.getToken());
+                    }
+
+                    else if(student.getLanguage().equalsIgnoreCase("Chinese (Simplified)")) {
+                        html = html.replaceAll("HEADER", "Confirm your account");
+                        html = html.replaceAll("REPLACEME", "Click here to confirm your account: "
+                                + "http://redhatchallenge2013-rhc2013.rhcloud.com#confirmToken/" + token.getToken());
+                    }
+
+                    else if(student.getLanguage().equals("Chinese (Traditional)")) {
+                        html = html.replaceAll("HEADER", "Confirm your account");
+                        html = html.replaceAll("REPLACEME", "Click here to confirm your account: "
+                                + "http://redhatchallenge2013-rhc2013.rhcloud.com#confirmToken/" + token.getToken());
+                    }
                 } catch(IOException e) {
                     e.printStackTrace();
                 }
@@ -116,9 +139,6 @@ public class AuthenticationServiceImpl extends RemoteServiceServlet implements A
                 EmailUtil.sendEmail("Confirmation of account", html, "Your client does not support HTML messages, your token is " + token.getToken(),
                         email);
 
-
-                Session currentSession = HibernateUtil.getSessionFactory().getCurrentSession();
-                currentSession.beginTransaction();
                 currentSession.save(token);
                 currentSession.getTransaction().commit();
             }
@@ -298,12 +318,34 @@ public class AuthenticationServiceImpl extends RemoteServiceServlet implements A
                 token.setEmail(email);
 
                 String html = null;
+                Session currentSession = HibernateUtil.getSessionFactory().getCurrentSession();
+                currentSession.beginTransaction();
+
+                Criteria criteria = currentSession.createCriteria(Student.class);
+                criteria.add(Restrictions.eq("email", email));
+                Student student = (Student)criteria.uniqueResult();
 
                 try {
+
                     html = new String(Files.readAllBytes(Paths.get("emails/index.html")), StandardCharsets.UTF_8);
-                    html = html.replaceAll("HEADER", "Confirm your account");
-                    html = html.replaceAll("REPLACEME", "Reset your password here: " +
-                            "http://redhatchallenge2013-rhc2013.rhcloud.com#resetToken/" + token.getToken());
+
+                    if(student.getLanguage().equalsIgnoreCase("English")) {
+                        html = html.replaceAll("HEADER", "Confirm your account");
+                        html = html.replaceAll("REPLACEME", "Reset your password here: " +
+                                "http://redhatchallenge2013-rhc2013.rhcloud.com#resetToken/" + token.getToken());
+                    }
+
+                    else if(student.getLanguage().equalsIgnoreCase("Chinese (Simplified)")) {
+                        html = html.replaceAll("HEADER", "Confirm your account");
+                        html = html.replaceAll("REPLACEME", "Reset your password here: " +
+                                "http://redhatchallenge2013-rhc2013.rhcloud.com#resetToken/" + token.getToken());
+                    }
+
+                    else if(student.getLanguage().equals("Chinese (Traditional)")) {
+                        html = html.replaceAll("HEADER", "Confirm your account");
+                        html = html.replaceAll("REPLACEME", "Reset your password here: " +
+                                "http://redhatchallenge2013-rhc2013.rhcloud.com#resetToken/" + token.getToken());
+                    }
                 } catch(IOException e) {
                     e.printStackTrace();
                 }
@@ -311,8 +353,6 @@ public class AuthenticationServiceImpl extends RemoteServiceServlet implements A
                 EmailUtil.sendEmail("Password Reset", html, "Your client does not support HTML messages, your token is " + token.getToken(),
                         email);
 
-                Session currentSession = HibernateUtil.getSessionFactory().getCurrentSession();
-                currentSession.beginTransaction();
                 currentSession.save(token);
                 currentSession.getTransaction().commit();
             }
@@ -402,11 +442,34 @@ public class AuthenticationServiceImpl extends RemoteServiceServlet implements A
                 token.setEmail(email);
                 String html = null;
 
+                Session currentSession = HibernateUtil.getSessionFactory().getCurrentSession();
+                currentSession.beginTransaction();
+
+                Criteria criteria = currentSession.createCriteria(Student.class);
+                criteria.add(Restrictions.eq("email", email));
+                Student student = (Student)criteria.uniqueResult();
+
                 try {
                     html = new String(Files.readAllBytes(Paths.get("emails/index.html")), StandardCharsets.UTF_8);
-                    html = html.replaceAll("HEADER", "Confirm your account");
-                    html = html.replaceAll("REPLACEME", "Click here to confirm your account: "
-                            + "http://redhatchallenge2013-rhc2013.rhcloud.com#confirmToken/" + token.getToken());
+
+                    if(student.getLanguage().equalsIgnoreCase("English")) {
+                        html = html.replaceAll("HEADER", "Confirm your account");
+                        html = html.replaceAll("REPLACEME", "Click here to confirm your account: "
+                                + "http://redhatchallenge2013-rhc2013.rhcloud.com#confirmToken/" + token.getToken());
+                    }
+
+                    else if(student.getLanguage().equalsIgnoreCase("Chinese (Simplified)")) {
+                        html = html.replaceAll("HEADER", "Confirm your account");
+                        html = html.replaceAll("REPLACEME", "Click here to confirm your account: "
+                                + "http://redhatchallenge2013-rhc2013.rhcloud.com#confirmToken/" + token.getToken());
+                    }
+
+                    else if(student.getLanguage().equals("Chinese (Traditional)")) {
+                        html = html.replaceAll("HEADER", "Confirm your account");
+                        html = html.replaceAll("REPLACEME", "Click here to confirm your account: "
+                                + "http://redhatchallenge2013-rhc2013.rhcloud.com#confirmToken/" + token.getToken());
+                    }
+
                 } catch(IOException e) {
                     e.printStackTrace();
                 }
@@ -414,8 +477,6 @@ public class AuthenticationServiceImpl extends RemoteServiceServlet implements A
                 EmailUtil.sendEmail("Confirmation of account", html, "Your client does not support HTML messages, your token is " + token.getToken(),
                         email);
 
-                Session currentSession = HibernateUtil.getSessionFactory().getCurrentSession();
-                currentSession.beginTransaction();
                 currentSession.save(token);
                 currentSession.getTransaction().commit();
             }
