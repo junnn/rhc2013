@@ -54,7 +54,7 @@
                                                 <p><ui:msg description="Test Rule 5 sentence">6) You will be able to view your score only after the test have completed or ended.</ui:msg></p>
                                                 <p><ui:msg description="Test Rule 6 sentence">7) You will be tested on RHEL(Red Hat Enterprise Linux), Virtualization and Cloud Computing</ui:msg></p>
                                                 <p><ui:msg description="Test Rule 7 sentence">8) You will be notify via Email/Mobile if you are selected to process to Round 2 of Red Hat Challenge 2013</ui:msg></p>
-                                                <p><ui:msg description="Test Rule 7 sentence">9) For more information, please view the <a href="https://redhatchallenge2013-rhc2013.rhcloud.com/#tc">Terms and Condition</a></ui:msg></p>
+                                                <p><ui:msg description="Test Rule 7 sentence">9) For more information, please view the <a href="javascript:window.open('https://redhatchallenge2013-rhc2013.rhcloud.com/#tc', 'Terms of Use and Privacy Policy');" >Terms of Use and Privacy Policy</a></ui:msg></p>
 
                                             </td>
                                         </tr>

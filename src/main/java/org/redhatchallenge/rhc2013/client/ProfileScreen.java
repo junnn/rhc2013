@@ -235,7 +235,7 @@ public class ProfileScreen extends Composite {
 
     @UiHandler("updateButton")
     public void handleUpdateButtonClick(ClickEvent event) {
-
+        errorLabel.setText("");
         int successCounter = 0;
 
         if(FieldVerifier.emailIsNull(emailField.getText())){
@@ -291,7 +291,7 @@ public class ProfileScreen extends Composite {
 
     @UiHandler("changePwdButton")
     public void handleChangePwdButtonClick(ClickEvent event) {
-
+        errorLabel.setText("");
         if (!FieldVerifier.passwordIsNull(currentPasswordField.getText())){
             currentPasswordLabel.setText("");
             int successCounter = 0;
@@ -441,7 +441,10 @@ public class ProfileScreen extends Composite {
 
             @Override
             public void onSuccess(Boolean aBoolean) {
+                if(aBoolean == true)
                 errorLabel.setText("Password Changed Successfully!");
+                else
+                currentPasswordLabel.setText("You have enter an incorrect password");
             }
         });
     }
