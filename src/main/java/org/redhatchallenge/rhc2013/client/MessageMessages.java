@@ -126,6 +126,9 @@ public interface MessageMessages extends Messages {
     @Messages.DefaultMessage("Password Changed Successfully!")
     String passwordChangeSuccessful();
 
-    @Messages.DefaultMessage("\"<h2> Please go to your <B>\" {0} \"</B> and verify before trying to login again.</h2>\", \"<h1><a>Click here to resend the verification email if you have not received it.</a></h1>\", email")
+    @Messages.DefaultMessage("\"<h2> Please go to <B>\" {0} \"</B> and verify before trying to login again.</h2>")
     String verifyBeforeLogin(String email);
+
+    @Messages.DefaultMessage("<h1><a>Click here to resend the verification email if you have not received it.</a></h1>")
+    String verifyBeforeLoginUrl();
 }

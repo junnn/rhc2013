@@ -53,7 +53,7 @@ public class verifyMessageScreen extends Composite {
 
             socialButton1.setResource(Resources.INSTANCE.socialButton1());
             socialButton1.addClickHandler(handlerEn);
-            socialButton2.setHTML("<a href=\"https://twitter.com/share\" class=\"twitter-share-button\" data-count=\"none\" data-text=\"Join Red Hat Challenge 2013 now!\" data-url=\"https://127.0.0.1\" data-lang=\"en\"><img src=\"images/socialButton2\" /></a>");
+            socialButton2.setHTML("<a href=\"https://twitter.com/share\" class=\"twitter-share-button\" data-count=\"none\" data-text=\"Join Red Hat Challenge 2013 now!\" data-lang=\"en\">Tweet</a>");
         }
 
         else if(LocaleInfo.getCurrentLocale().getLocaleName().equals("ch")) {

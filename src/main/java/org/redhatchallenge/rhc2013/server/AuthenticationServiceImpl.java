@@ -20,6 +20,10 @@ import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 import org.redhatchallenge.rhc2013.shared.UnconfirmedStudentException;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
@@ -97,9 +101,19 @@ public class AuthenticationServiceImpl extends RemoteServiceServlet implements A
                 ConfirmationTokens token = new ConfirmationTokens();
                 token.setToken(EmailUtil.generateToken(32));
                 token.setEmail(email);
-                EmailUtil.sendEmail("Confirmation of account",
-                        "<html>Click here to confirm your account: " + "http://http://redhatchallenge2013-rhc2013.rhcloud.com#confirmToken/" + token.getToken() + "</html>",
-                        "Your client does not support HTML messages, your token is " + token.getToken(),
+
+                String html = null;
+
+                try {
+                    html = new String(Files.readAllBytes(Paths.get("emails/index.html")), StandardCharsets.UTF_8);
+                    html = html.replaceAll("HEADER", "Confirm your account");
+                    html = html.replaceAll("REPLACEME", "Click here to confirm your account: "
+                            + "http://http://redhatchallenge2013-rhc2013.rhcloud.com#confirmToken/" + token.getToken());
+                } catch(IOException e) {
+                    e.printStackTrace();
+                }
+
+                EmailUtil.sendEmail("Confirmation of account", html, "Your client does not support HTML messages, your token is " + token.getToken(),
                         email);
 
 
@@ -376,9 +390,18 @@ public class AuthenticationServiceImpl extends RemoteServiceServlet implements A
                 ConfirmationTokens token = new ConfirmationTokens();
                 token.setToken(EmailUtil.generateToken(32));
                 token.setEmail(email);
-                EmailUtil.sendEmail("Confirmation of account",
-                        "<html>Click here to confirm your account: " + "http://http://redhatchallenge2013-rhc2013.rhcloud.com#confirmToken/" + token.getToken() + "</html>",
-                        "Your client does not support HTML messages, your token is " + token.getToken(),
+                String html = null;
+
+                try {
+                    html = new String(Files.readAllBytes(Paths.get("emails/index.html")), StandardCharsets.UTF_8);
+                    html = html.replaceAll("HEADER", "Confirm your account");
+                    html = html.replaceAll("REPLACEME", "Click here to confirm your account: "
+                            + "http://redhatchallenge2013-rhc2013.rhcloud.com#confirmToken/" + token.getToken());
+                } catch(IOException e) {
+                    e.printStackTrace();
+                }
+
+                EmailUtil.sendEmail("Confirmation of account", html, "Your client does not support HTML messages, your token is " + token.getToken(),
                         email);
 
                 Session currentSession = HibernateUtil.getSessionFactory().getCurrentSession();
