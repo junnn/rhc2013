@@ -76,7 +76,7 @@ public class Jquery {
                         message += "红帽挑战赛2013";
                     }
                     else {
-                        message += "倒计时到红帽挑战赛2013第一轮比赛!";
+                        message += "红帽挑战赛2013第一轮比赛倒数!";
                     }
 
                     note.html(message);
@@ -116,7 +116,7 @@ public class Jquery {
                         message += "紅帽挑戰賽2013";
                     }
                     else {
-                        message += "倒計時到紅帽挑戰賽2013第一輪比賽!";
+                        message += "紅帽挑戰賽2013第一輪比賽倒数!";
                     }
 
                     note.html(message);
