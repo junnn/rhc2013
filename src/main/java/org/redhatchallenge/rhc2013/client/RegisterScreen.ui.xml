@@ -179,7 +179,7 @@
                                 <tr><td colspan="2">&nbsp;</td></tr>
                                 <tr>
                                     <td colspan="2"><g:CheckBox ui:field="termsCheck"></g:CheckBox>
-                                        <ui:msg description="checkTnC">By clicking submit button, you confirm that you accept all our Terms of Use and Privacy Policy</ui:msg></td>
+                                        <ui:msg description="checkTnC">By clicking submit button, you confirm that you accept all our <a href="javascript:window.open('https://redhatchallenge2013-rhc2013.rhcloud.com/#tc', 'Terms of Use and Privacy Policy');" >Terms of Use and Privacy Policy</a></ui:msg></td>
                                 </tr>
                                 <tr><td colspan="2">&nbsp;</td></tr>
                                 <tr>
