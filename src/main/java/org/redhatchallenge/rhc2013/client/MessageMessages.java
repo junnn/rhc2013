@@ -118,9 +118,4 @@ public interface MessageMessages extends Messages {
 
     @Messages.DefaultMessage("Password Changed Successfully!")
     String passwordChangeSuccessful();
-
-
-
-
-
 }
