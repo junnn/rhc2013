@@ -112,7 +112,7 @@ public class TriggerPasswordResetScreen extends Composite {
         authenticationService.triggerResetPassword(email, contact, countryCode, new AsyncCallback<Boolean>() {
             @Override
             public void onFailure(Throwable caught) {
-                errorLabel.setText(messages.unexpectedError());
+                errorLabel.setText(messages.passwordResetError());
                 resetPasswordButton.setResource(Resources.INSTANCE.submitButton());
             }
 

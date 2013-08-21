@@ -111,7 +111,7 @@ public class Entry implements EntryPoint {
 
         History.fireCurrentHistoryState();
         RootPanel.get("footer").add(new Footer());
-//
+
         if(LocaleInfo.getCurrentLocale().getLocaleName().equals("en")) {
             StyleInjector.inject("body.lp #page { background: #fff url(\"../images/masthead_microsite_1003x370.jpg\") 0 0 no-repeat; }");
             StyleInjector.inject("#sm-logo { background: transparent url(\"../images/redhathome_logo.png\") 0 30px no-repeat; }");
