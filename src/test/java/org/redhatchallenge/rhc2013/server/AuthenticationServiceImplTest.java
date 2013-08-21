@@ -68,18 +68,18 @@ public class AuthenticationServiceImplTest {
                 "86112688", "Singapore", "65", "Temasek Polytechnic", "James", "Bond", "jbond@tp.edu.sg", "English"));
     }
 
-    @Test
-    public void testAuthenticateStudent() {
-        assertFalse(authenticationService.authenticateStudent("zx@zx.com", "asdf", false));
-        assertFalse(authenticationService.isAuthenticated());
-
-        assertFalse(authenticationService.authenticateStudent("popop@popp.com", "asdf", false));
-        assertFalse(authenticationService.isAuthenticated());
-
-        assertTrue(authenticationService.authenticateStudent("zx@zx.com", "password", false));
-        assertTrue(authenticationService.isAuthenticated());
-        SecurityUtils.getSubject().logout();
-    }
+//    @Test
+//    public void testAuthenticateStudent() {
+//        assertFalse(authenticationService.authenticateStudent("zx@zx.com", "asdf", false));
+//        assertFalse(authenticationService.isAuthenticated());
+//
+//        assertFalse(authenticationService.authenticateStudent("popop@popp.com", "asdf", false));
+//        assertFalse(authenticationService.isAuthenticated());
+//
+//        assertTrue(authenticationService.authenticateStudent("zx@zx.com", "password", false));
+//        assertTrue(authenticationService.isAuthenticated());
+//        SecurityUtils.getSubject().logout();
+//    }
 
     @Test
     public void testSetConfirmationStatus() {
