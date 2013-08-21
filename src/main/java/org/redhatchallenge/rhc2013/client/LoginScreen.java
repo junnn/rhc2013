@@ -121,7 +121,7 @@ public class LoginScreen extends Composite {
             @Override
             public void onFailure(Throwable throwable) {
                 if(throwable instanceof UnconfirmedStudentException) {
-                   ContentContainer.INSTANCE.setContent(new MessageScreen("<h2> Please go to your <B>" + email + "</B> and verify before trying to login again.</h2>", "<h1><a>Click here to resend the verification email if you have not received it.</a></h1>", email));
+                   ContentContainer.INSTANCE.setContent(new MessageScreen(messages.verifyBeforeLogin(email)));
                 }
 
                 else {
