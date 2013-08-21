@@ -30,6 +30,7 @@ public class verifyMessageScreen extends Composite {
     @UiField HTML messageLabel;
     @UiField Image socialButton1;
     @UiField HTML socialButton2;
+    @UiField HTML socialButton3;
 
     public verifyMessageScreen(String message) {
         initWidget(UiBinder.createAndBindUi(this));
@@ -40,6 +41,7 @@ public class verifyMessageScreen extends Composite {
 
         socialButton1.getElement().getStyle().setCursor(Style.Cursor.POINTER);
         socialButton2.getElement().getStyle().setCursor(Style.Cursor.POINTER);
+        socialButton3.getElement().getStyle().setCursor(Style.Cursor.POINTER);
 
         if(LocaleInfo.getCurrentLocale().getLocaleName().equals("en")) {
             ClickHandler handlerEn = new ClickHandler() {
@@ -55,15 +57,24 @@ public class verifyMessageScreen extends Composite {
         }
 
         else if(LocaleInfo.getCurrentLocale().getLocaleName().equals("ch")) {
-            ClickHandler handlerCh = new ClickHandler() {
+            ClickHandler handlerChRenRen = new ClickHandler() {
                 @Override
                 public void onClick(ClickEvent event) {
                     Window.open("http://share.renren.com/share/buttonshare?link=http://redhatchallenge2013-rhc2013.rhcloud.com/", "renren-share-dialog", "width=626,height=436");
                 }
             };
 
+            ClickHandler handlerChWeibo = new ClickHandler() {
+                @Override
+                public void onClick(ClickEvent event) {
+                    Window.open("http://service.weibo.com/share/share.php?url=http://127.0.0.1&title=Red Hat Challenge 2013&pic=&language=zh_cn", "weibo-share-dialog", "width=626,height=436");
+                }
+            };
+
+            socialButton3.setHTML("<img src=images/socialButton2_ch.png>");
+            socialButton3.addClickHandler(handlerChWeibo);
             socialButton2.setHTML("<img src=\"images/socialButton1_ch.png\"/>\n");
-            socialButton2.addClickHandler(handlerCh);
+            socialButton2.addClickHandler(handlerChRenRen);
         }
 
         else if(LocaleInfo.getCurrentLocale().getLocaleName().equals("zh")) {

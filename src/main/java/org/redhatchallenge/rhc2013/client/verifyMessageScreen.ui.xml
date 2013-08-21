@@ -25,6 +25,7 @@
 
                                 <td>
                                     <g:Image ui:field="socialButton1"/>
+                                    <g:HTML  ui:field="socialButton3"/>
                                     <g:HTML ui:field="socialButton2"/>
                                 </td>
                             </tr>
