@@ -296,9 +296,19 @@ public class AuthenticationServiceImpl extends RemoteServiceServlet implements A
                 ResetPasswordTokens token = new ResetPasswordTokens();
                 token.setToken(EmailUtil.generateToken(32));
                 token.setEmail(email);
-                EmailUtil.sendEmail("Password Reset",
-                        "<html>Reset your password here: " + "http://redhatchallenge2013-rhc2013.rhcloud.com#resetToken/" + token.getToken() + "</html>",
-                        "Your client does not support HTML messages, your token is " + token.getToken(),
+
+                String html = null;
+
+                try {
+                    html = new String(Files.readAllBytes(Paths.get("emails/index.html")), StandardCharsets.UTF_8);
+                    html = html.replaceAll("HEADER", "Confirm your account");
+                    html = html.replaceAll("REPLACEME", "Reset your password here: " +
+                            "http://redhatchallenge2013-rhc2013.rhcloud.com#resetToken/" + token.getToken());
+                } catch(IOException e) {
+                    e.printStackTrace();
+                }
+
+                EmailUtil.sendEmail("Password Reset", html, "Your client does not support HTML messages, your token is " + token.getToken(),
                         email);
 
                 Session currentSession = HibernateUtil.getSessionFactory().getCurrentSession();
