@@ -76,10 +76,9 @@
                                         <g:ListBox ui:field="regionField" visibleItemCount="1" visible="false">
                                             <g:item value="1"><ui:msg description="Beijing">Beijing</ui:msg></g:item>
                                             <g:item value="2"><ui:msg description="Shanghai">Shanghai</ui:msg></g:item>
-                                            <g:item value="3"><ui:msg description="Guangzhou">Guangzhou</ui:msg></g:item>
-                                            <g:item value="4"><ui:msg description="Shenzhen">Shenzhen</ui:msg></g:item>
-                                            <g:item value="5"><ui:msg description="Hangzhou">Hangzhou</ui:msg></g:item>
-                                            <g:item value="6"><ui:msg description="Region 6">Region 6</ui:msg></g:item>
+                                            <g:item value="3"><ui:msg description="Wuhan">Wuhan</ui:msg></g:item>
+                                            <g:item value="4"><ui:msg description="Dalian">Dalian</ui:msg></g:item>
+                                            <g:item value="5"><ui:msg description="Jinan">Jinan</ui:msg></g:item>
                                             <g:item value="7"><ui:msg description="Others">Others</ui:msg></g:item>
                                         </g:ListBox>
                                     </td>

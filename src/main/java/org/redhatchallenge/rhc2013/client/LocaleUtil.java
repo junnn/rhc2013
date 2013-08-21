@@ -111,18 +111,15 @@ public class LocaleUtil {
                 region = "Shanghai";
                 break;
             case 2:
-                region = "Guangzhou";
+                region = "Wuhan";
                 break;
             case 3:
-                region = "Shenzhen";
+                region = "Dalian";
                 break;
             case 4:
-                region = "Hangzhou";
+                region = "Jinan";
                 break;
             case 5:
-                region = "Region 6";
-                break;
-            case 6:
                 region = "Others";
                 break;
         }
@@ -131,28 +128,24 @@ public class LocaleUtil {
     }
 
     public static int getIndexFromRegion(String region) {
-        if(region.equalsIgnoreCase("beijing")) {
+        if(region.equalsIgnoreCase("Beijing")) {
             return 0;
         }
 
-        else if(region.equalsIgnoreCase("shanghai")) {
+        else if(region.equalsIgnoreCase("Shanghai")) {
             return 1;
         }
 
-        else if(region.equalsIgnoreCase("guangzhou")) {
+        else if(region.equalsIgnoreCase("Wuhan")) {
             return 2;
         }
 
-        else if(region.equalsIgnoreCase("shenzhen")) {
+        else if(region.equalsIgnoreCase("Dalian")) {
             return 3;
         }
 
-        else if(region.equalsIgnoreCase("hangzhou")) {
+        else if(region.equalsIgnoreCase("Jinan")) {
             return 4;
-        }
-
-        else if(region.equalsIgnoreCase("region 6")) {
-            return 5;
         }
 
         else if(region.equalsIgnoreCase("others")) {
