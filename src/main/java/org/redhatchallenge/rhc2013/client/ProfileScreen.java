@@ -58,6 +58,7 @@ public class ProfileScreen extends Composite {
 
     //Validation Error Labels
     @UiField Label errorLabel;
+    @UiField Label updateStatusLabel;
     @UiField Label emailLabel;
     @UiField Label currentPasswordLabel;
     @UiField Label passwordLabel;
@@ -190,9 +191,78 @@ public class ProfileScreen extends Composite {
             }
         }
     }
+//
+//    @UiField TextBox lastNameField;
+//    @UiField TextBox contactField;
+//    @UiField ListBox countryField;
+//    @UiField ListBox regionField;
+//    @UiField ListBox countryCodeField;
+//    @UiField TextBox schoolField;
+//    @UiField TextBox lecturerFirstNameField;
+//    @UiField TextBox lecturerLastNameField;
+//    @UiField TextBox lecturerEmailField;
+//    @UiField ListBox languageField;
+
+
+    @UiHandler("emailField")
+    public void handleEmailFieldClick(ClickEvent event) {
+        updateStatusLabel.setText("");
+    }
+
+    @UiHandler("firstNameField")
+    public void handleFNFieldClick(ClickEvent event) {
+        updateStatusLabel.setText("");
+    }
+
+    @UiHandler("lastNameField")
+    public void handleLNFieldClick(ClickEvent event) {
+        updateStatusLabel.setText("");
+    }
+
+    @UiHandler("contactField")
+    public void handleContactFieldClick(ClickEvent event) {
+        updateStatusLabel.setText("");
+    }
+
+    @UiHandler("schoolField")
+    public void handleSchoolFieldClick(ClickEvent event) {
+        updateStatusLabel.setText("");
+    }
+
+    @UiHandler("lecturerFirstNameField")
+    public void handlelecturerFirstNameFieldClick(ClickEvent event) {
+        updateStatusLabel.setText("");
+    }
+
+    @UiHandler("lecturerLastNameField")
+    public void handlelecturerLastNameFieldClick(ClickEvent event) {
+        updateStatusLabel.setText("");
+    }
+
+    @UiHandler("lecturerEmailField")
+    public void handlelecturerEmailFieldClick(ClickEvent event) {
+        updateStatusLabel.setText("");
+    }
+
+    @UiHandler("countryCodeField")
+    public void handleCountryCodeChange(ChangeEvent event) {
+        updateStatusLabel.setText("");
+    }
+
+    @UiHandler("languageField")
+    public void handleLanguageChange(ChangeEvent event) {
+        updateStatusLabel.setText("");
+    }
+
+    @UiHandler("regionField")
+    public void handleRegionFieldChange(ChangeEvent event) {
+        updateStatusLabel.setText("");
+    }
+
 
     @UiHandler("countryField")
     public void handleChange(ChangeEvent event) {
+        updateStatusLabel.setText("");
         switch (countryField.getSelectedIndex()) {
             // Singapore
             case 0:
@@ -235,7 +305,7 @@ public class ProfileScreen extends Composite {
 
     @UiHandler("updateButton")
     public void handleUpdateButtonClick(ClickEvent event) {
-        errorLabel.setText("");
+        updateStatusLabel.setText("");
         int successCounter = 0;
 
         if(FieldVerifier.emailIsNull(emailField.getText())){
@@ -448,6 +518,7 @@ public class ProfileScreen extends Composite {
             }
         });
     }
+
     private void updateProfile() {
 
         updateButton.setResource(Resources.INSTANCE.saveButtonGrey());
@@ -483,14 +554,14 @@ public class ProfileScreen extends Composite {
                 lecturerEmail, language, new AsyncCallback<Boolean>() {
             @Override
             public void onFailure(Throwable throwable) {
-                errorLabel.setText(messages.unexpectedError());
+                updateStatusLabel.setText(messages.unexpectedError());
                 updateButton.setResource(Resources.INSTANCE.saveButton());
             }
 
             @Override
             public void onSuccess(Boolean bool) {
                 if(bool) {
-                    errorLabel.setText(messages.profileUpdated());
+                    updateStatusLabel.setText(messages.profileUpdated());
                     final Storage localStorage = Storage.getLocalStorageIfSupported();
                     /**
                      * If browser supports HTML5 storage, stores the authenticated user's
@@ -512,13 +583,16 @@ public class ProfileScreen extends Composite {
 
                     RootPanel.get("header").clear();
                     RootPanel.get("header").add(new AuthenticatedHeader());
+                    updateButton.setResource(Resources.INSTANCE.saveButton());
                 }
 
                 else {
-                    errorLabel.setText(messages.profileUpdateFail());
+                    updateStatusLabel.setText(messages.profileUpdateFail());
                     updateButton.setResource(Resources.INSTANCE.saveButton());
                 }
             }
         });
     }
+
+
 }
