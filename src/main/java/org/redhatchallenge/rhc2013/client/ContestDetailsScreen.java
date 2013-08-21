@@ -61,6 +61,7 @@ public class ContestDetailsScreen extends Composite {
 
                 @Override
                 public void onSuccess(Student result) {
+
                     if(result == null) {
                         ContentContainer.INSTANCE.setContent(new MessageScreen("<h1>"+ messages.loginError() +"?</h1>"));
                     }
@@ -81,7 +82,6 @@ public class ContestDetailsScreen extends Composite {
                         else {
                             timeSlotField.setText("You have not been assigned a timeslot");
                         }
-
 
                         if(LocaleInfo.getCurrentLocale().getLocaleName().equals("en")) {
                             Jquery.bindEn(safeLongToInt(result.getTimeslot()/1000 - new Date().getTime()/1000));
@@ -133,8 +133,24 @@ public class ContestDetailsScreen extends Composite {
             else {
                 timeSlotField.setText("You have not been assigned a timeslot");
             }
+        }
+    }
 
+    @Override
+    protected void onLoad() {
+        super.onLoad();
 
+        final Storage localStorage = Storage.getLocalStorageIfSupported();
+        StorageMap localStorageMap = new StorageMap(localStorage);
+
+        /**
+         * For some reason, the Jquery countdown timer doesn't bind to the node when called
+         * in the constructor when localStorage contains data.
+         *
+         * This is a workaround which gets called when localStorage has the necessary data to
+         * populate the countdown timer.
+         */
+        if(localStorageMap.size() == 12) {
             if(LocaleInfo.getCurrentLocale().getLocaleName().equals("en")) {
                 Jquery.bindEn(safeLongToInt(Long.parseLong(localStorage.getItem("timeSlot"))/1000 - new Date().getTime()/1000));
             }
