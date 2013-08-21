@@ -181,7 +181,7 @@ public class RegisterScreen extends Composite {
                     successCounter++;
                 }
 
-        if(FieldVerifier.confirmPWIsNull(confirmPasswordField.getText())){
+        if(FieldVerifier.passwordIsNull(confirmPasswordField.getText())){
             confirmPasswordLabel.setText(messages.emptyConfirmPassword());
         }
             else if(!confirmPasswordField.getText().equals(passwordField.getText())){

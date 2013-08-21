@@ -135,6 +135,10 @@
                                         </g:ListBox>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td><g:Image resource="{res.saveButton}" ui:field="updateButton"/></td>
+                                </tr>
                                 <tr><td width="174">&nbsp;</td></tr>
                                 <tr>
                                     <td colspan="2">
@@ -172,7 +176,7 @@
                                 </tr>
                                 <tr>
                                     <td>&nbsp;</td>
-                                    <td><g:Image resource="{res.saveButton}" ui:field="updateButton"/></td>
+                                    <td><g:Image resource="{res.changePwdButton}" ui:field="changePwdButton"/></td>
                                 </tr>
                                 <tr>
                                     <td><FONT COLOR="red"><g:Label ui:field="errorLabel"/></FONT></td>
