@@ -23,7 +23,8 @@
                             <!--<li><a href="https://www.facebook.com/sharer/sharer.php?u=example.org" target="_blank"> <img src="images/social_media_icons-16.png" alt="Facebook" /></a>-->
 
                             <td>
-                                <input type="image" class="btnClaim" src="images/socialbutton1.png"/>
+                                <g:Image ui:field="socialButton1"/>
+                                <!--<input type="image" class="btnClaim" src="images/socialbutton1.png"/>-->
 
                                 <!--<a href="#"-->
                                    <!--onclick="-->
