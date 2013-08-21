@@ -1,5 +1,6 @@
 package org.redhatchallenge.rhc2013.client;
 
+import com.google.gwt.i18n.client.LocalizableResource;
 import com.google.gwt.i18n.client.Messages;
 
 import javax.mail.Message;
@@ -49,12 +50,6 @@ public interface MessageMessages extends Messages {
 
     @Messages.DefaultMessage("<h1>Hi {0}, almost there!</h1><br/><h1>Go to {1} and confirm your registration.</h1><br/><h1>Tell your friends that you have registered for Red Hat Challenge 2013. Get them to join as well!</h1>")
     String verifyMailMessage(String firstname, String email);
-
-//    @Messages.DefaultMessage("<p><FONT SIZE=5>Hi <B><I>{0}</I></B>! Almost there!</FONT></p>" +
-//            "<br><FONT SIZE=4>Go to <B>{1}</B> and confirm your registration.</FONT></br>" +
-//            "<p><FONT SIZE=4>Share with your friends that you have registered for Red Hat Challenge 2013.</FONT></p>" +
-//            "<FONT SIZE=5 COLOR=\"red\"><B>Get them to join as well!</B></FONT>")
-//    String verifyMailMessage(String firstname, String email);
 
     @Messages.DefaultMessage("Error with password reset token")
     String passwordTokenError();
@@ -109,6 +104,18 @@ public interface MessageMessages extends Messages {
 
     @Messages.DefaultMessage("School field cannot be empty.")
     String emptySchool();
+
+    @Messages.DefaultMessage("You have not been assigned a timeslot")
+    String noTimeSlot();
+
+    @Messages.DefaultMessage("Chinese (Traditional)")
+    String languageCT();
+
+    @Messages.DefaultMessage("Chinese (Simplified)")
+    String languageCS();
+
+    @Messages.DefaultMessage("English")
+    String languageEN();
 
     @Messages.DefaultMessage("Please enter a new password")
     String enterNewPassword();

@@ -280,7 +280,7 @@ public class RegisterScreen extends Composite {
             country = getCountryFromIndex(countryField.getSelectedIndex());
         }
 
-        if(termsConCheck.booleanValue() == true){
+        if(termsConCheck){
             authenticationService = AuthenticationService.Util.getInstance();
 
             authenticationService.registerStudent(email, password, firstName, lastName, contact,
