@@ -498,6 +498,9 @@ public class ProfileScreen extends Composite {
     }
 
     private void changePassword(){
+
+        changePwdButton.setResource(Resources.INSTANCE.changePwdButton());
+
         final String oldPassword = currentPasswordField.getText();
         final String newPassword = passwordField.getText();
 
@@ -511,10 +514,14 @@ public class ProfileScreen extends Composite {
 
             @Override
             public void onSuccess(Boolean aBoolean) {
-                if(aBoolean == true)
+                if(aBoolean == true){
                 errorLabel.setText("Password Changed Successfully!");
-                else
+                changePwdButton.setResource(Resources.INSTANCE.changePwdButton());
+                }
+                else{
                 currentPasswordLabel.setText("You have enter an incorrect password");
+                changePwdButton.setResource(Resources.INSTANCE.changePwdButton());
+                }
             }
         });
     }

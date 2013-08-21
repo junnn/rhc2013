@@ -1,5 +1,6 @@
 package org.redhatchallenge.rhc2013.client;
 
+import com.google.gwt.i18n.client.LocalizableResource;
 import com.google.gwt.i18n.client.Messages;
 
 import javax.mail.Message;
@@ -109,6 +110,18 @@ public interface MessageMessages extends Messages {
 
     @Messages.DefaultMessage("School field cannot be empty.")
     String emptySchool();
+
+    @Messages.DefaultMessage("You have not been assigned a timeslot")
+    String noTimeSlot();
+
+    @Messages.DefaultMessage("Chinese (Traditional)")
+    String languageCT();
+
+    @Messages.DefaultMessage("Chinese (Simplified)")
+    String languageCS();
+
+    @Messages.DefaultMessage("English")
+    String languageEN();
 
 
 }

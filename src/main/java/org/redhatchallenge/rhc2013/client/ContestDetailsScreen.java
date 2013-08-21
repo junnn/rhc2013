@@ -68,8 +68,16 @@ public class ContestDetailsScreen extends Composite {
 
                     else {
                         welcomeLabel.setHTML("<FONT SIZE=6>"+ messages.hello() + ", "+ result.getFirstName() + "</FONT>");
-                        emailField.setText(result.getEmail());
-                        languageField.setText(result.getLanguage());
+                        if(result.getLanguage().equals("Chinese (Traditional)"))  {
+                            languageField.setText(messages.languageCT());
+                        }
+                        else if(result.getLanguage().equals("Chinese (Simplified)")){
+                            languageField.setText(messages.languageCS());
+                        }
+
+                        else{
+                            languageField.setText(messages.languageEN());
+                        }
 
                         /**
                          * If timeslot has not yet been assigned, inform the user so.
@@ -80,7 +88,7 @@ public class ContestDetailsScreen extends Composite {
                         }
 
                         else {
-                            timeSlotField.setText("You have not been assigned a timeslot");
+                            timeSlotField.setText(messages.noTimeSlot());
                         }
 
                         if(LocaleInfo.getCurrentLocale().getLocaleName().equals("en")) {
@@ -120,7 +128,15 @@ public class ContestDetailsScreen extends Composite {
         else {
             welcomeLabel.setHTML("<FONT SIZE=6>"+ messages.hello() + ", "+ localStorage.getItem("firstName")  +"</FONT>");
             emailField.setText(localStorage.getItem("email"));
-            languageField.setText(localStorage.getItem("language"));
+            if(localStorage.getItem("language").equals("Chinese (Traditional)"))  {
+                languageField.setText(messages.languageCT());
+            }
+            else if(localStorage.getItem("language").equals("Chinese (Simplified)")){
+                languageField.setText(messages.languageCS());
+            }
+            else {
+                languageField.setText(messages.languageEN());
+            }
 
             /**
              * If timeslot has not yet been assigned, inform the user so.
@@ -131,7 +147,7 @@ public class ContestDetailsScreen extends Composite {
             }
 
             else {
-                timeSlotField.setText("You have not been assigned a timeslot");
+                timeSlotField.setText(messages.noTimeSlot());
             }
         }
     }
