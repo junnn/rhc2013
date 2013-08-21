@@ -281,31 +281,32 @@ public class RegisterScreen extends Composite {
         }
 
         if(termsConCheck.booleanValue() == true){
-        authenticationService = AuthenticationService.Util.getInstance();
+            authenticationService = AuthenticationService.Util.getInstance();
 
-        authenticationService.registerStudent(email, password, firstName, lastName, contact,
-                country, countryCode, school, lecturerFirstName, lecturerLastName,
-                lecturerEmail, language, new AsyncCallback<Boolean>() {
-            @Override
-            public void onFailure(Throwable throwable) {
-                errorLabel.setText(messages.unexpectedError());
-                registerButton.setResource(Resources.INSTANCE.submitButton());
-            }
-
-            @Override
-            public void onSuccess(Boolean bool) {
-                if(bool) {
-                    ContentContainer.INSTANCE.setContent(new verifyMessageScreen(messages.verifyMailMessage(firstName, email)));
-                }
-
-                else {
-                    errorLabel.setText(messages.emailTaken());
+            authenticationService.registerStudent(email, password, firstName, lastName, contact,
+                    country, countryCode, school, lecturerFirstName, lecturerLastName,
+                    lecturerEmail, language, new AsyncCallback<Boolean>() {
+                @Override
+                public void onFailure(Throwable throwable) {
+                    errorLabel.setText(messages.unexpectedError());
                     registerButton.setResource(Resources.INSTANCE.submitButton());
                 }
-                }
-            });
+
+                @Override
+                public void onSuccess(Boolean bool) {
+                    if(bool) {
+                        ContentContainer.INSTANCE.setContent(new verifyMessageScreen(messages.verifyMailMessage(firstName, email)));
+                    }
+
+                    else {
+                        errorLabel.setText(messages.emailTaken());
+                        registerButton.setResource(Resources.INSTANCE.submitButton());
+                    }
+                    }
+                });
         }
-        else{
+
+        else {
             termsLabel.setText(messages.termsCheck());
         }
     }

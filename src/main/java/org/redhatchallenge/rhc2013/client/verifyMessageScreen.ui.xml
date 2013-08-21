@@ -23,7 +23,7 @@
                             <!--<li><a href="https://www.facebook.com/sharer/sharer.php?u=example.org" target="_blank"> <img src="images/social_media_icons-16.png" alt="Facebook" /></a>-->
 
                             <td>
-                                <input type="image" class="btnClaim" src="images/socialButton1.png" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+<a href='http://redhatchallenge2013-rhc2013.rhcloud.com/'>Red Hat Challenge 2013<a>, 'facebook-share-dialog', 'width=626,height=436');"/>
+                                <input type="image" class="btnClaim" src="images/socialbutton1.png"/>
 
                                 <!--<a href="#"-->
                                    <!--onclick="-->
