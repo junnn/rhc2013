@@ -35,13 +35,13 @@
                                 <!--<img src="images/socialbutton1.png" alt="Facebook" />-->
                             <!--</a>-->
 
-                            <a href="#"
-                                   onclick="
-                        window.open(
-                          'https://twitter.com/intent/tweet?u='+encodeURIComponent(location.href),
-                          'twitter-share-dialog',
-                          'width=626,height=436');
-                        return false;"> <img src="images/socialButton2.png" alt="Twitter" /></a></td></tr>
+                            <!--<a href="#"-->
+                                   <!--onclick="-->
+                        <!--window.open(-->
+                          <!--'https://twitter.com/intent/tweet?u='+encodeURIComponent(location.href),-->
+                          <!--'twitter-share-dialog',-->
+                          <!--'width=626,height=436');-->
+                        <!--return false;"> <img src="images/socialButton2.png" alt="Twitter" /></a>--></td></tr>
 
                         </div>
                         <div class="{res.main.panel02} {res.grid.clearfix}" style="margin-top: 1em;"/>

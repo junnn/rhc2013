@@ -191,17 +191,6 @@ public class ProfileScreen extends Composite {
             }
         }
     }
-//
-//    @UiField TextBox lastNameField;
-//    @UiField TextBox contactField;
-//    @UiField ListBox countryField;
-//    @UiField ListBox regionField;
-//    @UiField ListBox countryCodeField;
-//    @UiField TextBox schoolField;
-//    @UiField TextBox lecturerFirstNameField;
-//    @UiField TextBox lecturerLastNameField;
-//    @UiField TextBox lecturerEmailField;
-//    @UiField ListBox languageField;
 
 
     @UiHandler("emailField")
@@ -366,7 +355,7 @@ public class ProfileScreen extends Composite {
             currentPasswordLabel.setText("");
             int successCounter = 0;
             if(FieldVerifier.passwordIsNull(passwordField.getText())){
-                passwordLabel.setText("Please enter a new password");
+                passwordLabel.setText(messages.enterNewPassword());
             }
             else if(!FieldVerifier.passwordIsNull(passwordField.getText()))
             {
@@ -406,7 +395,7 @@ public class ProfileScreen extends Composite {
             if(!FieldVerifier.passwordIsNull(passwordField.getText())){
 
                 if(FieldVerifier.passwordIsNull(currentPasswordField.getText())){
-                    currentPasswordLabel.setText("Current password field cannot be empty.");
+                    currentPasswordLabel.setText(messages.currentPasswordEmpty());
                 }
 
                 if (FieldVerifier.passwordIsNull(confirmPasswordField.getText())){
@@ -436,7 +425,7 @@ public class ProfileScreen extends Composite {
             else if(!FieldVerifier.passwordIsNull(confirmPasswordField.getText())){
 
                 if(FieldVerifier.passwordIsNull(currentPasswordField.getText())){
-                    currentPasswordLabel.setText("Current password field cannot be empty.");
+                    currentPasswordLabel.setText(messages.currentPasswordEmpty());
                 }
 
                 if (FieldVerifier.passwordIsNull(passwordField.getText())){
@@ -512,7 +501,7 @@ public class ProfileScreen extends Composite {
             @Override
             public void onSuccess(Boolean aBoolean) {
                 if(aBoolean == true)
-                errorLabel.setText("Password Changed Successfully!");
+                errorLabel.setText(messages.passwordChangeSuccessful());
                 else
                 currentPasswordLabel.setText("You have enter an incorrect password");
             }
@@ -592,7 +581,7 @@ public class ProfileScreen extends Composite {
                 }
             }
         });
+        updateButton.setResource(Resources.INSTANCE.saveButton());
+
     }
-
-
 }

@@ -110,5 +110,17 @@ public interface MessageMessages extends Messages {
     @Messages.DefaultMessage("School field cannot be empty.")
     String emptySchool();
 
+    @Messages.DefaultMessage("Please enter a new password")
+    String enterNewPassword();
+
+    @Messages.DefaultMessage("Current password field cannot be empty.")
+    String currentPasswordEmpty();
+
+    @Messages.DefaultMessage("Password Changed Successfully!")
+    String passwordChangeSuccessful();
+
+
+
+
 
 }

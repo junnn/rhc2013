@@ -115,12 +115,12 @@
                                 </tr>
                                 <tr><td width="174">&nbsp;</td></tr>
                                 <tr>
-                                    <td class="{res.main.rowform}">Lecturer's Last Name:</td>
+                                    <td class="{res.main.rowform}"><ui:msg description="Lecturer's Last Name">Lecturer's Last Name:</ui:msg></td>
                                     <td class="{res.main.rowform}"><g:TextBox ui:field="lecturerLastNameField" maxLength="30" visibleLength="33"/></td>
                                 </tr>
                                 <tr><td width="174">&nbsp;</td></tr>
                                 <tr>
-                                    <td class="{res.main.rowform}"><ui:msg description="Lecturer's Last Name">Lecturer's Email:</ui:msg></td>
+                                    <td class="{res.main.rowform}"><ui:msg description="Lecturer's Email">Lecturer's Email:</ui:msg></td>
                                     <td class="{res.main.rowform}"><g:TextBox ui:field="lecturerEmailField" maxLength="50" visibleLength="33"/></td>
                                 </tr>
                                 <tr><td width="174">&nbsp;</td></tr>
