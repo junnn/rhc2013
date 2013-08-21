@@ -360,6 +360,37 @@ public class AuthenticationServiceImpl extends RemoteServiceServlet implements A
         }
     }
 
+    @Override
+    public void resendVerificationEmail(String email) throws IllegalArgumentException {
+        class SendConfirmationEmail implements Runnable {
+            String email;
+
+            SendConfirmationEmail(String email) {
+                this.email = email;
+            }
+
+            @Override
+            public void run() {
+
+                ConfirmationTokens token = new ConfirmationTokens();
+                token.setToken(EmailUtil.generateToken(32));
+                token.setEmail(email);
+                EmailUtil.sendEmail("Confirmation of account",
+                        "<html>Click here to confirm your account: " + "http://http://redhatchallenge2013-rhc2013.rhcloud.com#confirmToken/" + token.getToken() + "</html>",
+                        "Your client does not support HTML messages, your token is " + token.getToken(),
+                        email);
+
+                Session currentSession = HibernateUtil.getSessionFactory().getCurrentSession();
+                currentSession.beginTransaction();
+                currentSession.save(token);
+                currentSession.getTransaction().commit();
+            }
+        }
+
+        Thread t = new Thread(new SendConfirmationEmail(email));
+        t.start();
+    }
+
     /**
      * Look up ConfirmationTokens object based on the toke value.
      *

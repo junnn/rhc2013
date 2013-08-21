@@ -31,6 +31,8 @@ public interface AuthenticationService extends RemoteService {
 
     public boolean resetPassword(String password, String email) throws IllegalArgumentException;
 
+    public void resendVerificationEmail(String email) throws IllegalArgumentException;
+
     public static class Util {
         private static final AuthenticationServiceAsync Instance = (AuthenticationServiceAsync) GWT.create(AuthenticationService.class);
 

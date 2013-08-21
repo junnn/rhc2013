@@ -3,14 +3,18 @@ package org.redhatchallenge.rhc2013.client;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style;
 import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.KeyCodes;
 import com.google.gwt.event.dom.client.KeyUpEvent;
+import com.google.gwt.event.shared.GwtEvent;
 import com.google.gwt.i18n.client.LocaleInfo;
 import com.google.gwt.storage.client.Storage;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.History;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.*;
 import org.redhatchallenge.rhc2013.resources.Resources;
@@ -117,7 +121,7 @@ public class LoginScreen extends Composite {
             @Override
             public void onFailure(Throwable throwable) {
                 if(throwable instanceof UnconfirmedStudentException) {
-                    ContentContainer.INSTANCE.setContent(new MessageScreen("<h2>Please verify your account. Please go to your <B>" + email + "</B> and verify before login again.</h2><h1><a><Click here to resent the verification email</a>"));
+                   ContentContainer.INSTANCE.setContent(new MessageScreen("<h2> Please go to your <B>" + email + "</B> and verify before trying to login again.</h2>", "<h1><a>Click here to resend the verification email if you have not received it.</a></h1>", email));
                 }
 
                 else {

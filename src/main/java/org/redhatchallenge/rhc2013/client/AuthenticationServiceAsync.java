@@ -25,4 +25,6 @@ public interface AuthenticationServiceAsync {
     void lookupEmailFromToken(String token, AsyncCallback<String> async);
 
     void resetPassword(String password, String email, AsyncCallback<Boolean> async);
+
+    void resendVerificationEmail(String email, AsyncCallback<Void> async);
 }
