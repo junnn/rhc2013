@@ -129,4 +129,38 @@ public class LocaleUtil {
 
         return region;
     }
+
+    public static int getIndexFromRegion(String region) {
+        if(region.equalsIgnoreCase("beijing")) {
+            return 0;
+        }
+
+        else if(region.equalsIgnoreCase("shanghai")) {
+            return 1;
+        }
+
+        else if(region.equalsIgnoreCase("guangzhou")) {
+            return 2;
+        }
+
+        else if(region.equalsIgnoreCase("shenzhen")) {
+            return 3;
+        }
+
+        else if(region.equalsIgnoreCase("hangzhou")) {
+            return 4;
+        }
+
+        else if(region.equalsIgnoreCase("region 6")) {
+            return 5;
+        }
+
+        else if(region.equalsIgnoreCase("others")) {
+            return 6;
+        }
+
+        else {
+            return -1;
+        }
+    }
 }

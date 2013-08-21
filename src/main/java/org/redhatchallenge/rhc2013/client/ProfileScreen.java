@@ -20,6 +20,7 @@ import org.redhatchallenge.rhc2013.shared.Student;
 import static org.redhatchallenge.rhc2013.client.LocaleUtil.getCountryFromIndex;
 import static org.redhatchallenge.rhc2013.client.LocaleUtil.getIndexFromCountry;
 import static org.redhatchallenge.rhc2013.client.LocaleUtil.getIndexFromLanguage;
+import static org.redhatchallenge.rhc2013.client.LocaleUtil.getIndexFromRegion;
 import static org.redhatchallenge.rhc2013.client.LocaleUtil.getLanguageFromIndex;
 import static org.redhatchallenge.rhc2013.client.LocaleUtil.getRegionFromIndex;
 
@@ -135,7 +136,7 @@ public class ProfileScreen extends Composite {
                     if(country.substring(0,5).equalsIgnoreCase("china")) {
                         regionField.setVisible(true);
                         countryField.setSelectedIndex(getIndexFromCountry("china"));
-                        regionField.setSelectedIndex(getIndexFromValue(country.substring(6), regionField));
+                        regionField.setSelectedIndex(getIndexFromRegion(country.substring(6)));
                     }
 
                     else {
@@ -181,7 +182,7 @@ public class ProfileScreen extends Composite {
             if(localStorageMap.get("country").substring(0,5).equalsIgnoreCase("china")) {
                 regionField.setVisible(true);
                 countryField.setSelectedIndex(getIndexFromCountry("china"));
-                regionField.setSelectedIndex(getIndexFromValue(localStorageMap.get("country").substring(6), regionField));
+                regionField.setSelectedIndex(getIndexFromRegion(localStorageMap.get("country").substring(6)));
             }
 
             else {
