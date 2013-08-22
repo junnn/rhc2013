@@ -163,7 +163,7 @@
                                 <tr>
                                     <td colspan="2">
                                         <br>
-                                            <ui:msg description="RegisterScreen Add our email"><FONT SIZE="3"><B>Please add</B></FONT><FONT SIZE="3" COLOR="red"><B> registration@redhatchallenge.rhc-rhcloud.com</B></FONT><FONT SIZE ="3"><B> to your email contact before clicking the submit button
+                                            <ui:msg description="RegisterScreen Add our email"><FONT SIZE="3"><B>Please add</B></FONT><FONT SIZE="3" COLOR="red"><B> contact@redhatchallenge.mailgun.org</B></FONT><FONT SIZE ="3"><B> to your email contact before clicking the submit button
                                             to prevent the verification email being filtered as a junk/bulk mail.</B></FONT></ui:msg>
                                         </br>
                                     </td>
