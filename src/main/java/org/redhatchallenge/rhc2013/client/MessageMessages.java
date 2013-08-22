@@ -131,4 +131,8 @@ public interface MessageMessages extends Messages {
 
     @Messages.DefaultMessage("<h1><a>Click here to resend the verification email if you have not received it.</a></h1>")
     String verifyBeforeLoginUrl();
+
+    @Messages.DefaultMessage("Error with captcha!")
+    String captchaError();
+
 }

@@ -258,7 +258,7 @@ public class RegisterScreen extends Composite {
                 new AsyncCallback<String>() {
                     @Override
                     public void onFailure(Throwable throwable) {
-                        errorLabel.setText("Error with captcha!");
+                        errorLabel.setText(messages.captchaError());
                         recaptchaWidget.reload();
                     }
 
@@ -326,7 +326,7 @@ public class RegisterScreen extends Composite {
                         }
 
                         else {
-                            errorLabel.setText("Error with captcfdha!");
+                            errorLabel.setText(messages.captchaError());
                             recaptchaWidget.reload();
                         }
 
