@@ -42,7 +42,7 @@ public class TCScreen extends Composite {
             socialButton1.setVisible(false);
             socialButton2.setTarget("_blank");
             socialButton2.setHref("http://e.weibo.com/redhatchina");
-            videoOne.setHTML("<a href=\"http://www.tudou.com/v/9-fAEsj6zjk/&resourceId=0_04_05_99/;iframe=true\" rel=\"prettyPhoto\"><img src=\"images/home_video_21_ch.jpg\" /></a>");
+            videoOne.setHTML("<a href=\"http://player.youku.com/player.php/sid/XNTk5Mzk0OTgw/;iframe=true\" rel=\"prettyPhoto\"><img src=\"images/home_video_21_ch.jpg\" /></a>");
             videoTwo.setHTML("<a href=\"http://player.youku.com/player.php/sid/XMzQyMzc5MDYw/;iframe=true\" rel=\"prettyPhoto\"><img src=\"images/home_video_22_ch.jpg\" /></a>");
             videoThree.setHTML("<a href=\"http://you.video.sina.com.cn/api/sinawebApi/outplayrefer.php/vid=93232834_2298930370_P0q1RnNqDDXK+l1lHz2stqlF+6xCpv2xhGi2slqtJg5aUgyYJMXNb9QE4irUCMxG5yoUEJU2dvwl1RUubA;iframe=true\" rel=\"prettyPhoto\"><img src=\"images/home_video_23_ch.jpg\" /></a>");
         }

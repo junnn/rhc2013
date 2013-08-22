@@ -20,9 +20,9 @@ public class EmailUtil {
             mail.setHostName("smtp.mailgun.org");
             mail.setSmtpPort(465);
             mail.setSSLOnConnect(true);
-            mail.setAuthentication("postmaster@redhatchallenge2013.com", "35a042zvw964");
+            mail.setAuthentication("postmaster@redhatchallenge.mailgun.org", "00tqvs3gg0h4");
             mail.setCharset(EmailConstants.UTF_8);
-            mail.setFrom("rhchallenge2013@rhc.com");
+            mail.setFrom("contact@redhatchallenge.com");
             mail.setSubject(subject);
             mail.setTextMsg(textMessage);
             mail.setHtmlMsg(htmlMessage);
