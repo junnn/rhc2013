@@ -64,12 +64,12 @@ public class verifyMessageScreen extends Composite {
         }
 
         else if(LocaleInfo.getCurrentLocale().getLocaleName().equals("ch")) {
-            ClickHandler handlerChRenRen = new ClickHandler() {
-                @Override
-                public void onClick(ClickEvent event) {
-                    Window.open("http://widget.renren.com/dialog/share?url=http://redhatchallenge2013-rhc2013.rhcloud.com", "renren-share-dialog", "width=626,height=436");
-                }
-            };
+//            ClickHandler handlerChRenRen = new ClickHandler() {
+//                @Override
+//                public void onClick(ClickEvent event) {
+//                    Window.open("http://widget.renren.com/dialog/share?url=http://redhatchallenge2013-rhc2013.rhcloud.com", "renren-share-dialog", "width=626,height=436");
+//                }
+//            };
 
             ClickHandler handlerChWeibo = new ClickHandler() {
                 @Override
@@ -80,8 +80,8 @@ public class verifyMessageScreen extends Composite {
 
             socialButton3.setHTML("<img src=images/socialButton2_ch.png>");
             socialButton3.addClickHandler(handlerChWeibo);
-            socialButton2.setHTML("<img src=\"images/socialButton1_ch.png\"/>\n");
-            socialButton2.addClickHandler(handlerChRenRen);
+//            socialButton2.setHTML("<img src=\"images/socialButton1_ch.png\"/>\n");
+//            socialButton2.addClickHandler(handlerChRenRen);
         }
 
         else if(LocaleInfo.getCurrentLocale().getLocaleName().equals("zh")) {
