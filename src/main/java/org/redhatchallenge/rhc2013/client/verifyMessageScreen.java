@@ -1,6 +1,8 @@
 package org.redhatchallenge.rhc2013.client;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.Document;
+import com.google.gwt.dom.client.ScriptElement;
 import com.google.gwt.dom.client.Style;
 import com.google.gwt.dom.client.StyleInjector;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -53,6 +55,14 @@ public class verifyMessageScreen extends Composite {
 
             socialButton1.setResource(Resources.INSTANCE.socialButton1());
             socialButton1.addClickHandler(handlerEn);
+
+            Document doc = Document.get();
+            ScriptElement script = doc.createScriptElement();
+            script.setSrc("http://platform.twitter.com/widgets.js");
+            script.setType("text/javascript");
+            script.setLang("javascript");
+            doc.getBody().appendChild(script);
+
             socialButton2.setHTML("<a href=\"https://twitter.com/share\" class=\"twitter-share-button\" data-count=\"none\" data-text=\"Join Red Hat Challenge 2013 now!\" data-lang=\"en\">Tweet</a>");
         }
 
@@ -60,7 +70,7 @@ public class verifyMessageScreen extends Composite {
             ClickHandler handlerChRenRen = new ClickHandler() {
                 @Override
                 public void onClick(ClickEvent event) {
-                    Window.open("http://share.renren.com/share/buttonshare?link=http://redhatchallenge2013-rhc2013.rhcloud.com/", "renren-share-dialog", "width=626,height=436");
+                    Window.open("http://share.renren.com/share/buttonshare.do?link=http://redhatchallenge2013-rhc2013.rhcloud.com&title=Red Hat Challenge 2013", "renren-share-dialog", "width=626,height=436");
                 }
             };
 

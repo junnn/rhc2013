@@ -288,4 +288,12 @@ public class Jquery {
             description: 'NOW!!'
         }, function(response){});
     }-*/;
+
+    public static native boolean checkIfTwitterWidgetIsLoaded() /*-{
+        if(!(typeof $wnd.twtrr === "undefined") && !(null===$wnd.twtrr)) {
+            return true;
+        }
+
+        return false;
+    }-*/;
 }
