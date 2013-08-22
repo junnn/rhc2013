@@ -60,14 +60,14 @@ public class verifyMessageScreen extends Composite {
             ClickHandler handlerChRenRen = new ClickHandler() {
                 @Override
                 public void onClick(ClickEvent event) {
-                    Window.open("http://share.renren.com/share/buttonshare?link=http://redhatchallenge2013-rhc2013.rhcloud.com/", "renren-share-dialog", "width=626,height=436");
+                    Window.open("http://widget.renren.com/dialog/share?url=http://redhatchallenge2013-rhc2013.rhcloud.com", "renren-share-dialog", "width=626,height=436");
                 }
             };
 
             ClickHandler handlerChWeibo = new ClickHandler() {
                 @Override
                 public void onClick(ClickEvent event) {
-                    Window.open("http://service.weibo.com/share/share.php?url=http://redhatchallenge2013-rhc2013.rhcloud.com/?locale=ch#registration&title=我报名参加了红帽挑战赛2013. 你也一起参加吧， 我们可能可以一起到北京参加大决赛喔。快报名！\n http://redhatchallenge2013-rhc2013.rhcloud.com/?locale=ch#registration&pic=&language=zh_cn", "weibo-share-dialog", "width=626,height=436");
+                    Window.open("http://service.weibo.com/share/share.php?url=http://redhatchallenge2013-rhc2013.rhcloud.com&title=我报名参加了红帽挑战赛2013. 你也一起参加吧， 我们可能可以一起到北京参加大决赛喔。快报名！\n http://redhatchallenge2013-rhc2013.rhcloud.com/?locale=ch#registration&pic=&language=zh_cn", "weibo-share-dialog", "width=626,height=436");
                 }
             };
 
