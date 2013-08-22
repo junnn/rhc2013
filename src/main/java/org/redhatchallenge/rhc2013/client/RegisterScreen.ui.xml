@@ -159,9 +159,6 @@
                                 <tr>
                                     <td colspan="2"><g:VerticalPanel ui:field="recaptchaPanel"/></td>
                                 </tr>
-                                <tr>
-                                    <td colspan="2"><FONT COLOR="red"><g:Label ui:field="errorLabel"/></FONT></td>
-                                </tr>
                                 <tr><td colspan="2">&nbsp;</td></tr>
                                 <tr>
                                     <td colspan="2">
@@ -181,6 +178,9 @@
                                         <ui:msg description="checkTnC">By clicking submit button, you confirm that you accept all our <a href="javascript:window.open('https://redhatchallenge2013-rhc2013.rhcloud.com/#tc', 'Terms of Use and Privacy Policy');" >Terms of Use and Privacy Policy</a></ui:msg></td>
                                 </tr>
                                 <tr><td colspan="2">&nbsp;</td></tr>
+                                <tr>
+                                    <td colspan="2"><FONT COLOR="red"><g:Label ui:field="errorLabel"/></FONT></td>
+                                </tr>
                                 <tr>
                                     <td colspan="2" align="center"><g:Image resource="{res.submitButton}" ui:field="registerButton"/></td>
                                 </tr>
