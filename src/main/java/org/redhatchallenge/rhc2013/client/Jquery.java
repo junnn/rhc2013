@@ -273,19 +273,20 @@ public class Jquery {
             link: 'redhatchallenge2013-rhc2013.rhcloud.com/?locale=en#registration',
             picture: 'http://redhatchallenge2013-rhc2013.rhcloud.com/images/redhathome_logo_thumbnail.png',
             name: 'Red Hat Challenge 2013',
-            caption: 'Join Red Hat Challenge 2013!!',
-            description: 'NOW!.'
+            caption: 'Join Red Hat Challenge 2013 Now!!',
+            message: 'Facebook%20Dialogs%20are%20so%20easy!',
+            description: 'Looking for a stage to showcase your knowledge on cloud computing, operating systems and virtualization? Join the Red Hat Challenge 2013!.'
         }, function(response){});
     }-*/;
 
     public static native void facebookShareZh() /*-{
         $wnd.FB.ui({
             method: 'feed',
-            link: 'redhatchallenge2013-rhc2013.rhcloud.com/?locale=zh#registration',
+             link: 'redhatchallenge2013-rhc2013.rhcloud.com/?locale=zh#registration',
             picture: 'http://redhatchallenge2013-rhc2013.rhcloud.com/images/redhathome_logo_thumbnail.png',
             name: 'Red Hat Challenge 2013',
-            caption: 'Join Red Hat Challenge 2013!!!',
-            description: 'NOW!!'
+            caption: 'Join Red Hat Challenge 2013 Now!!',
+            description: 'Looking for a stage to showcase your knowledge on cloud computing, operating systems and virtualization? Join the Red Hat Challenge 2013!.'
         }, function(response){});
     }-*/;
 
