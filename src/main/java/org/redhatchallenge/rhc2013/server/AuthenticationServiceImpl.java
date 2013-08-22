@@ -116,19 +116,19 @@ public class AuthenticationServiceImpl extends RemoteServiceServlet implements A
                     if(student.getLanguage().equalsIgnoreCase("English")) {
                         String path = getServletContext().getRealPath("emails/confirm_en.html");
                         html = new String(Files.readAllBytes(Paths.get(path)), StandardCharsets.UTF_8);
-                        html = html.replaceAll("REPLACEME", "http://redhatchallenge2013-rhc2013.rhcloud.com#confirmToken/" + token.getToken());
+                        html = html.replaceAll("REPLACEME", "http://redhatchallenge2013-rhc2013.rhcloud.com/?locale=en#confirmToken/" + token.getToken());
                     }
 
                     else if(student.getLanguage().equalsIgnoreCase("Chinese (Simplified)")) {
                         String path = getServletContext().getRealPath("emails/confirm_ch.html");
                         html = new String(Files.readAllBytes(Paths.get(path)), StandardCharsets.UTF_8);
-                        html = html.replaceAll("REPLACEME", "http://redhatchallenge2013-rhc2013.rhcloud.com#confirmToken/" + token.getToken());
+                        html = html.replaceAll("REPLACEME", "http://redhatchallenge2013-rhc2013.rhcloud.com/?locale=ch#confirmToken/" + token.getToken());
                     }
 
                     else if(student.getLanguage().equals("Chinese (Traditional)")) {
                         String path = getServletContext().getRealPath("emails/confirm_zh.html");
                         html = new String(Files.readAllBytes(Paths.get(path)), StandardCharsets.UTF_8);
-                        html = html.replaceAll("REPLACEME", "http://redhatchallenge2013-rhc2013.rhcloud.com#confirmToken/" + token.getToken());
+                        html = html.replaceAll("REPLACEME", "http://redhatchallenge2013-rhc2013.rhcloud.com/?locale=zh#confirmToken/" + token.getToken());
                     }
                 } catch(IOException e) {
                     e.printStackTrace();
@@ -327,19 +327,19 @@ public class AuthenticationServiceImpl extends RemoteServiceServlet implements A
                     if(student.getLanguage().equalsIgnoreCase("English")) {
                         String path = getServletContext().getRealPath("emails/reset_en.html");
                         html = new String(Files.readAllBytes(Paths.get(path)), StandardCharsets.UTF_8);
-                        html = html.replaceAll("REPLACEME", "http://redhatchallenge2013-rhc2013.rhcloud.com#resetToken/" + token.getToken());
+                        html = html.replaceAll("REPLACEME", "http://redhatchallenge2013-rhc2013.rhcloud.com#/?locale=enresetToken/" + token.getToken());
                     }
 
                     else if(student.getLanguage().equalsIgnoreCase("Chinese (Simplified)")) {
                         String path = getServletContext().getRealPath("emails/reset_ch.html");
                         html = new String(Files.readAllBytes(Paths.get(path)), StandardCharsets.UTF_8);
-                        html = html.replaceAll("REPLACEME", "http://redhatchallenge2013-rhc2013.rhcloud.com#resetToken/" + token.getToken());
+                        html = html.replaceAll("REPLACEME", "http://redhatchallenge2013-rhc2013.rhcloud.com/?locale=ch#resetToken/" + token.getToken());
                     }
 
                     else if(student.getLanguage().equals("Chinese (Traditional)")) {
                         String path = getServletContext().getRealPath("emails/reset_zh.html");
                         html = new String(Files.readAllBytes(Paths.get(path)), StandardCharsets.UTF_8);
-                        html = html.replaceAll("REPLACEME", "http://redhatchallenge2013-rhc2013.rhcloud.com#resetToken/" + token.getToken());
+                        html = html.replaceAll("REPLACEME", "http://redhatchallenge2013-rhc2013.rhcloud.com/?locale=zh#resetToken/" + token.getToken());
                     }
 
                 } catch(IOException e) {
@@ -449,19 +449,19 @@ public class AuthenticationServiceImpl extends RemoteServiceServlet implements A
                     if(student.getLanguage().equalsIgnoreCase("English")) {
                         String path = getServletContext().getRealPath("emails/confirm_en.html");
                         html = new String(Files.readAllBytes(Paths.get(path)), StandardCharsets.UTF_8);
-                        html = html.replaceAll("REPLACEME", "http://redhatchallenge2013-rhc2013.rhcloud.com#confirmToken/" + token.getToken());
+                        html = html.replaceAll("REPLACEME", "http://redhatchallenge2013-rhc2013.rhcloud.com/?locale=en#confirmToken/" + token.getToken());
                     }
 
                     else if(student.getLanguage().equalsIgnoreCase("Chinese (Simplified)")) {
                         String path = getServletContext().getRealPath("emails/confirm_ch.html");
                         html = new String(Files.readAllBytes(Paths.get(path)), StandardCharsets.UTF_8);
-                        html = html.replaceAll("REPLACEME", "http://redhatchallenge2013-rhc2013.rhcloud.com#confirmToken/" + token.getToken());
+                        html = html.replaceAll("REPLACEME", "http://redhatchallenge2013-rhc2013.rhcloud.com/?locale=ch#confirmToken/" + token.getToken());
                     }
 
                     else if(student.getLanguage().equals("Chinese (Traditional)")) {
                         String path = getServletContext().getRealPath("emails/confirm_zh.html");
                         html = new String(Files.readAllBytes(Paths.get(path)), StandardCharsets.UTF_8);
-                        html = html.replaceAll("REPLACEME", "http://redhatchallenge2013-rhc2013.rhcloud.com#confirmToken/" + token.getToken());
+                        html = html.replaceAll("REPLACEME", "http://redhatchallenge2013-rhc2013.rhcloud.com/?locale=zh#confirmToken/" + token.getToken());
                     }
 
                 } catch(IOException e) {
