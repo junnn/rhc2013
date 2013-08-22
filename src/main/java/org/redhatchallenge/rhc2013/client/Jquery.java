@@ -271,7 +271,7 @@ public class Jquery {
         $wnd.FB.ui({
             method: 'feed',
             link: 'redhatchallenge2013-rhc2013.rhcloud.com/?locale=en#registration',
-            picture: 'http://redhatchallenge2013-rhc2013.rhcloud.com/images/redhathome_logo.png',
+            picture: 'http://redhatchallenge2013-rhc2013.rhcloud.com/images/redhathome_logo_thumbnail.png',
             name: 'Red Hat Challenge 2013',
             caption: 'Join Red Hat Challenge 2013!!',
             description: 'NOW!.'
@@ -282,7 +282,7 @@ public class Jquery {
         $wnd.FB.ui({
             method: 'feed',
             link: 'redhatchallenge2013-rhc2013.rhcloud.com/?locale=zh#registration',
-            picture: 'http://redhatchallenge2013-rhc2013.rhcloud.com/images/redhathome_logo.png',
+            picture: 'http://redhatchallenge2013-rhc2013.rhcloud.com/images/redhathome_logo_thumbnail.png',
             name: 'Red Hat Challenge 2013',
             caption: 'Join Red Hat Challenge 2013!!!',
             description: 'NOW!!'
