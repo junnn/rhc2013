@@ -1,6 +1,7 @@
 package org.redhatchallenge.rhc2013.server;
 
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.mail.EmailConstants;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.HtmlEmail;
 
@@ -20,6 +21,7 @@ public class EmailUtil {
             mail.setSmtpPort(465);
             mail.setSSLOnConnect(true);
             mail.setAuthentication("postmaster@rhchallenge2013.com", "9o4ajed0i043");
+            mail.setCharset(EmailConstants.UTF_8);
             mail.setFrom("rhchallenge2013@rhc.com");
             mail.setSubject(subject);
             mail.setTextMsg(textMessage);

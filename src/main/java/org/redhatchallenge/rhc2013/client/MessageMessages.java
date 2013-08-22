@@ -60,7 +60,7 @@ public interface MessageMessages extends Messages {
     @Messages.DefaultMessage("<h1>An unexpected error has occurred, please try resetting your password again.</h1>")
     String errorResetPassword();
 
-    @Messages.DefaultMessage("Please check your email for instructions to reset your password.")
+    @Messages.DefaultMessage("<h1>Please check your email for instructions to reset your password.</h1>")
     String passwordResetInstruction();
 
     @Messages.DefaultMessage("Error with password reset, please check that your email and contact is correct.")

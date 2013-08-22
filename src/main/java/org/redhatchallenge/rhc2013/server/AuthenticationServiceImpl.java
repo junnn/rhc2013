@@ -113,24 +113,19 @@ public class AuthenticationServiceImpl extends RemoteServiceServlet implements A
                 Student student = (Student)criteria.uniqueResult();
 
                 try {
-                    html = new String(Files.readAllBytes(Paths.get("emails/index.html")), StandardCharsets.UTF_8);
-
                     if(student.getLanguage().equalsIgnoreCase("English")) {
-                        html = html.replaceAll("HEADER", "Confirm your account");
-                        html = html.replaceAll("REPLACEME", "Click here to confirm your account: "
-                                + "http://redhatchallenge2013-rhc2013.rhcloud.com#confirmToken/" + token.getToken());
+                        html = new String(Files.readAllBytes(Paths.get("emails/confirm_en.html")), StandardCharsets.UTF_8);
+                        html = html.replaceAll("REPLACEME", "http://redhatchallenge2013-rhc2013.rhcloud.com#confirmToken/" + token.getToken());
                     }
 
                     else if(student.getLanguage().equalsIgnoreCase("Chinese (Simplified)")) {
-                        html = html.replaceAll("HEADER", "确认账户");
-                        html = html.replaceAll("REPLACEME", "点击这里确认账户: "
-                                + "http://redhatchallenge2013-rhc2013.rhcloud.com#confirmToken/" + token.getToken());
+                        html = new String(Files.readAllBytes(Paths.get("emails/confirm_ch.html")), StandardCharsets.UTF_8);
+                        html = html.replaceAll("REPLACEME", "http://redhatchallenge2013-rhc2013.rhcloud.com#confirmToken/" + token.getToken());
                     }
 
                     else if(student.getLanguage().equals("Chinese (Traditional)")) {
-                        html = html.replaceAll("HEADER", "確認賬戶");
-                        html = html.replaceAll("REPLACEME", "點擊這裡確認賬戶: "
-                                + "http://redhatchallenge2013-rhc2013.rhcloud.com#confirmToken/" + token.getToken());
+                        html = new String(Files.readAllBytes(Paths.get("emails/confirm_zh.html")), StandardCharsets.UTF_8);
+                        html = html.replaceAll("REPLACEME", "http://redhatchallenge2013-rhc2013.rhcloud.com#confirmToken/" + token.getToken());
                     }
                 } catch(IOException e) {
                     e.printStackTrace();
@@ -327,25 +322,24 @@ public class AuthenticationServiceImpl extends RemoteServiceServlet implements A
 
                 try {
 
-                    html = new String(Files.readAllBytes(Paths.get("emails/index.html")), StandardCharsets.UTF_8);
+                    html = new String(Files.readAllBytes(Paths.get("emails/confirm_en.html")), StandardCharsets.UTF_8);
 
                     if(student.getLanguage().equalsIgnoreCase("English")) {
-                        html = html.replaceAll("HEADER", "Reset your password");
-                        html = html.replaceAll("REPLACEME", "Reset your password here: " +
-                                "http://redhatchallenge2013-rhc2013.rhcloud.com#resetToken/" + token.getToken());
+                        html = new String(Files.readAllBytes(Paths.get("emails/reset_en.html")), StandardCharsets.UTF_8);
+                        html = html.replaceAll("REPLACEME", "http://redhatchallenge2013-rhc2013.rhcloud.com#resetToken/" + token.getToken());
                     }
 
                     else if(student.getLanguage().equalsIgnoreCase("Chinese (Simplified)")) {
-                        html = html.replaceAll("HEADER", "重置密码");
-                        html = html.replaceAll("REPLACEME", "点击这里重置密码: " +
-                                "http://redhatchallenge2013-rhc2013.rhcloud.com#resetToken/" + token.getToken());
+                        html = new String(Files.readAllBytes(Paths.get("emails/reset_ch.html")), StandardCharsets.UTF_8);
+                        html = html.replaceAll("REPLACEME", "http://redhatchallenge2013-rhc2013.rhcloud.com#resetToken/" + token.getToken());
                     }
 
                     else if(student.getLanguage().equals("Chinese (Traditional)")) {
-                        html = html.replaceAll("HEADER", "重置密碼");
-                        html = html.replaceAll("REPLACEME", "點擊這裡重置密碼: " +
-                                "http://redhatchallenge2013-rhc2013.rhcloud.com#resetToken/" + token.getToken());
+                        html = new String(Files.readAllBytes(Paths.get("emails/reset_zh.html")), StandardCharsets.UTF_8);
+                        html = html.replaceAll("REPLACEME", "http://redhatchallenge2013-rhc2013.rhcloud.com#resetToken/" + token.getToken());
                     }
+//
+
                 } catch(IOException e) {
                     e.printStackTrace();
                 }
@@ -450,24 +444,19 @@ public class AuthenticationServiceImpl extends RemoteServiceServlet implements A
                 Student student = (Student)criteria.uniqueResult();
 
                 try {
-                    html = new String(Files.readAllBytes(Paths.get("emails/index.html")), StandardCharsets.UTF_8);
-
                     if(student.getLanguage().equalsIgnoreCase("English")) {
-                        html = html.replaceAll("HEADER", "Confirm your account");
-                        html = html.replaceAll("REPLACEME", "Click here to confirm your account: "
-                                + "http://redhatchallenge2013-rhc2013.rhcloud.com#confirmToken/" + token.getToken());
+                        html = new String(Files.readAllBytes(Paths.get("emails/confirm_en.html")), StandardCharsets.UTF_8);
+                        html = html.replaceAll("REPLACEME", "http://redhatchallenge2013-rhc2013.rhcloud.com#confirmToken/" + token.getToken());
                     }
 
                     else if(student.getLanguage().equalsIgnoreCase("Chinese (Simplified)")) {
-                        html = html.replaceAll("HEADER", "确认账户");
-                        html = html.replaceAll("REPLACEME", "点击这里确认账户: "
-                                + "http://redhatchallenge2013-rhc2013.rhcloud.com#confirmToken/" + token.getToken());
+                        html = new String(Files.readAllBytes(Paths.get("emails/confirm_ch.html")), StandardCharsets.UTF_8);
+                        html = html.replaceAll("REPLACEME", "http://redhatchallenge2013-rhc2013.rhcloud.com#confirmToken/" + token.getToken());
                     }
 
                     else if(student.getLanguage().equals("Chinese (Traditional)")) {
-                        html = html.replaceAll("HEADER", "確認賬戶");
-                        html = html.replaceAll("REPLACEME", "點擊這裡確認賬戶: "
-                                + "http://redhatchallenge2013-rhc2013.rhcloud.com#confirmToken/" + token.getToken());
+                        html = new String(Files.readAllBytes(Paths.get("emails/confirm_zh.html")), StandardCharsets.UTF_8);
+                        html = html.replaceAll("REPLACEME", "http://redhatchallenge2013-rhc2013.rhcloud.com#confirmToken/" + token.getToken());
                     }
 
                 } catch(IOException e) {
