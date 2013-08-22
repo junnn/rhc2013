@@ -66,6 +66,10 @@ public interface Resources extends ClientBundle {
     @Source("image/socialButton2.png")
     ImageResource socialButton2();
 
+    @Source("image/socialbutton11.png")
+    ImageResource socialButton11();
+
+
     public interface Grid extends CssResource {
 
         String grid_7();
