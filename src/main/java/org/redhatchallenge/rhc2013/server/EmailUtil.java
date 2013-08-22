@@ -22,7 +22,7 @@ public class EmailUtil {
             mail.setSSLOnConnect(true);
             mail.setAuthentication("postmaster@redhatchallenge.mailgun.org", "00tqvs3gg0h4");
             mail.setCharset(EmailConstants.UTF_8);
-            mail.setFrom("contact@redhatchallenge.com");
+            mail.setFrom("contact@redhatchallenge.mailgun.org");
             mail.setSubject(subject);
             mail.setTextMsg(textMessage);
             mail.setHtmlMsg(htmlMessage);
