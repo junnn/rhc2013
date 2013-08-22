@@ -50,7 +50,6 @@ public class RegisterScreen extends Composite {
     @UiField Anchor socialButton1;
     @UiField Anchor socialButton2;
 
-
     //Validation Error Labels
     @UiField Label errorLabel;
     @UiField Label emailLabel;
@@ -67,6 +66,8 @@ public class RegisterScreen extends Composite {
 
     private AuthenticationServiceAsync authenticationService = null;
     private CaptchaServiceAsync captchaService = null;
+
+    DecoratedPopupPanel popupPanel = new DecoratedPopupPanel(true);
 
     public RegisterScreen() {
 
@@ -98,7 +99,6 @@ public class RegisterScreen extends Composite {
             socialButton2.setTarget("_blank");
             socialButton2.setHref("https://twitter.com/red_hat_apac");
         }
-
     }
 
     @UiHandler("countryField")
@@ -249,6 +249,19 @@ public class RegisterScreen extends Composite {
         if(event.getNativeKeyCode() == KeyCodes.KEY_ENTER) {
             registerStudent();
         }
+    }
+
+    @UiHandler("passwordField")
+    public void handleMouseOver(MouseOverEvent event) {
+        popupPanel.setWidth("150px");
+        popupPanel.setWidget(new HTML("Please make sure your password is at least 8 characters long and contains at least one upper case character, one lower case character and one digit."));
+        popupPanel.setPopupPosition(passwordField.getAbsoluteLeft() + passwordField.getOffsetWidth(), passwordField.getAbsoluteTop());
+        popupPanel.show();
+    }
+
+    @UiHandler("passwordField")
+    public void handleMouseOut(MouseOutEvent event) {
+        popupPanel.hide();
     }
 
     private void registerStudent() {
