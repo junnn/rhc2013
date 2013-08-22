@@ -267,7 +267,7 @@ public class RegisterScreen extends Composite {
     @UiHandler("passwordField")
     public void handleFocus(FocusEvent event) {
         popupPanel.setWidth("150px");
-        popupPanel.setWidget(new HTML(messages.passwordInvalidFormat()));
+        popupPanel.setWidget(new HTML(messages.passwordPopup()));
         popupPanel.setPopupPosition(passwordField.getAbsoluteLeft() + passwordField.getOffsetWidth(), passwordField.getAbsoluteTop());
         popupPanel.show();
     }
