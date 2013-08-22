@@ -55,7 +55,7 @@ public class AuthenticationServiceImpl extends RemoteServiceServlet implements A
          * it won't be affected by XSS is any way.
          */
 
-        email = SecurityUtil.escapeInput(email);
+        email = SecurityUtil.escapeInput(email.toLowerCase());
         firstName = SecurityUtil.escapeInput(firstName);
         lastName = SecurityUtil.escapeInput(lastName);
         contact = SecurityUtil.escapeInput(contact);
@@ -183,7 +183,7 @@ public class AuthenticationServiceImpl extends RemoteServiceServlet implements A
              */
             session.beginTransaction();
             Criteria criteria = session.createCriteria(Student.class);
-            criteria.add(Restrictions.eq("email", email));
+            criteria.add(Restrictions.eq("email", email.toLowerCase()));
             Student student = (Student)criteria.uniqueResult();
 
             /**
@@ -359,7 +359,7 @@ public class AuthenticationServiceImpl extends RemoteServiceServlet implements A
         try {
             session.beginTransaction();
             Criteria criteria = session.createCriteria(Student.class);
-            criteria.add(Restrictions.eq("email", email));
+            criteria.add(Restrictions.eq("email", email.toLowerCase()));
             Student student = (Student)criteria.uniqueResult();
 
             if(student.getContact().equals(contact) && student.getCountryCode().equals(countryCode)) {
@@ -407,7 +407,7 @@ public class AuthenticationServiceImpl extends RemoteServiceServlet implements A
             session.beginTransaction();
 
             Criteria criteria = session.createCriteria(Student.class);
-            criteria.add(Restrictions.eq("email", email));
+            criteria.add(Restrictions.eq("email", email.toLowerCase()));
             Student student = (Student)criteria.uniqueResult();
 
             student.setPassword(SecurityUtil.hashPassword(password));

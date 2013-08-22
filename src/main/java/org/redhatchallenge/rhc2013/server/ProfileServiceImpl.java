@@ -39,7 +39,7 @@ public class ProfileServiceImpl extends RemoteServiceServlet implements ProfileS
                                      String school, String lecturerFirstName, String lecturerLastName,
                                      String lecturerEmail, String language) throws IllegalArgumentException {
 
-        email = SecurityUtil.escapeInput(email);
+        email = SecurityUtil.escapeInput(email.toLowerCase());
         firstName = SecurityUtil.escapeInput(firstName);
         lastName = SecurityUtil.escapeInput(lastName);
         contact = SecurityUtil.escapeInput(contact);
