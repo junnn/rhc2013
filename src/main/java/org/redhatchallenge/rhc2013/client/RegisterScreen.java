@@ -278,6 +278,9 @@ public class RegisterScreen extends Composite {
     }
 
     private void registerStudent() {
+
+        clearAllLabels();
+
         CaptchaService.Util.getInstance().verifyCaptcha(
                 recaptchaWidget.getChallenge(),
                 recaptchaWidget.getResponse(),
@@ -359,5 +362,17 @@ public class RegisterScreen extends Composite {
                     }
                 }
         );
+    }
+
+    private void clearAllLabels() {
+        errorLabel.setText("");
+        emailLabel.setText("");
+        passwordLabel.setText("");
+        confirmPasswordLabel.setText("");
+        firstNameLabel.setText("");
+        lastNameLabel.setText("");
+        contactLabel.setText("");
+        schoolLabel.setText("");
+        termsLabel.setText("");
     }
 }
