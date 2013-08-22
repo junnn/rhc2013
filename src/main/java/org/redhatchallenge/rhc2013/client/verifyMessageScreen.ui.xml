@@ -23,13 +23,8 @@
                             <center>
                             <table>
                             <tr>
-                                <td><span style="position: relative; top: 7px; left: -2px;"><strong>SHARE:</strong></span></td>
-                            </tr>
-                            <tr>
+                                <td><span style="position: relative; top: 7px; left: -2px;"><strong>SHARE:</strong><g:Image ui:field="socialButton1"/> <g:HTML  ui:field="socialButton3"/> <g:HTML ui:field="socialButton2"/></span></td>
                                 <!--<li><a href="https://www.facebook.com/sharer/sharer.php?u=example.org" target="_blank"> <img src="images/social_media_icons-16.png" alt="Facebook" /></a>-->
-                                <td><span style="position: relative; top: 7px; left: -2px;"><g:Image ui:field="socialButton1"/></span></td>
-                                <td><span style="position: relative; top: 7px; left: -2px;"><g:HTML  ui:field="socialButton3"/></span></td>
-                                <td><span style="position: relative; top: 7px; left: -2px;"><g:HTML ui:field="socialButton2"/></span></td>
                             </tr>
                             </table>
                             </center>
