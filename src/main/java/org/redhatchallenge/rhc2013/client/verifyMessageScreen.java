@@ -12,12 +12,7 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.Window;
-import com.google.gwt.user.client.ui.Anchor;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.HTML;
-import com.google.gwt.user.client.ui.Hyperlink;
-import com.google.gwt.user.client.ui.Image;
-import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.user.client.ui.*;
 import org.redhatchallenge.rhc2013.resources.Resources;
 
 /**
@@ -28,11 +23,13 @@ public class verifyMessageScreen extends Composite {
     }
 
     private static MessageScreenUiBinder UiBinder = GWT.create(MessageScreenUiBinder.class);
+    private static MessageMessages messages = GWT.create(MessageMessages.class);
 
     @UiField HTML messageLabel;
     @UiField Image socialButton1;
     @UiField HTML socialButton2;
     @UiField HTML socialButton3;
+    @UiField Label sentLabel;
 
     public verifyMessageScreen(String message) {
         initWidget(UiBinder.createAndBindUi(this));
@@ -100,4 +97,10 @@ public class verifyMessageScreen extends Composite {
             socialButton2.setHTML("<a href=\"https://twitter.com/share\" class=\"twitter-share-button\" target=\"_blank\" data-count=\"none\" data-text=\"Join Red Hat Challenge 2013 now! -Chinese version-\" data-url=\"https://127.0.0.1\" data-lang=\"en\">Tweet</a>\n");
         }
     }
+
+    @UiHandler("messageLabel")
+    public void handleSendAgainClick(ClickEvent event){
+        sentLabel.setText(messages.verificationMailSent());
+    }
+
 }

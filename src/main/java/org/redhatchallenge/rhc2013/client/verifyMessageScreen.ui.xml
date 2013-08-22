@@ -19,6 +19,7 @@
                     <div class="{res.grid.grid_8} {res.grid.alpha}" style="text-align:center; margin:0 auto;">
                         <div class="{res.main.textbox}">
                             <g:HTML ui:field="messageLabel"/>
+                            <g:Label ui:field="sentLabel" />
                             <tr>
                                 <td><span style="position: relative; top: 7px; left: -2px;"><strong>SHARE:</strong></span></td>
                                 <!--<li><a href="https://www.facebook.com/sharer/sharer.php?u=example.org" target="_blank"> <img src="images/social_media_icons-16.png" alt="Facebook" /></a>-->
