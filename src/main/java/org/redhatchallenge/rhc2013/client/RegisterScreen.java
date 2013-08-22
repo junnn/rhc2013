@@ -254,13 +254,26 @@ public class RegisterScreen extends Composite {
     @UiHandler("passwordField")
     public void handleMouseOver(MouseOverEvent event) {
         popupPanel.setWidth("150px");
-        popupPanel.setWidget(new HTML("Please make sure your password is at least 8 characters long and contains at least one upper case character, one lower case character and one digit."));
+        popupPanel.setWidget(new HTML(messages.passwordInvalidFormat()));
         popupPanel.setPopupPosition(passwordField.getAbsoluteLeft() + passwordField.getOffsetWidth(), passwordField.getAbsoluteTop());
         popupPanel.show();
     }
 
     @UiHandler("passwordField")
     public void handleMouseOut(MouseOutEvent event) {
+        popupPanel.hide();
+    }
+
+    @UiHandler("passwordField")
+    public void handleFocus(FocusEvent event) {
+        popupPanel.setWidth("150px");
+        popupPanel.setWidget(new HTML(messages.passwordInvalidFormat()));
+        popupPanel.setPopupPosition(passwordField.getAbsoluteLeft() + passwordField.getOffsetWidth(), passwordField.getAbsoluteTop());
+        popupPanel.show();
+    }
+
+    @UiHandler("passwordField")
+    public void handleBlur(BlurEvent event) {
         popupPanel.hide();
     }
 
