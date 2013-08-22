@@ -94,7 +94,15 @@ public class verifyMessageScreen extends Composite {
 
             socialButton1.setResource(Resources.INSTANCE.socialButton11());
             socialButton1.addClickHandler(handlerZh);
-            socialButton2.setHTML("<a href=\"https://twitter.com/share\" class=\"twitter-share-button\" target=\"_blank\" data-count=\"none\" data-text=\"Join Red Hat Challenge 2013 now! -Chinese version-\" data-url=\"https://127.0.0.1\" data-lang=\"en\">Tweet</a>\n");
+
+            Document doc = Document.get();
+            ScriptElement script = doc.createScriptElement();
+            script.setSrc("http://platform.twitter.com/widgets.js");
+            script.setType("text/javascript");
+            script.setLang("javascript");
+            doc.getBody().appendChild(script);
+
+            socialButton2.setHTML("<a href=\"https://twitter.com/share\" class=\"twitter-share-button\" data-count=\"none\" data-text=\"Join Red Hat Challenge 2013 now!\" data-lang=\"en\">Tweet</a>");
         }
     }
 
