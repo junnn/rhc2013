@@ -28,7 +28,7 @@
 
                         <p><ui:msg description="3rd sentence">Only 3 rounds to be crowned the winner!</ui:msg></p>
 
-                        <p><ui:msg description="4th sentence">Contestants will face off against each other in a multiple choice questions in the first round in October.</ui:msg></p>
+                        <p><ui:msg description="4th sentence">Contestants will face off against each other through multiple choice questions in the first round in October.</ui:msg></p>
 
                         <p><ui:msg description="5th sentence">The top 20 students from each country will go through a face-to-face or virtual interview in the second round in November. Two students from Hong Kong, Malaysia, Singapore, Taiwan and Thailand and six students from China will be selected to represent their country and compete in the finals held in Beijing in December.</ui:msg></p>
 
@@ -57,7 +57,7 @@
                             <ui:msg description="Internship Opportunity">- Internship Opportunity**</ui:msg><br />
                             <ui:msg description="Certification">- Certification of Participation</ui:msg></p>
 
-                        <p><font size="-3" color="#999999"><ui:msg description="8th sentence">*Red Hat reserved the right to replace this with a prize of the same value.</ui:msg><br />
+                        <p><font size="-3" color="#999999"><ui:msg description="8th sentence">*Red Hat reserves the right to replace this with a prize of the same value.</ui:msg><br />
                             <ui:msg description="Travelling and Accomdation">**Internship does not include travelling and accommodation expenses.</ui:msg></font></p> <br />
 
                         <!--<p><h1><font color="#CC0000">Take the Challenge now!</font></h1></p>-->

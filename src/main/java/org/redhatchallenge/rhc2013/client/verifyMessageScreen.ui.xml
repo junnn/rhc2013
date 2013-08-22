@@ -1,3 +1,4 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
              xmlns:g='urn:import:com.google.gwt.user.client.ui'
              ui:generateFormat="com.google.gwt.i18n.rebind.format.PropertiesFormat"
@@ -23,9 +24,14 @@
                             <center>
                             <table>
                             <tr>
-                                <td><span style="position: relative; top: 7px; left: -2px;"><strong>SHARE:</strong><g:Image ui:field="socialButton1"/> <g:HTML  ui:field="socialButton3"/> <g:HTML ui:field="socialButton2"/></span></td>
-                                <!--<li><a href="https://www.facebook.com/sharer/sharer.php?u=example.org" target="_blank"> <img src="images/social_media_icons-16.png" alt="Facebook" /></a>-->
+                                <td><span style="position: relative; top: 7px; left: -2px;"><strong>SHARE:</strong></span></td>
                             </tr>
+                            <tr><td>&nbsp;</td></tr>
+                                  <td><g:Image ui:field="socialButton1"/></td>
+                                  <td><g:HTML  ui:field="socialButton3"/></td>
+                                  <td><g:HTML ui:field="socialButton2"/></td>
+                                <!--<li><a href="https://www.facebook.com/sharer/sharer.php?u=example.org" target="_blank"> <img src="images/social_media_icons-16.png" alt="Facebook" /></a>-->
+
                             </table>
                             </center>
                         </div>
