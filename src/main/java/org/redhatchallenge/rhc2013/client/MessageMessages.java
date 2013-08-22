@@ -138,5 +138,8 @@ public interface MessageMessages extends Messages {
     @Messages.DefaultMessage("Verification Message Sent")
     String verificationMailSent();
 
+    @Messages.DefaultMessage("Password should contain at least 8 characters with at least 1 uppercase letter, 1 lowercase letter and 1 numeric character")
+    String passwordPopup();
+
 
 }
