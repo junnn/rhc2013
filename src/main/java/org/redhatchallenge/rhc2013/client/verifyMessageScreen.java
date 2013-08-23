@@ -29,7 +29,6 @@ public class verifyMessageScreen extends Composite {
     @UiField Image socialButton1;
     @UiField HTML socialButton2;
     @UiField HTML socialButton3;
-    @UiField Label sentLabel;
 
     public verifyMessageScreen(String message) {
         initWidget(UiBinder.createAndBindUi(this));
@@ -106,9 +105,5 @@ public class verifyMessageScreen extends Composite {
         }
     }
 
-    @UiHandler("messageLabel")
-    public void handleSendAgainClick(ClickEvent event){
-        sentLabel.setText(messages.verificationMailSent());
-    }
 
 }

@@ -581,12 +581,12 @@ public class AuthenticationServiceImpl extends RemoteServiceServlet implements A
         }
 
         if(timeslot.equalsIgnoreCase("A1")) {
-            DateTime a1Time = new DateTime(2013, 10, 24, 14, 0);
+            DateTime a1Time = new DateTime(2013, 10, 24, 6, 0);
             return a1Time.toInstant().getMillis();
         }
 
         else {
-            DateTime a2Time = new DateTime(2013, 10, 24, 16, 0);
+            DateTime a2Time = new DateTime(2013, 10, 24, 8, 0);
             return a2Time.toInstant().getMillis();
         }
     }

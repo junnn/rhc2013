@@ -10,10 +10,7 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.user.client.ui.Anchor;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.HTML;
-import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.user.client.ui.*;
 import org.redhatchallenge.rhc2013.resources.Resources;
 
 /**
@@ -27,6 +24,9 @@ public class MessageScreen extends Composite {
 
     @UiField HTML messageLabel;
     @UiField HTML urlLink;
+    @UiField Label sentLabel;
+
+    private static MessageMessages messages = GWT.create(MessageMessages.class);
 
     private AuthenticationServiceAsync authenticationService = null;
 
@@ -57,6 +57,7 @@ public class MessageScreen extends Composite {
 
                     @Override
                     public void onSuccess(Void result) {
+                        sentLabel.setText(messages.verificationMailSent());
                     }
                 });
             }
@@ -64,4 +65,5 @@ public class MessageScreen extends Composite {
 
         urlLink.addClickHandler(handler);
     }
+
 }

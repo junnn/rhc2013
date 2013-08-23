@@ -460,15 +460,6 @@ public class ProfileScreen extends Composite {
 
    }
 
-
-    @UiHandler("contactField")
-    public void handleContactKeyPress(KeyPressEvent event) {
-        if (!Character.isDigit(event.getCharCode())) {
-            ((TextBox) event.getSource()).cancelKey();
-        }
-    }
-
-
     /**
      * This function iterates over the values of a listbox and compares it
      * against returns the index of a match.
@@ -508,7 +499,7 @@ public class ProfileScreen extends Composite {
                     changePwdButton.setResource(Resources.INSTANCE.changePwdButton());
                 }
                 else { 
-                    currentPasswordLabel.setText("You have enter an incorrect password");
+                    currentPasswordLabel.setText(messages.invalidPassword());
                     changePwdButton.setResource(Resources.INSTANCE.changePwdButton());
                 }
             }

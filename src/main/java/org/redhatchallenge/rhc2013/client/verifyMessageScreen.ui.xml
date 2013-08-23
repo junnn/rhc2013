@@ -20,7 +20,6 @@
                     <div class="{res.grid.grid_8} {res.grid.alpha}" style="text-align:center; margin:0 auto;">
                         <div class="{res.main.textbox}">
                             <g:HTML ui:field="messageLabel"/>
-                            <g:Label ui:field="sentLabel" />
                             <center>
                             <table>
                             <tr>

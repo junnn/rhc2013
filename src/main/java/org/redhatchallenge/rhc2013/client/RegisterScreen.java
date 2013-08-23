@@ -234,13 +234,6 @@ public class RegisterScreen extends Composite {
 
     }
 
-    @UiHandler("contactField")
-    public void handleContactKeyPress(KeyPressEvent event) {
-        if (!Character.isDigit(event.getCharCode())) {
-            ((TextBox) event.getSource()).cancelKey();
-        }
-    }
-
     @UiHandler({"emailField", "passwordField", "confirmPasswordField", "firstNameField",
             "lastNameField", "contactField", "countryField", "countryCodeField",
             "schoolField", "lecturerFirstNameField", "lecturerLastNameField",
@@ -289,6 +282,7 @@ public class RegisterScreen extends Composite {
                     public void onFailure(Throwable throwable) {
                         errorLabel.setText(messages.captchaError());
                         recaptchaWidget.reload();
+                        registerButton.setResource(Resources.INSTANCE.submitButton());
                     }
 
                     @Override
@@ -351,12 +345,15 @@ public class RegisterScreen extends Composite {
 
                             else {
                                 termsLabel.setText(messages.termsCheck());
+                                registerButton.setResource(Resources.INSTANCE.submitButton());
+
                             }
                         }
 
                         else {
                             errorLabel.setText(messages.captchaError());
                             recaptchaWidget.reload();
+                            registerButton.setResource(Resources.INSTANCE.submitButton());
                         }
 
                     }

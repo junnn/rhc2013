@@ -24,7 +24,7 @@ public interface MessageMessages extends Messages {
     @Messages.DefaultMessage("Error with your confirmation token")
     String confirmationTokenError();
 
-    @Messages.DefaultMessage("Thank you for confirming your Email Account, Please <a href='https://redhatchallenge2013-rhc2013.rhcloud.com/?locale=en#login'>Login</a>")
+    @Messages.DefaultMessage("Thank you for confirming your Email Account, Please <a href='http://redhatchallenge2013-rhc2013.rhcloud.com/?locale=en#login'>Login</a>")
     String confirmedAccount();
 
     @Messages.DefaultMessage("An unexpected error has occurred, please try again later!")
@@ -140,6 +140,9 @@ public interface MessageMessages extends Messages {
 
     @Messages.DefaultMessage("Password should contain at least 8 characters with at least 1 uppercase letter, 1 lowercase letter and 1 numeric character")
     String passwordPopup();
+
+    @Messages.DefaultMessage("You have enter incorrect password")
+    String invalidPassword();
 
 
 }
