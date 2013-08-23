@@ -75,6 +75,7 @@ public class TriggerPasswordResetScreen extends Composite {
         if(FieldVerifier.contactIsNull(contactField.getText())){
             resetContactLabel.setText(messages.emptyContact());
         }
+
         else{
             resetContactLabel.setText("");
             successCounter++;
@@ -83,13 +84,6 @@ public class TriggerPasswordResetScreen extends Composite {
             resetPassword();
         }
 
-    }
-
-    @UiHandler("contactField")
-    public void handleContactKeyPress(KeyPressEvent event) {
-        if (!Character.isDigit(event.getCharCode())) {
-            ((TextBox) event.getSource()).cancelKey();
-        }
     }
 
     @UiHandler({"emailField", "contactField"})

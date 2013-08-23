@@ -16,6 +16,7 @@
                         <div class="{res.main.textbox}">
                             <g:HTML ui:field="messageLabel"/>
                             <g:HTML ui:field="urlLink"/>
+                            <g:Label ui:field="sentLabel" />
                         </div>
                         <div class="{res.main.panel02} {res.grid.clearfix}" style="margin-top: 1em;"/>
                     </div>
